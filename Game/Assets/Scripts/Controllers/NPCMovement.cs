@@ -7,28 +7,34 @@ public class NPCMovement : MonoBehaviour
     [SerializeField] List<Transform> waypoints;
     [SerializeField] float speed = 2f;
 
+    private CharacterAnimator animator;
+
     int waypointIndex = 0;
     // Start is called before the first frame update
     void Start()
     {
         transform.position = waypoints[waypointIndex].transform.position;
-
+        animator = GetComponent<CharacterAnimator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (waypointIndex <= waypoints.Count - 1)
+        if (waypointIndex < waypoints.Count)
         {
             var targetposition = waypoints[waypointIndex].transform.position;
             var movementThisFrame = speed * Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, targetposition, movementThisFrame);
+            Vector3 move = Vector2.MoveTowards(transform.position, targetposition, movementThisFrame);
+            transform.position = move;
+            animator.setDirection(move.x, move.y);
 
             if (transform.position == targetposition)
             {
                 waypointIndex++;
             }
+        } else
+        {
+            Object.Destroy(gameObject);
         }
-
     }
 }
