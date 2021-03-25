@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class JournalButton : MonoBehaviour
 {
     Button journalButton;
     [SerializeField] string journalBranch;
-    [SerializeField] int buttonPage;
-    [SerializeField] int targetPage;
+    [SerializeField] public int buttonPage;
+    [SerializeField] public int targetPage;
+    Animator JournalAnimator;
     
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,9 @@ public class JournalButton : MonoBehaviour
         {
             journalBranch = "Injury";
         }
+
+        JournalAnimator = transform.parent.parent.GetComponent<Animator>();
+        //JournalController.journalButtons.Add(this);
     }
 
     // Update is called once per frame
@@ -29,4 +34,6 @@ public class JournalButton : MonoBehaviour
     {
         
     }
+
+    
 }
