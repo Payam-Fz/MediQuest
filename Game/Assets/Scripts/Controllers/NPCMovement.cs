@@ -26,7 +26,8 @@ public class NPCMovement : MonoBehaviour
             var movementThisFrame = speed * Time.deltaTime;
             Vector3 move = Vector2.MoveTowards(transform.position, targetposition, movementThisFrame);
             transform.position = move;
-            animator.setDirection(move.x, move.y);
+            animator.setDirection(Mathf.Round(targetposition.x - move.x), Mathf.Round(targetposition.y - move.y));
+
 
             if (transform.position == targetposition)
             {
