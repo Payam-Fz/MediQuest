@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour
 {
+    [SerializeField] float musicDelay = 2f;
     private void Awake()
     {
         if (FindObjectsOfType(GetType()).Length > 1)
@@ -15,5 +16,10 @@ public class MusicPlayer : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
+    }
+    private void Start()
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.PlayDelayed(musicDelay);
     }
 }
