@@ -47,7 +47,8 @@ public class CoffeeMachine : MonoBehaviour, IInteractive
 
     public void ManualHighlight()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Coffee machine highlighted!");
+        //throw new System.NotImplementedException();
     }
 
 }
