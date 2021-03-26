@@ -8,6 +8,8 @@ using UnityEngine.EventSystems;
 public class JournalController : MonoBehaviour
 {
     [SerializeField] Animator journalAnimator;
+    [SerializeField] GameObject systemPicker;
+    Animator systemPickerAnimator;
     public static List<JournalButton> journalButtons = new List<JournalButton>();
     
     
@@ -16,7 +18,8 @@ public class JournalController : MonoBehaviour
     {
         journalButtons.AddRange(Resources.FindObjectsOfTypeAll(typeof(JournalButton)) as JournalButton[]);
         Debug.Log("No. of Journal Buttons: " + journalButtons.Count);
-        StartCoroutine(OpenPageDelay());
+        StartCoroutine(OpenJournalDelay());
+        systemPickerAnimator = systemPicker.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,10 +30,17 @@ public class JournalController : MonoBehaviour
 
     public void NavigateJournal()
     {
-        StartCoroutine(PageFlip());        
+        if (!EventSystem.current.currentSelectedGameObject.GetComponent<JournalButton>().systemPicker)
+        {
+            StartCoroutine(PageFlip());
+        }
+        else
+        {
+
+        }
     }
 
-    IEnumerator OpenPageDelay()
+    IEnumerator OpenJournalDelay()
     {
         yield return new WaitForSeconds(1f);
         foreach(var button in journalButtons)
@@ -45,6 +55,7 @@ public class JournalController : MonoBehaviour
     IEnumerator PageFlip()
     {
         journalAnimator.ResetTrigger("PageFlip");
+        journalAnimator.ResetTrigger("BackPageFlip");
 
         int currentPage = EventSystem.current.currentSelectedGameObject.GetComponent<JournalButton>().buttonPage;
         int currentTargetPage = EventSystem.current.currentSelectedGameObject.GetComponent<JournalButton>().targetPage;
@@ -58,7 +69,14 @@ public class JournalController : MonoBehaviour
             }
         }
 
-        journalAnimator.SetTrigger("PageFlip");
+        if(currentTargetPage > currentPage)
+        {
+            journalAnimator.SetTrigger("PageFlip");
+        }
+        else
+        {
+            journalAnimator.SetTrigger("BackPageFlip");
+        }
 
         yield return new WaitForSeconds(0.5f);
 
@@ -71,6 +89,11 @@ public class JournalController : MonoBehaviour
                 button.gameObject.SetActive(true);
             }
         }
+    }
+
+    IEnumerator SystemPicker()
+    {
+        yield return new WaitForSeconds(1f);
     }
 
 }

@@ -10,6 +10,7 @@ public class JournalButton : MonoBehaviour
     [SerializeField] string journalBranch;
     [SerializeField] public int buttonPage;
     [SerializeField] public int targetPage;
+    [SerializeField] public bool systemPicker;
     Animator JournalAnimator;
     
     // Start is called before the first frame update
