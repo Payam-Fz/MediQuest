@@ -31,6 +31,7 @@ public class TV : MonoBehaviour, IInteractive
 
     public void ManualHighlight()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
+        Debug.Log("TV Highlight is not implemented.");
     }
 }
