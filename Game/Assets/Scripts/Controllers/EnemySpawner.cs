@@ -35,10 +35,12 @@ public class EnemySpawner : MonoBehaviour
         {
             var newEnemy = Instantiate(waveConfig.GetEnemyPrefab(), waveConfig.GetWayPoints()[0].transform.position, Quaternion.identity);
             newEnemy.GetComponent<EnemyPathing>().SetWaveConfig(waveConfig);
+            CharacterAnimator animator = newEnemy.GetComponent<CharacterAnimator>();
+            animator.setSpriteType(Random.Range(1, animator.DIFFERENT_HAIR_TYPES + 1),
+                Random.Range(1, animator.DIFFERENT_SKIN_TYPES + 1),
+                Random.Range(1, animator.DIFFERENT_CLOTHING_TYPES + 1));
             yield return new WaitForSeconds(waveConfig.GetTimeBetweenSpawns());
 
         }
-
-
     }
 }
