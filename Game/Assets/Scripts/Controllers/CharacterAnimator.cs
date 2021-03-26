@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class CharacterAnimator : MonoBehaviour
 {
-    public float animationSpeed = 15f;
-    public int hairType = 1;
-    public int skinType = 1;
-    public int clothingType = 1;
+    [SerializeField] float animationSpeed = 15f;
+    [SerializeField] int hairType;
+    [SerializeField] int skinType;
+    [SerializeField] int clothingType;
+
+    public readonly int DIFFERENT_HAIR_TYPES = 2;
+    public readonly int DIFFERENT_SKIN_TYPES = 3;
+    public readonly int DIFFERENT_CLOTHING_TYPES = 2;
 
     private float timer;
     private float animationDelay;
@@ -37,6 +41,16 @@ public class CharacterAnimator : MonoBehaviour
         this.horizontal = horizontal;
         this.vertical = vertical;
     }
+
+    public void setSpriteType(int hair, int skin, int clothing)
+    {
+        this.hairType = hair;
+        this.skinType = skin;
+        this.clothingType = clothing;
+        sprites = new Dictionary<string, Dictionary<string, Sprite[]>>();
+        FillDictionary();
+    }
+
 
     private void FillDictionary()
     {

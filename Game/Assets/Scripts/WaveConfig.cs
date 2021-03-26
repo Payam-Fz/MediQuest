@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Enemy Wave Config")]
 public class WaveConfig : ScriptableObject
 {
-    [SerializeField] GameObject enemyPrefab;
+    [SerializeField] GameObject NPCPrefab;
     [SerializeField] GameObject pathPrefab;
     [SerializeField] float timeBetweenSpawns = 0.5f;
     [SerializeField] float spawnRandomFactor = 0.2f;
@@ -16,7 +16,7 @@ public class WaveConfig : ScriptableObject
 
     public GameObject GetEnemyPrefab()
     {
-        return enemyPrefab;
+        return NPCPrefab;
     }
     public List<Transform> GetWayPoints()
     {
@@ -43,4 +43,5 @@ public class WaveConfig : ScriptableObject
     {
         return moveEnemySpeed;
     }
+
 }
