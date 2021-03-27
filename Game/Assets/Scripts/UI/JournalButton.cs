@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class JournalButton : MonoBehaviour
 {
     Button journalButton;
-    [SerializeField] string journalBranch;
+    [SerializeField] public string buttonName;
     [SerializeField] public int buttonPage;
     [SerializeField] public int targetPage;
     [SerializeField] public bool systemPicker;
@@ -16,7 +16,7 @@ public class JournalButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        journalButton = gameObject.GetComponent<Button>();
+        /*journalButton = gameObject.GetComponent<Button>();
         if(transform.parent.name == "Illnesses")
         {
             journalBranch = "Illness";
@@ -24,7 +24,7 @@ public class JournalButton : MonoBehaviour
         else
         {
             journalBranch = "Injury";
-        }
+        }*/
 
         JournalAnimator = transform.parent.parent.GetComponent<Animator>();
         //JournalController.journalButtons.Add(this);

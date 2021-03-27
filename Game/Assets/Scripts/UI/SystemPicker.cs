@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -8,8 +9,11 @@ public class SystemPicker : MonoBehaviour
 {
     [SerializeField] public GameObject[] bodySystems = new GameObject[6];
     List<Image> systemDiagrams = new List<Image>();
-    
-    
+    public string selectedSystem;
+    [SerializeField] private TextMeshProUGUI systemJournalName;
+    [SerializeField] private TextMeshProUGUI systemJournalDesc;
+    [SerializeField] DialogueManager dialogueManager;
+
     void Start()
     {
         foreach(GameObject system in bodySystems)
@@ -37,6 +41,11 @@ public class SystemPicker : MonoBehaviour
         }
 
         Debug.Log(selectedSystem.name);
+        if(selectedSystem.name != null)
+        {
+            this.selectedSystem = selectedSystem.name;
+            
+        }
 
         //foreach()
     }

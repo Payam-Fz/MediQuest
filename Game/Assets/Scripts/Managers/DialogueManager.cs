@@ -9,9 +9,12 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI textComponent;
     [SerializeField] Dialogue startingDialogue;
-    [SerializeField] Button nextButton; 
+    [SerializeField] public Dialogue postDiagnosisDialogue;
+    [SerializeField] Button nextButton;
+    [SerializeField] Button startDiagnosisButton;
     Dialogue dialogue;
     [SerializeField] Animator animator;
+    [SerializeField] GameObject journal;
     
     // Start is called before the first frame update
     void Start()
@@ -33,6 +36,7 @@ public class DialogueManager : MonoBehaviour
         if (dialogue.GetNextDialogue().Length == 0)
         {
             nextButton.gameObject.SetActive(false);
+            startDiagnosisButton.gameObject.SetActive(true);
         }
         
     }
@@ -51,7 +55,16 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
+        GetComponent<Patient>().isTalking = false;
     }
+
+    public void StartDiagnosis()
+    {
+        animator.SetBool("IsOpen", false);
+        dialogue = postDiagnosisDialogue;
+        journal.SetActive(true);
+    }
+
     IEnumerator TypeStartSentence()
     {
         textComponent.text = "";

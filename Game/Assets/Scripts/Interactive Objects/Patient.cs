@@ -5,6 +5,8 @@ using UnityEngine;
 public class Patient : MonoBehaviour, IInteractive
 {
     DialogueManager dialogueManager;
+    public bool isTalking = false;
+    public bool startedDiagnosis = false;
 
     // Start is called before the first frame update
     void Start()
@@ -14,7 +16,15 @@ public class Patient : MonoBehaviour, IInteractive
 
     public void Interact()
     {
-        dialogueManager.StartDialogue();
+        if (!isTalking && !startedDiagnosis)
+        {
+            dialogueManager.StartDialogue();
+            isTalking = true;
+        }
+        else
+        {
+            dialogueManager.ManageDialogue();
+        }
     }
 
 

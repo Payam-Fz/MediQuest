@@ -18,7 +18,7 @@ public class SystemButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        StartCoroutine(GenericDelay());
+        StartCoroutine(GenericDelay(1.1f));
 
         foreach (var system in systemDiagrams)
         {
@@ -38,7 +38,7 @@ public class SystemButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        StartCoroutine(GenericDelay());
+        StartCoroutine(GenericDelay(0.3f));
         
         if(eventData.selectedObject != null)
         {
@@ -55,8 +55,8 @@ public class SystemButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         }
     }
 
-    IEnumerator GenericDelay()
+    IEnumerator GenericDelay(float i)
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(i);
     }
 }
