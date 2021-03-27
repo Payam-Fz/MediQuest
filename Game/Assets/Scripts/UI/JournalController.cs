@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Animations;
 using UnityEngine.EventSystems;
+using UnityEditorInternal;
 
 public class JournalController : MonoBehaviour
 {
@@ -41,9 +42,10 @@ public class JournalController : MonoBehaviour
         selectedButton = EventSystem.current.currentSelectedGameObject.GetComponent<JournalButton>().buttonName;
     }
 
+
     public void SystemPickerJournal()
     {
-        StartCoroutine(SystemPicker());
+        StartCoroutine(DiagnoseSystem());
     }
 
     IEnumerator OpenJournalDelay()
@@ -122,19 +124,28 @@ public class JournalController : MonoBehaviour
             journalAnimator.SetTrigger("JournalExit");
             yield return new WaitForSeconds(0.5f);
 
+
+            systemPicker.SetActive(false);
+            patientChart.SetActive(false);
+            systemPickerAnimator.SetBool("pickerUsed", false);
+            patientChartAnimator.SetBool("chartUsed", false);
             systemPicker.SetActive(true);
             patientChart.SetActive(true);
         }
 
+        systemPickerUsed = true;
+    }
 
+    IEnumerator DiagnoseSystem()
+    {
         if (systemPickerUsed)
         {
             Debug.Log("system picker used nutty");
             systemPickerAnimator.SetBool("pickerUsed", true);
             patientChartAnimator.SetBool("chartUsed", true);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.75f);
             journalAnimator.SetTrigger("JournalEnter");
-            
+
             string currentSystem = systemPicker.GetComponent<SystemPicker>().selectedSystem;
 
             yield return new WaitForSeconds(1.5f);
@@ -145,9 +156,9 @@ public class JournalController : MonoBehaviour
                     button.gameObject.SetActive(true);
                 }
             }
-        }
 
-        systemPickerUsed = true;
+            systemPickerUsed = false;
+        }
     }
 
 }

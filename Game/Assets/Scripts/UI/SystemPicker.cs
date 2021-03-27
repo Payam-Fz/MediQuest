@@ -10,8 +10,8 @@ public class SystemPicker : MonoBehaviour
     [SerializeField] public GameObject[] bodySystems = new GameObject[6];
     List<Image> systemDiagrams = new List<Image>();
     public string selectedSystem;
-    [SerializeField] private TextMeshProUGUI systemJournalName;
-    [SerializeField] private TextMeshProUGUI systemJournalDesc;
+    //[SerializeField] private TextMeshProUGUI systemJournalName;
+    //[SerializeField] private TextMeshProUGUI systemJournalDesc;
     [SerializeField] DialogueManager dialogueManager;
 
     void Start()

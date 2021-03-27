@@ -18,7 +18,7 @@ public class SystemButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        StartCoroutine(GenericDelay(1.1f));
+        StartCoroutine(GenericDelay(1.5f));
 
         foreach (var system in systemDiagrams)
         {
