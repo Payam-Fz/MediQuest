@@ -11,7 +11,7 @@ public class CharacterAnimator : MonoBehaviour
 
     public readonly int DIFFERENT_HAIR_TYPES = 4;
     public readonly int DIFFERENT_SKIN_TYPES = 3;
-    public readonly int DIFFERENT_CLOTHING_TYPES = 2;
+    public readonly int DIFFERENT_CLOTHING_TYPES = 3;
 
     private float timer;
     private float animationDelay;
