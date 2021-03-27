@@ -13,10 +13,10 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.25}
     oldSize: {x: 0.40625, y: 2.125}
     newSize: {x: 0.40625, y: 2.125}
     adaptiveTilingThreshold: 0.5
@@ -38,11 +38,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6053688365393163113, guid: a682c53f17cc273458f0047f4c819fa0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.523
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6053688365393163113, guid: a682c53f17cc273458f0047f4c819fa0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.74
+      value: -0.19
       objectReference: {fileID: 0}
     - target: {fileID: 6053688366029067578, guid: a682c53f17cc273458f0047f4c819fa0, type: 3}
       propertyPath: m_Name
@@ -116,17 +116,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6053688366029067582, guid: a682c53f17cc273458f0047f4c819fa0, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6053688366029067583, guid: a682c53f17cc273458f0047f4c819fa0, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6053688366066412036, guid: a682c53f17cc273458f0047f4c819fa0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.292
+      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 6053688366066412036, guid: a682c53f17cc273458f0047f4c819fa0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.72
+      value: 1.13
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6053688366029067581, guid: a682c53f17cc273458f0047f4c819fa0, type: 3}
