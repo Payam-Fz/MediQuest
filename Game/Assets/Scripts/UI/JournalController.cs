@@ -15,7 +15,7 @@ public class JournalController : MonoBehaviour
     Animator patientChartAnimator;
     public static List<JournalButton> journalButtons = new List<JournalButton>();
     [SerializeField] string selectedButton;
-    
+    [SerializeField] string postDiagnosisDialogue;
     
     // Start is called before the first frame update
     void Start()
@@ -25,6 +25,7 @@ public class JournalController : MonoBehaviour
         StartCoroutine(OpenJournalDelay());
         systemPickerAnimator = systemPicker.GetComponent<Animator>();
         patientChartAnimator = patientChart.GetComponent<Animator>();
+        postDiagnosisDialogue = FindObjectOfType<DialogueManager>().postDiagnosisDialogue.dialogueText;
     }
 
 
@@ -143,7 +144,7 @@ public class JournalController : MonoBehaviour
             Debug.Log("system picker used nutty");
             systemPickerAnimator.SetBool("pickerUsed", true);
             patientChartAnimator.SetBool("chartUsed", true);
-            yield return new WaitForSeconds(0.75f);
+            yield return new WaitForSeconds(1f);
             journalAnimator.SetTrigger("JournalEnter");
 
             string currentSystem = systemPicker.GetComponent<SystemPicker>().selectedSystem;
