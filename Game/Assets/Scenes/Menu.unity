@@ -311,7 +311,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5840240978933299761, guid: edd737ec709a4ac4c9ed113cdcc3266e, type: 3}
       propertyPath: m_text
-      value: Options
+      value: Credit
       objectReference: {fileID: 0}
     - target: {fileID: 5840240978933299761, guid: edd737ec709a4ac4c9ed113cdcc3266e, type: 3}
       propertyPath: m_fontColor32.rgba
@@ -1842,8 +1842,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\tThis is a demo of \"MediQuest\" developed by Code Blue.\n\n\t\tPayam
-    F\t\tApoorv T\n\t         Stephanie C\t\tAaditya S\t          \t\n\t        
-    Alexander R\t\tShreyans\n\t\tRyan K\t\tRodrigo\n\t\tDaniel\t\tJenny Z"
+    F\t\t Apoorv T\n\t         Alexander R\t\tStephanie C\n\t          Aaditya S\t         
+    \tShreyans K\n\t\tRodrigo M\t\t Daniel M\n\t\t Ryan K\t\t Jenny Z"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 76a1498367cdac945b73493c0e740ade, type: 2}
   m_sharedMaterial: {fileID: 2125172390550553490, guid: 76a1498367cdac945b73493c0e740ade, type: 2}
