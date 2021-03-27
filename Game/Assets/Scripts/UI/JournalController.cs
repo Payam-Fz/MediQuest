@@ -144,7 +144,7 @@ public class JournalController : MonoBehaviour
             Debug.Log("system picker used nutty");
             systemPickerAnimator.SetBool("pickerUsed", true);
             patientChartAnimator.SetBool("chartUsed", true);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.35f);
             journalAnimator.SetTrigger("JournalEnter");
 
             string currentSystem = systemPicker.GetComponent<SystemPicker>().selectedSystem;

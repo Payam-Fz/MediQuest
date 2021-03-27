@@ -42,7 +42,7 @@ public class DialogueManager : MonoBehaviour
     }
     public void StartDialogue()
     {
-        dialogue = startingDialogue;
+        //dialogue = startingDialogue;
 
         animator.SetBool("IsOpen", true);
         
@@ -52,6 +52,22 @@ public class DialogueManager : MonoBehaviour
         
         nextButton.gameObject.SetActive(true);
     }
+
+    public void StartDiagnosisDialogue()
+    {
+
+        gameObject.SetActive(false);
+        gameObject.SetActive(true);
+        dialogue = postDiagnosisDialogue;
+        animator.SetBool("IsOpen", true);
+
+        StopAllCoroutines();
+
+        StartCoroutine(TypeStartSentence());
+
+        nextButton.gameObject.SetActive(true);
+    }
+
     public void EndDialogue()
     {
         animator.SetBool("IsOpen", false);

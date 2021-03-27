@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -20,6 +21,7 @@ public class DiagnoseButton : MonoBehaviour
         button = GetComponent<Button>();
         button.image.color = new Color(1, 1, 1, 0);
         button.interactable = false;
+        gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "";
     }
 
 
@@ -29,6 +31,7 @@ public class DiagnoseButton : MonoBehaviour
         {
             button.interactable = true;
             button.image.color = new Color(1, 1, 1, 1);
+            gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "CONTINUE";
         }
     }
 }
