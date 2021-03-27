@@ -56,8 +56,6 @@ public class DialogueManager : MonoBehaviour
     public void StartDiagnosisDialogue()
     {
 
-        gameObject.SetActive(false);
-        gameObject.SetActive(true);
         dialogue = postDiagnosisDialogue;
         animator.SetBool("IsOpen", true);
 
@@ -66,6 +64,12 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeStartSentence());
 
         nextButton.gameObject.SetActive(true);
+    }
+
+    public void TestDialogueBox()
+    {
+        animator.SetBool("IsOpen", true);
+        Debug.Log("Dialogue Box is Open");
     }
 
     public void EndDialogue()

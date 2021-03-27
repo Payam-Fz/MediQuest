@@ -31,6 +31,12 @@ public class JournalController : MonoBehaviour
 
     public void NavigateJournal()
     {
+        if (EventSystem.current.currentSelectedGameObject.GetComponent<JournalButton>().finalDiagnosis)
+        {
+            Debug.Log("Final Diagnosis is checked");
+            StartCoroutine(CloseJournal());
+        }
+
         if (!EventSystem.current.currentSelectedGameObject.GetComponent<JournalButton>().systemPicker)
         {
             StartCoroutine(PageFlip());
@@ -39,6 +45,7 @@ public class JournalController : MonoBehaviour
         {
             StartCoroutine(SystemPicker());
         }
+
 
         selectedButton = EventSystem.current.currentSelectedGameObject.GetComponent<JournalButton>().buttonName;
     }
@@ -59,6 +66,29 @@ public class JournalController : MonoBehaviour
                 button.gameObject.SetActive(true);
             }
         }
+    }
+
+    IEnumerator CloseJournal()
+    {
+        Debug.Log("Journal Closing");
+        
+        journalAnimator.ResetTrigger("JournalExit");
+
+        currentPage = EventSystem.current.currentSelectedGameObject.GetComponent<JournalButton>().buttonPage;
+
+        foreach (var button in journalButtons)
+        {
+            if (button.buttonPage == currentPage)
+            {
+                button.gameObject.SetActive(false);
+            }
+        }
+
+        yield return new WaitForSeconds(0.2f);
+        journalAnimator.SetTrigger("JournalExit");
+
+        Debug.Log("Journal Closed");
+
     }
 
     int currentPage;
