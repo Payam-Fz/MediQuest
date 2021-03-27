@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c31ba4168e2012148987219a55263134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSpeed: 80
+  animationSpeed: 100
   hairType: 1
   skinType: 3
   clothingType: 1

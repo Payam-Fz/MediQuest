@@ -173,13 +173,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9202816768315843464}
-  - component: {fileID: 9202816768315843466}
-  - component: {fileID: 2059528507567760659}
   - component: {fileID: 9202816768315843465}
   - component: {fileID: 9202816768315843467}
   - component: {fileID: 4017046206222773254}
   - component: {fileID: 8727860585764839487}
   - component: {fileID: 8402077605909686428}
+  - component: {fileID: 2059528507567760659}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -195,7 +194,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9202816768315843463}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.99, y: 17.72, z: -1}
+  m_LocalPosition: {x: 0.99, y: 17.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9202816769838787991}
@@ -205,43 +204,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &9202816768315843466
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9202816768315843463}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 1
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!70 &2059528507567760659
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9202816768315843463}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.009973883, y: 0.021321017}
-  m_Size: {x: 0.6578655, y: 0.2447586}
-  m_Direction: 1
 --- !u!114 &9202816768315843465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c31ba4168e2012148987219a55263134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSpeed: 80
+  animationSpeed: 100
   hairType: 1
   skinType: 1
   clothingType: 1
@@ -307,6 +269,22 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!70 &2059528507567760659
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202816768315843463}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.009973888, y: -0.030493947}
+  m_Size: {x: 0.65786564, y: 0.261122}
+  m_Direction: 1
 --- !u!1 &9202816769640692443
 GameObject:
   m_ObjectHideFlags: 0

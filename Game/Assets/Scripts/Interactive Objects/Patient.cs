@@ -30,6 +30,7 @@ public class Patient : MonoBehaviour, IInteractive
 
     public void ManualHighlight()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
+        Debug.Log("Manual highlight for patient not implemented");
     }
 }

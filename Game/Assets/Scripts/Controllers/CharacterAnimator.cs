@@ -9,7 +9,7 @@ public class CharacterAnimator : MonoBehaviour
     [SerializeField] int skinType;
     [SerializeField] int clothingType;
 
-    public readonly int DIFFERENT_HAIR_TYPES = 2;
+    public readonly int DIFFERENT_HAIR_TYPES = 4;
     public readonly int DIFFERENT_SKIN_TYPES = 3;
     public readonly int DIFFERENT_CLOTHING_TYPES = 2;
 
@@ -22,7 +22,7 @@ public class CharacterAnimator : MonoBehaviour
     private float horizontal;
     private float vertical;
 
-    void Awake()
+    void Start()
     {
         sprites = new Dictionary<string, Dictionary<string, Sprite[]>>();
         FillDictionary();
