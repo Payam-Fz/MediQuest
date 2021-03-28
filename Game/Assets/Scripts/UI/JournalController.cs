@@ -66,7 +66,7 @@ public class JournalController : MonoBehaviour
         }
         else
         {
-            return ("(P): It looks like you have a " + selectedButton);
+            return ("(P): It looks like you have a " + selectedButton + ".");
         }
     }
 

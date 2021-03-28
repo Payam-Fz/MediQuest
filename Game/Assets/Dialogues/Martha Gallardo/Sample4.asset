@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074cd7fa550bcb94994305a97f00f9f8, type: 3}
   m_Name: Sample4
   m_EditorClassIdentifier: 
-  dialogueText: "...if there\u2019s something you\u2019re not telling me, I won\u2019t
-    be able to do that properly. I promise you won\u2019t get in trouble."
+  dialogueText: "(P): I don\u2019t want to put you on the spot, but you sound a little
+    hesitant\u2026 I just want to help you, Martha - "
   nextDialogue:
   - {fileID: 11400000, guid: 964c4a28f93807746bf59a092326c363, type: 2}

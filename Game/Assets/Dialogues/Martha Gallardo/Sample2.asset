@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074cd7fa550bcb94994305a97f00f9f8, type: 3}
   m_Name: Sample2
   m_EditorClassIdentifier: 
-  dialogueText: 'Martha: N-no, nothing I can think of...'
+  dialogueText: '(P): Is there anything that may have started the pain, do you think?
+    Like bumping into something, or falling down on pavement?'
   nextDialogue:
   - {fileID: 11400000, guid: 55e48b9f350b7ca4a964c9e60d98eb6d, type: 2}

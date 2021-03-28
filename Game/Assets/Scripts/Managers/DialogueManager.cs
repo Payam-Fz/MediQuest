@@ -18,6 +18,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] GameObject journal;
 
+    [SerializeField] GameObject endCanvas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -88,6 +90,7 @@ public class DialogueManager : MonoBehaviour
         if (dialogue.GetNextDialogue().Length == 0 && diagnosisDone)
         {
             dialogue = diagnosisDoneDialogue;
+            endCanvas.GetComponent<Animator>().SetBool("End", true);
         }
     }
 

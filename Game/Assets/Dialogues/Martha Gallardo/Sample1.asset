@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074cd7fa550bcb94994305a97f00f9f8, type: 3}
   m_Name: Sample1
   m_EditorClassIdentifier: 
-  dialogueText: '(P): Is there anything that may have started the pain, do you think?
-    Like bumping into something, or falling down on pavement?'
+  dialogueText: '(Player): Hello, Martha! I''ll be performing your diagnosis today.
+    I see on your chart that you have pain around your waist.'
   nextDialogue:
   - {fileID: 11400000, guid: ec88f496db77ca44eaab9c90c634c19b, type: 2}

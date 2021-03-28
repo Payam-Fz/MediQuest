@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074cd7fa550bcb94994305a97f00f9f8, type: 3}
   m_Name: Sample5
   m_EditorClassIdentifier: 
-  dialogueText: 'Martha: ...Maybe something happened yesterday, after school.'
-  nextDialogue: []
+  dialogueText: "(P): ...if there\u2019s something you\u2019re not telling me, I
+    won\u2019t be able to do that properly. I promise you won\u2019t get in trouble."
+  nextDialogue:
+  - {fileID: 11400000, guid: e6401a8a45926f7428a61294929d75fe, type: 2}
