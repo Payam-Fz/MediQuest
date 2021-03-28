@@ -15,10 +15,13 @@ public class Door : MonoBehaviour, IInteractive
     [SerializeField] Transform doorExit;
     bool playerInRoom = false;
 
+    AudioSource doorOpenSound;
+
     
     void Start()
     {
         doorSprite = GetComponent<SpriteRenderer>();
+        doorOpenSound = GetComponent<AudioSource>();
     }
 
     public void Interact()
@@ -28,12 +31,14 @@ public class Door : MonoBehaviour, IInteractive
             player.GetComponent<Rigidbody2D>().transform.position = doorEntrance.position;
             StartCoroutine(DoorDelay());
             playerInRoom = false;
+            doorOpenSound.Play();
         } 
         else
         {
             player.gameObject.GetComponent<Rigidbody2D>().transform.position = doorExit.position;
             StartCoroutine(DoorDelay());
             playerInRoom = true;
+            doorOpenSound.Play();
         }
     }
 
