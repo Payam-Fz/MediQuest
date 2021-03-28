@@ -92,7 +92,7 @@ public class DialogueManager : MonoBehaviour
     {
         textComponent.text = "";
 
-        foreach (char letter in startingDialogue.GetDialogueStory().ToCharArray())
+        foreach (char letter in dialogue.GetDialogueStory().ToCharArray())
         {
             textComponent.text += letter;
             yield return new WaitForSeconds(0.02f);

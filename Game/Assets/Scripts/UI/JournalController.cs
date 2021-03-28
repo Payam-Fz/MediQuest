@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Animations;
 using UnityEngine.EventSystems;
-using UnityEditorInternal;
 
 public class JournalController : MonoBehaviour
 {

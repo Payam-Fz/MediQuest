@@ -13,7 +13,7 @@ public class SceneLoader : MonoBehaviour
 
     private void Load()
     {
-        SceneManager.LoadScene("MainSection");
+        SceneManager.LoadScene("MainSection 1");
     } 
 
     public void QuitGame()
