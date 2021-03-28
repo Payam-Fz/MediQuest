@@ -50,6 +50,8 @@ public class SystemButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
                     system.GetComponent<Canvas>().sortingOrder = 5;
                 }
             }
+
+            if (eventData.selectedObject.transform.parent.GetComponent<Image>() != null)
             eventData.selectedObject.transform.parent.GetComponent<Image>().color = new Color(1, 1, 1, 1);
             eventData.selectedObject.transform.parent.GetComponent<Canvas>().sortingOrder = 6;
         }
