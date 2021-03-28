@@ -311,7 +311,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5840240978933299761, guid: edd737ec709a4ac4c9ed113cdcc3266e, type: 3}
       propertyPath: m_text
-      value: Credit
+      value: Credits
       objectReference: {fileID: 0}
     - target: {fileID: 5840240978933299761, guid: edd737ec709a4ac4c9ed113cdcc3266e, type: 3}
       propertyPath: m_fontColor32.rgba

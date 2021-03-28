@@ -14,7 +14,7 @@ public class JournalController : MonoBehaviour
     Animator patientChartAnimator;
     public static List<JournalButton> journalButtons = new List<JournalButton>();
     [SerializeField] string selectedButton;
-    [SerializeField] string postDiagnosisDialogue;
+    [SerializeField] DialogueManager patientDialogueManager;
     
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class JournalController : MonoBehaviour
         StartCoroutine(OpenJournalDelay());
         systemPickerAnimator = systemPicker.GetComponent<Animator>();
         patientChartAnimator = patientChart.GetComponent<Animator>();
-        postDiagnosisDialogue = FindObjectOfType<DialogueManager>().postDiagnosisDialogue.dialogueText;
+        patientDialogueManager = GameObject.FindGameObjectWithTag("Martha").GetComponent<DialogueManager>();
     }
 
 
@@ -41,19 +41,33 @@ public class JournalController : MonoBehaviour
             StartCoroutine(SystemPicker());
         }
 
+        selectedButton = EventSystem.current.currentSelectedGameObject.GetComponent<JournalButton>().buttonName;
+        
         if (EventSystem.current.currentSelectedGameObject.GetComponent<JournalButton>().finalDiagnosis)
         {
             Debug.Log("Final Diagnosis is checked");
+            patientDialogueManager.diagnosisDialogue.dialogueText = DiagnosisText();
             StartCoroutine(CloseJournal());
         }
 
-        selectedButton = EventSystem.current.currentSelectedGameObject.GetComponent<JournalButton>().buttonName;
     }
 
 
     public void SystemPickerJournal()
     {
         StartCoroutine(DiagnoseSystem());
+    }
+
+    string DiagnosisText()
+    {
+        if (EventSystem.current.currentSelectedGameObject.GetComponent<JournalButton>().isSystem)
+        {
+            return ("(P): It looks like the problem is with your " + selectedButton + " system.");
+        }
+        else
+        {
+            return ("(P): It looks like you have a " + selectedButton);
+        }
     }
 
     IEnumerator OpenJournalDelay()

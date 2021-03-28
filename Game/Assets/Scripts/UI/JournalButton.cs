@@ -10,6 +10,7 @@ public class JournalButton : MonoBehaviour
     [SerializeField] public string buttonName;
     [SerializeField] public int buttonPage;
     [SerializeField] public int targetPage;
+    [SerializeField] public bool isSystem;
     [SerializeField] public bool systemPicker;
     [SerializeField] public bool finalDiagnosis;
     Animator JournalAnimator;

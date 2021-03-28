@@ -9,13 +9,15 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI textComponent;
     [SerializeField] Dialogue startingDialogue;
-    [SerializeField] public Dialogue postDiagnosisDialogue;
+    [SerializeField] public Dialogue diagnosisDialogue;
+    [SerializeField] Dialogue diagnosisDoneDialogue;
     [SerializeField] Button nextButton;
     [SerializeField] Button startDiagnosisButton;
     Dialogue dialogue;
+    bool diagnosisDone = false;
     [SerializeField] Animator animator;
     [SerializeField] GameObject journal;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,10 +38,12 @@ public class DialogueManager : MonoBehaviour
         if (dialogue.GetNextDialogue().Length == 0)
         {
             nextButton.gameObject.SetActive(false);
-            if(startDiagnosisButton != null)
+            if(startDiagnosisButton != null && !diagnosisDone)
             {
                 startDiagnosisButton.gameObject.SetActive(true);
             }
+
+            
         }
         
     }
@@ -58,8 +62,9 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDiagnosisDialogue()
     {
-
-        dialogue = postDiagnosisDialogue;
+        diagnosisDone = true;
+        startDiagnosisButton.gameObject.SetActive(false);
+        dialogue = diagnosisDialogue;
         animator.SetBool("IsOpen", true);
 
         StopAllCoroutines();
@@ -79,12 +84,16 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("IsOpen", false);
         GetComponent<Patient>().isTalking = false;
+        if (dialogue.GetNextDialogue().Length == 0 && diagnosisDone)
+        {
+            dialogue = diagnosisDoneDialogue;
+        }
     }
 
     public void StartDiagnosis()
     {
         animator.SetBool("IsOpen", false);
-        dialogue = postDiagnosisDialogue;
+        dialogue = diagnosisDialogue;
         journal.SetActive(true);
     }
 
