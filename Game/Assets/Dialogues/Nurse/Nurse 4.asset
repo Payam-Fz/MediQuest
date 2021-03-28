@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074cd7fa550bcb94994305a97f00f9f8, type: 3}
   m_Name: Nurse 4
   m_EditorClassIdentifier: 
-  dialogueText: See you later.
+  dialogueText: See you later in the OR.
   nextDialogue: []
