@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueText: 'Hello Doctor!
 
-    Wellcome back to hospital.'
+    Wellcome back to the hospital.'
   nextDialogue:
   - {fileID: 11400000, guid: 1f9ce807ce314524385ee649994889d5, type: 2}
