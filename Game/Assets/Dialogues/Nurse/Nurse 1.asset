@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 074cd7fa550bcb94994305a97f00f9f8, type: 3}
-  m_Name: Nurse_start
+  m_Name: Nurse 1
   m_EditorClassIdentifier: 
-  dialogueText: Hi MTFr
+  dialogueText: 'Hi Doctor!
+
+    Wellcome back.'
   nextDialogue:
-  - {fileID: 11400000, guid: b1ca5e30d1227294b930e882443963b3, type: 2}
+  - {fileID: 11400000, guid: 1f9ce807ce314524385ee649994889d5, type: 2}

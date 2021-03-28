@@ -10,7 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 074cd7fa550bcb94994305a97f00f9f8, type: 3}
-  m_Name: Nurse_start2
+  m_Name: Nurse 3
   m_EditorClassIdentifier: 
-  dialogueText: bye MTFr
-  nextDialogue: []
+  dialogueText: 'She is a little girl in the private room.
+
+    And here is her chart.
+
+    You''ll
+    be done after diagnosing her.'
+  nextDialogue:
+  - {fileID: 11400000, guid: 8b43ca542e40c7b4f970c3705ad43a48, type: 2}
