@@ -15,6 +15,7 @@ public class PlayerInteractor : MonoBehaviour
     {
         //overlap = Physics2D.OverlapCircle(transform.position, 5f, 8);
         //overlap.isTrigger = enabled;
+        interactText.text = "";
     }
 
     private void Update()
@@ -22,6 +23,7 @@ public class PlayerInteractor : MonoBehaviour
         if(canInteract && Input.GetKeyDown(KeyCode.E))
         {
             interactiveCollider.GetComponent<IInteractive>().Interact();
+            interactText.text = "";
         }
     }
 

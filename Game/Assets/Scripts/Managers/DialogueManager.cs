@@ -57,6 +57,7 @@ public class DialogueManager : MonoBehaviour
         
         StartCoroutine(TypeStartSentence());
         
+        if(dialogue.GetNextDialogue().Length > 0)
         nextButton.gameObject.SetActive(true);
     }
 
