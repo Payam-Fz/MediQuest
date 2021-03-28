@@ -36,7 +36,10 @@ public class DialogueManager : MonoBehaviour
         if (dialogue.GetNextDialogue().Length == 0)
         {
             nextButton.gameObject.SetActive(false);
-            startDiagnosisButton.gameObject.SetActive(true);
+            if(startDiagnosisButton != null)
+            {
+                startDiagnosisButton.gameObject.SetActive(true);
+            }
         }
         
     }
