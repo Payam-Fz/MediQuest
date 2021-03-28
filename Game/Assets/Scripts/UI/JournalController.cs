@@ -31,21 +31,22 @@ public class JournalController : MonoBehaviour
 
     public void NavigateJournal()
     {
+
+        if (!EventSystem.current.currentSelectedGameObject.GetComponent<JournalButton>().systemPicker && 
+            !EventSystem.current.currentSelectedGameObject.GetComponent<JournalButton>().finalDiagnosis)
+        {
+            StartCoroutine(PageFlip());
+        }
+        else if (!EventSystem.current.currentSelectedGameObject.GetComponent<JournalButton>().finalDiagnosis)
+        {
+            StartCoroutine(SystemPicker());
+        }
+
         if (EventSystem.current.currentSelectedGameObject.GetComponent<JournalButton>().finalDiagnosis)
         {
             Debug.Log("Final Diagnosis is checked");
             StartCoroutine(CloseJournal());
         }
-
-        if (!EventSystem.current.currentSelectedGameObject.GetComponent<JournalButton>().systemPicker)
-        {
-            StartCoroutine(PageFlip());
-        }
-        else
-        {
-            StartCoroutine(SystemPicker());
-        }
-
 
         selectedButton = EventSystem.current.currentSelectedGameObject.GetComponent<JournalButton>().buttonName;
     }
