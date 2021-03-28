@@ -9,11 +9,14 @@ public class TV : MonoBehaviour, IInteractive
     [SerializeField] Sprite tvOff;
 
     [SerializeField] GameObject tempNPC;
+    AudioSource tvSound;
+    bool playerPresent;
 
     
     void Start()
     {
         tvSprite = GetComponent<SpriteRenderer>();
+        tvSound = GetComponent<AudioSource>();
     }
     
     public void Interact()
@@ -22,10 +25,40 @@ public class TV : MonoBehaviour, IInteractive
         {
             tvSprite.sprite = tvOn;
             tempNPC.transform.localScale = new Vector3(1, 1, 1);
+            if (playerPresent)
+            {
+                tvSound.Play();
+            }
         } 
         else if(tvSprite.sprite == tvOn)
         {
             tvSprite.sprite = tvOff;
+            tvSound.Stop();
+        }
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Player is at the TV");
+        
+        if (collision.tag == "PlayerTag")
+        {
+            playerPresent = true;
+            if(tvSprite.sprite == tvOn)
+            {
+                tvSound.Play();
+            }
+        }
+    }
+
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "PlayerTag")
+        {
+            playerPresent = false;
+            tvSound.Stop();
         }
     }
 
