@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074cd7fa550bcb94994305a97f00f9f8, type: 3}
   m_Name: Nurse 3
   m_EditorClassIdentifier: 
-  dialogueText: 'She is a little girl in the private room...
+  dialogueText: 'She is a little girl in the private room, down and to the left.
 
-    and here is her
-    chart.
-
-    You''ll be good to go after diagnosing her.'
+    You''ll
+    be done after diagnosing her.'
   nextDialogue:
   - {fileID: 11400000, guid: 8b43ca542e40c7b4f970c3705ad43a48, type: 2}
