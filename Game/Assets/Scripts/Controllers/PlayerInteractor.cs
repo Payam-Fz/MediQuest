@@ -44,6 +44,12 @@ public class PlayerInteractor : MonoBehaviour
             interactText.text = "Press [E] to interact";
             Debug.Log("Interactive Object Detected!");
         }
+
+        if(collision.gameObject.GetComponent<IAudioObject>() != null)
+        {
+            collision.gameObject.GetComponent<IAudioObject>().PlaySound();
+        }
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -62,6 +68,11 @@ public class PlayerInteractor : MonoBehaviour
             //interactiveCollider.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             interactText.text = "";
             Debug.Log("Leaving Interactive Object!");
+        }
+
+        if (collision.gameObject.GetComponent<IAudioObject>() != null)
+        {
+            collision.gameObject.GetComponent<IAudioObject>().StopSound();
         }
     }
 

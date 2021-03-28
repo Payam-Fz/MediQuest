@@ -16,10 +16,18 @@ public class MusicPlayer : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
+
+        Debug.Log("Scene Loaded");
     }
+    
     private void Start()
     {
         AudioSource audioSource = GetComponent<AudioSource>();
         audioSource.PlayDelayed(musicDelay);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //if(collision.GetComponent<>)
     }
 }
