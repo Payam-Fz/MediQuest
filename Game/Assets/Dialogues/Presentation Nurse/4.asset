@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074cd7fa550bcb94994305a97f00f9f8, type: 3}
   m_Name: 4
   m_EditorClassIdentifier: 
-  dialogueText: '[Nurse] : You will go home soon. But only after our doctors confirm
-    you are good to go!'
-  nextDialogue: []
+  dialogueText: '[Nurse] : Your parents are right outside, okay? Do you want me to
+    call them in?'
+  nextDialogue:
+  - {fileID: 11400000, guid: cae89d0adbc8a6b46afba644d043694b, type: 2}

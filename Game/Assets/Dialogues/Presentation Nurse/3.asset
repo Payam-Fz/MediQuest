@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074cd7fa550bcb94994305a97f00f9f8, type: 3}
   m_Name: 3
   m_EditorClassIdentifier: 
-  dialogueText: '[Martha] : I wanna gooo home...'
+  dialogueText: '[Martha] : Where are my mom and dad? Oh, they''re probably at work...'
   nextDialogue:
   - {fileID: 11400000, guid: 354d1b7fb543caf4dac040669867c28f, type: 2}

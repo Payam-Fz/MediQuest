@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074cd7fa550bcb94994305a97f00f9f8, type: 3}
   m_Name: 2
   m_EditorClassIdentifier: 
-  dialogueText: '[Nurse] : Hey little girl! Everything is alright. You had an accident.'
+  dialogueText: '[Nurse] : You''re in the hospital, Martha! Everything is alright.
+    You had an accident.'
   nextDialogue:
   - {fileID: 11400000, guid: 3d722c124e33a6d4897ff408b25bbf8d, type: 2}
