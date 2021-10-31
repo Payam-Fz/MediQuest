@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26608af9fe59a7a4f8ff766cace1d092, type: 3}
   m_Name: New NPC Info
   m_EditorClassIdentifier: 
-  gender: 
-  hairColor: 0
-  skinColor: 0
+  genderCode: 2
+  hairColor: 1
+  skinColor: 2
   size: 0
   bedNumber: 0
-  difficulty: 0
+  correctDiagnosisID: 0
+  nearCorrectDiagnosisID: 000000000000000000000000
+  difficulty: 3
