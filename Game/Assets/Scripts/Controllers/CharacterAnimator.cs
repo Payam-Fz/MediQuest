@@ -2,6 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *  Defines the directions of character while moving or standing
+ *  Author:     Payam F @ 2021-11-06
+ */
+public enum Direction
+{
+    // Ordered in counter-clockwise rotation starting from front-facing
+    Front = 0,
+    RightFront = 1,
+    Right = 2,
+    RightBack = 3,
+    Back = 4,
+    LeftBack = 5,
+    Left = 6,
+    LeftFront = 7
+}
+
+/*
+ * Animates the movement of character in 8 direction
+ * Author:    Payam F @ 2021-01-10
+ */
 public class CharacterAnimator : MonoBehaviour
 {
     [SerializeField] float animationSpeed = 15f;
