@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName ="LevelDialogue")]
+/*
+ * Stores the dialogue in separate levels
+ * Author:     Yan W @ 2021-10-30
+ */
+[CreateAssetMenu(fileName = "LevelDialogue", menuName = "CodeBlue/Character/LevelDialogue", order = 1)]
 public class LevelDialogue : ScriptableObject
 {
     [Header("Level Dialogues")]
