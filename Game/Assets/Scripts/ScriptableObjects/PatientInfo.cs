@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PatientInfo", menuName = "CodeBlue/Character/PatientInfo", order = 1)]
+
 /*
  * Stores the data specific to a patient character
  * Author:     Nokia T @ 2021-10-30
  */
+[CreateAssetMenu(fileName = "PatientInfo", menuName = "CodeBlue/Character/PatientInfo")]
 public class PatientInfo : CharacterInfo
 {
     [SerializeField] public int bedNumber;
