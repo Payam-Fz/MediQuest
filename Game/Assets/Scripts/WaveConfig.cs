@@ -8,6 +8,8 @@ public class WaveConfig : ScriptableObject
 {
     [SerializeField] GameObject NPCPrefab;
     [SerializeField] GameObject pathPrefab;
+    [SerializeField] GameObject entPrefab;
+    [SerializeField] GameObject extPrefab;
     [SerializeField] float timeBetweenSpawns = 0.5f;
     [SerializeField] float spawnRandomFactor = 0.2f;
     [SerializeField] int numberOfEnemies = 5;
@@ -17,6 +19,24 @@ public class WaveConfig : ScriptableObject
     public GameObject GetEnemyPrefab()
     {
         return NPCPrefab;
+    }
+    public List<Transform> GetEntPoints()
+    {
+        var doorJumpPoint = new List<Transform>();
+        foreach (Transform child in entPrefab.transform)
+        {
+            doorJumpPoint.Add(child);
+        }
+        return doorJumpPoint;
+    }
+    public List<Transform> GetExtPoints()
+    {
+        var doorExtPoint = new List<Transform>();
+        foreach (Transform child in extPrefab.transform)
+        {
+            doorExtPoint.Add(child);
+        }
+        return doorExtPoint;
     }
     public List<Transform> GetWayPoints()
     {
