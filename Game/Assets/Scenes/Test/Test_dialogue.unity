@@ -3028,8 +3028,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 0}
   startingDialogue: {fileID: 11400000, guid: 33284f67e0298ed4692de880eb555047, type: 2}
+  diagnosisDialogue: {fileID: 0}
+  diagnosisDoneDialogue: {fileID: 0}
   nextButton: {fileID: 0}
+  startDiagnosisButton: {fileID: 0}
   animator: {fileID: 0}
+  journal: {fileID: 0}
+  endCanvas: {fileID: 0}
 --- !u!58 &1000336723
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3070,6 +3075,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95630db81685ee34a82aae7d14faec82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTalking: 0
+  startedDiagnosis: 0
 --- !u!212 &1000336726
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3170,8 +3177,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 0}
   startingDialogue: {fileID: 11400000, guid: 33284f67e0298ed4692de880eb555047, type: 2}
+  diagnosisDialogue: {fileID: 0}
+  diagnosisDoneDialogue: {fileID: 0}
   nextButton: {fileID: 0}
+  startDiagnosisButton: {fileID: 0}
   animator: {fileID: 0}
+  journal: {fileID: 0}
+  endCanvas: {fileID: 0}
 --- !u!58 &1136505340
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3212,6 +3224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95630db81685ee34a82aae7d14faec82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTalking: 0
+  startedDiagnosis: 0
 --- !u!212 &1136505343
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3360,6 +3374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c522fa97fb6de1d4aad4c6bf119a064d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSpeed: 10
 --- !u!212 &1226548763
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3398,7 +3413,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -248383075
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 8bbc40346e2025046a8aad02680e57f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

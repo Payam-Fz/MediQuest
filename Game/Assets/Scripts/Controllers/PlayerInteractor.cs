@@ -22,14 +22,14 @@ public class PlayerInteractor : MonoBehaviour
     {
         if(canInteract && Input.GetKeyDown(KeyCode.E))
         {
-            interactiveCollider.GetComponent<IInteractive>().Interact();
+            interactiveCollider.GetComponent<IInteractable>().Interact();
             interactText.text = "";
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<IInteractive>() != null)
+        if (collision.gameObject.GetComponent<IInteractable>() != null)
         {
             interactiveCollider = collision;
             canInteract = true;
@@ -39,7 +39,7 @@ public class PlayerInteractor : MonoBehaviour
             }
             else
             {
-                collision.gameObject.GetComponent<IInteractive>().ManualHighlight();
+                collision.gameObject.GetComponent<IInteractable>().ManualHighlight();
             }
             interactText.text = "Press [E] to interact";
             Debug.Log("Interactive Object Detected!");
@@ -53,7 +53,7 @@ public class PlayerInteractor : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<IInteractive>() != null)
+        if (collision.gameObject.GetComponent<IInteractable>() != null)
         {
             interactiveCollider = collision;
             canInteract = false;
@@ -63,7 +63,7 @@ public class PlayerInteractor : MonoBehaviour
             }
             else
             {
-                collision.gameObject.GetComponent<IInteractive>().ManualHighlight();
+                collision.gameObject.GetComponent<IInteractable>().ManualHighlight();
             }
             //interactiveCollider.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             interactText.text = "";
