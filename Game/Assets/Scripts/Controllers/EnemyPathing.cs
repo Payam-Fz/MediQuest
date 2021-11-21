@@ -17,6 +17,8 @@ public class EnemyPathing : MonoBehaviour
     
 
     private CharacterAnimator animator;
+    AudioSource doorSFX;
+    GameObject player;
 
 
     // Start is called before the first frame update
@@ -28,6 +30,12 @@ public class EnemyPathing : MonoBehaviour
         movespee = waveConfig.GetMoveEnemySpeed();
         entPoints = waveConfig.GetEntPoints();
         extPoints = waveConfig.GetExtPoints();
+        doorSFX = GameObject.FindGameObjectWithTag("Door").GetComponent<AudioSource>();
+        gameObject.AddComponent<AudioSource>();
+        GetComponent<AudioSource>().clip = doorSFX.clip;
+        GetComponent<AudioSource>().volume = 0.326f;
+        GetComponent<AudioSource>().pitch = 0.84f;
+        player = GameObject.FindGameObjectWithTag("PlayerTag");
     }
 
 
@@ -91,8 +99,23 @@ public class EnemyPathing : MonoBehaviour
     private void jumpPoint(int i)
     {
         transform.position = extPoints[i].transform.position;
+
+        if (NPCPlayerRange() && GetComponent<AudioSource>().isPlaying == false)
+        {
+            GetComponent<AudioSource>().Play();
+        }
+
         wayPointIndex++;
         jumpable = false;
     }
 
+    //Checks if NPC near player, true if near
+    private bool NPCPlayerRange()
+    {
+        if (Vector3.Distance(player.transform.position, transform.position) > 7)
+        {
+            return false;
+        }
+        return true;
+    }
 }
