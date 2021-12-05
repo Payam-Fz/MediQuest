@@ -13,6 +13,7 @@ public class EnemyPathing : MonoBehaviour
     float movespee;
     int wayPointIndex = 0;
     bool jumpable = true;
+    bool moveable = true;
     int onDoorIndex = 0;
     
 
@@ -47,7 +48,10 @@ public class EnemyPathing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if(moveable == true)
+        {
+            Move();
+        }
     }
 
 
@@ -59,8 +63,7 @@ public class EnemyPathing : MonoBehaviour
             bool onDoor = doorCheck();
             if (jumpable && onDoor)
             {
-                jumpPoint(onDoorIndex);
-                onDoorIndex += 1;
+                StartCoroutine(doorEntry());
             }
             var targetPosition = wayPoints[wayPointIndex].transform.position;
             var movementThisFrame = movespee * Time.deltaTime;
@@ -117,5 +120,20 @@ public class EnemyPathing : MonoBehaviour
             return false;
         }
         return true;
+    }
+
+    //entire door movement process, including pauses
+    IEnumerator doorEntry()
+    {
+        moveable = false;
+
+        yield return new WaitForSeconds(0.3f);
+
+        jumpPoint(onDoorIndex);
+        onDoorIndex += 1;
+
+        yield return new WaitForSeconds(0.3f);
+
+        moveable = true;
     }
 }
