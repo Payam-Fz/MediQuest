@@ -2,21 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
- *  Defines the gender of a character
- *  Author:     Nokia T @ 2021-10-30
- */
-public enum Gender
-{
-    Male = 0,
-    Female = 1,
-    Other = 2
-}
 
 /*
  *  Stores the data of a character
  *  Author:     Nokia T @ 2021-10-30
  */
+[CreateAssetMenu(fileName = "CharacterInfo", menuName = "CodeBlue/CharacterInfo")]
 public class CharacterInfo : ScriptableObject 
 {
     [Range(0,2)] [SerializeField] public int genderCode;

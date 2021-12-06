@@ -14,7 +14,7 @@ public class PatientInitializer : MonoBehaviour
     private static string PATIENT_DATA_PATH;
     private GameObject patientObject;
     private int patientID;
-    private PatientInfo patientInfo;
+    private PatientMedicalInfo patientInfo;
     
     private Gender gender;
     private int hairColor;
