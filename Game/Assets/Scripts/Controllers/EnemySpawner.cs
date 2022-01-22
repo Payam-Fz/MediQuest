@@ -44,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < waveConfig.GetNumberOfEnemies(); i++)
         {
             var newEnemy = Instantiate(waveConfig.GetEnemyPrefab(), waveConfig.GetWayPoints()[0].transform.position, Quaternion.identity);
-            newEnemy.GetComponent<EnemyPathing>().SetWaveConfig(waveConfig);
+            newEnemy.GetComponent<NPCMover>().SetWaveConfig(waveConfig);
             CharacterAnimator animator = newEnemy.GetComponent<CharacterAnimator>();
             animator.setSpriteType(Random.Range(1, animator.DIFFERENT_HAIR_TYPES + 1),
                 Random.Range(1, animator.DIFFERENT_SKIN_TYPES + 1),

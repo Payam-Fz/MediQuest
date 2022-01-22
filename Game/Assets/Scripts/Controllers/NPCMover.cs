@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPathing : MonoBehaviour
+public class NPCMover : MonoBehaviour
 {
     
     WaveConfig waveConfig;
