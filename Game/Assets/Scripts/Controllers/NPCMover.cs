@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NPCMover : MonoBehaviour
 {
-    
+
     WaveConfig waveConfig;
     List<Transform> wayPoints;
     List<Transform> entPoints;
@@ -13,10 +13,13 @@ public class NPCMover : MonoBehaviour
     float movespeed;
     int wayPointIndex = 0;
     bool jumpable = true;
+    bool moveable = true;
     int onDoorIndex = 0;
-    
+
 
     private CharacterAnimator animator;
+    AudioSource doorSFX;
+    GameObject player;
 
 
     // Start is called before the first frame update
@@ -28,6 +31,12 @@ public class NPCMover : MonoBehaviour
         movespeed = waveConfig.GetMoveEnemySpeed();
         entPoints = waveConfig.GetEntPoints();
         extPoints = waveConfig.GetExtPoints();
+        doorSFX = GameObject.FindGameObjectWithTag("Door").GetComponent<AudioSource>();
+        gameObject.AddComponent<AudioSource>();
+        GetComponent<AudioSource>().clip = doorSFX.clip;
+        GetComponent<AudioSource>().volume = 0.326f;
+        GetComponent<AudioSource>().pitch = 0.84f;
+        player = GameObject.FindGameObjectWithTag("PlayerTag");
     }
 
 
@@ -39,7 +48,10 @@ public class NPCMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if (moveable == true)
+        {
+            Move();
+        }
     }
 
 
@@ -51,8 +63,7 @@ public class NPCMover : MonoBehaviour
             bool onDoor = doorCheck();
             if (jumpable && onDoor)
             {
-                jumpPoint(onDoorIndex);
-                onDoorIndex += 1;
+                StartCoroutine(doorEntry());
             }
             var targetPosition = wayPoints[wayPointIndex].transform.position;
             var movementThisFrame = movespeed * Time.deltaTime;
@@ -70,7 +81,7 @@ public class NPCMover : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
     //  checks if character is in range to interact with door
     //  written by: Methasit T.
     private bool doorCheck()
@@ -91,8 +102,38 @@ public class NPCMover : MonoBehaviour
     private void jumpPoint(int i)
     {
         transform.position = extPoints[i].transform.position;
+
+        if (NPCPlayerRange() && GetComponent<AudioSource>().isPlaying == false)
+        {
+            GetComponent<AudioSource>().Play();
+        }
+
         wayPointIndex++;
         jumpable = false;
     }
 
+    //Checks if NPC near player, true if near
+    private bool NPCPlayerRange()
+    {
+        if (Vector3.Distance(player.transform.position, transform.position) > 7)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    //entire door movement process, including pauses
+    IEnumerator doorEntry()
+    {
+        moveable = false;
+
+        yield return new WaitForSeconds(0.3f);
+
+        jumpPoint(onDoorIndex);
+        onDoorIndex += 1;
+
+        yield return new WaitForSeconds(0.3f);
+
+        moveable = true;
+    }
 }
