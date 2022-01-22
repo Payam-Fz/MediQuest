@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Martha
   - PlayerTag
+  - Door
   layers:
   - Default
   - TransparentFX
