@@ -7,7 +7,7 @@ using UnityEngine;
  *  Stores the data of a character
  *  Author:     Nokia T @ 2021-10-30
  */
-[CreateAssetMenu(fileName = "CharacterInfo", menuName = "CodeBlue/CharacterInfo")]
+[CreateAssetMenu(fileName = "CharacterInfo_name", menuName = "CodeBlue/Character Info")]
 public class CharacterInfo : ScriptableObject 
 {
     [Range(0,2)] [SerializeField] public int genderCode;

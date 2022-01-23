@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PatientData : MonoBehaviour
 {
+
+    public PatientData(MedicalInfo patientInfo, GameObject gameObject)
+    {
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {

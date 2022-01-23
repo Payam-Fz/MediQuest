@@ -5,20 +5,20 @@ using UnityEngine;
 // Save the data of the patient into a file
 public static class SaveSystem
 {
-    public static void SavePatientInfo(PatientMedicalInfo patientInfo, GameObject gameObject)
+    public static void SavePatientInfo(MedicalInfo patientInfo, GameObject gameObject)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = getPath();
         FileStream stream = new FileStream(path, FileMode.Create); // Create or Append
 
-        PlayerData data = new PlayerPatientData(patientInfo, gameObject);
+        PatientData data = new PatientData(patientInfo, gameObject);
 
         formatter.Serialize(stream, data);
         stream.Close();
     }
 
     // Load the data of the patient from a file
-    public static PlayerPatientData LoadPatientInfo()
+    public static PatientData LoadPatientInfo()
     {
         string path = getPath();
         if (File.Exists(path))
@@ -26,7 +26,7 @@ public static class SaveSystem
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
 
-            PlayerPatientData data = formatter.Deserialize(stream) as PlayerPatientData;
+            PatientData data = formatter.Deserialize(stream) as PatientData;
             stream.Close();
 
             return data;

@@ -2,24 +2,25 @@
 using UnityEngine;
 
 
-/*
- * A pair for <MedicalTest, Result>
- */
-[System.Serializable]
-public struct TestResultPair
-{
-    public MedicalTest testName;
-    public string result;
-}
-
 
 /*
  * Stores the data specific to a patient character
  * Author:     Payam F & Nokia T @ 2021-11-27
  */
-[CreateAssetMenu(fileName = "PatientMedicalInfo", menuName = "CodeBlue/PatientMedicalInfo")]
-public class PatientMedicalInfo : ScriptableObject
+[CreateAssetMenu(fileName = "MedicalInfo_name", menuName = "CodeBlue/Medical Info")]
+public class MedicalInfo : ScriptableObject
 {
+    /*
+     * A pair for <MedicalTest, Result>
+     */
+    [System.Serializable]
+    private struct TestResultPair
+    {
+        public MedicalTest testName;
+        public string result;
+    }
+
+
     [Range(1, 5)] [SerializeField] int difficulty;
     [SerializeField] int correctDiagnosisID;
     [SerializeField] int[] nearCorrectDiagnosisID;
