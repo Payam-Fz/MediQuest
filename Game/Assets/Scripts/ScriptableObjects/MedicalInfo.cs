@@ -26,7 +26,7 @@ public class MedicalInfo : ScriptableObject
     [SerializeField] int[] nearCorrectDiagnosisID;
     [SerializeField] int[] preferredBedNumbers;
     [SerializeField] MedicalTest[] necessaryTests;
-    [SerializeField] TestResultPair[] testResults = new TestResultPair[21];
+    [SerializeField] TestResultPair[] testResults = new TestResultPair[26];
     public Dictionary<MedicalTest, string> _testResults;
 
     void Awake()

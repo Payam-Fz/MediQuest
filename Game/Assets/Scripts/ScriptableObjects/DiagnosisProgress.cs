@@ -21,7 +21,7 @@ public class DiagnosisProgress : ScriptableObject
     }
 
     [SerializeField] bool diagnosisComplete;
-    [SerializeField] TestOrderPair[] testOrders = new TestOrderPair[21];
+    [SerializeField] TestOrderPair[] testOrders = new TestOrderPair[26];
     public Dictionary<MedicalTest, bool> _testOrders;
 
     void Awake()

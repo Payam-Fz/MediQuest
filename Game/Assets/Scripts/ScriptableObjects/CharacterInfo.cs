@@ -6,36 +6,30 @@ using UnityEngine;
 /*
  *  Stores the data of a character
  *  Author:     Nokia T @ 2021-10-30
+ *  Updated:    Payam F @ 2022-01-29
  */
 [CreateAssetMenu(fileName = "CharacterInfo_name", menuName = "CodeBlue/Character Info")]
 public class CharacterInfo : ScriptableObject 
 {
-    [Range(0,2)] [SerializeField] public int genderCode;
-    [Range(1,10)][SerializeField] public int hairColor;
-    [Range(1,10)][SerializeField] public int skinColor;
-    [SerializeField] public double size;
-    
+    [field: SerializeField] public string ID { get; set; }
+    [field: SerializeField] public string Name { get; set; }
+    [field: SerializeField] public int age { get; set; }
+    [field: SerializeField] public double size { get; set; } = 1;
+    [field: SerializeField] public Gender gender { get; set; }
+    [Range(1,10)][SerializeField] private int _hairColor = 0;
+    [Range(1,10)][SerializeField] private int _skinColor = 0;
 
-    public string getGender()
+
+    public int hairColor
     {
-        var enumStatus = (Gender)genderCode;
-        string res = enumStatus.ToString();
-
-        return res;
+        get => _hairColor;
+        set => _hairColor = value;
     }
 
-    public int getHairColor()
+    public int skinColor
     {
-        return hairColor;
+        get => _skinColor;
+        set => _skinColor = value;
     }
 
-    public int getSkinColor()
-    {
-        return skinColor;
-    }
-
-    public double getSize()
-    {
-        return size;
-    }
 }

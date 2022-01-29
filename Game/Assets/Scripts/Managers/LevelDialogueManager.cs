@@ -6,18 +6,24 @@ using UnityEngine.UI;
 using TMPro;
 
 
-
+/*
+ * Handles the dialogue of an NPC
+ * Author:  Yan W @ 2022-01-22
+ * Updated: Payam F @ 2022-01-29
+ */
 public class LevelDialogueManager : MonoBehaviour
 {
-    [SerializeField] LevelDialogue dialogue;
+    [SerializeField] string dataPath;
     [SerializeField] Animator animator;
-    [SerializeField] GameObject journal;
+    //[SerializeField] GameObject journal;
     [SerializeField] GameObject dialogueBoxPrefab;
     [SerializeField] GameObject endCanvas;
     
     private TextMeshProUGUI textComponent;
     private Button nextButton;
     private Button previousButton;
+    private LevelDialogue dialogue;
+    private DialogueProgress dialogueProgress;
 
     private int currentDialogueLevel;
     private int currentLineNumber;
@@ -33,6 +39,8 @@ public class LevelDialogueManager : MonoBehaviour
     void Start()
     {
         dialogueBoxPrefab.SetActive(true);
+        dialogue = Resources.Load<LevelDialogue>(dataPath);
+        dialogueProgress = Resources.Load<DialogueProgress>(dataPath);
         textComponent = dialogueBoxPrefab.GetComponentInChildren<TextMeshProUGUI>();
         nextButton = dialogueBoxPrefab.transform.Find("Next Button").gameObject.GetComponent<Button>();
         previousButton = dialogueBoxPrefab.transform.Find("Previous Button").gameObject.GetComponent<Button>();
@@ -45,6 +53,7 @@ public class LevelDialogueManager : MonoBehaviour
         currentDialogueLevel = 0;
         currentLineNumber = 0;
         isComplete = false;
+        saveDialogueProgress();
         List<string> levelDialogueList = dialogue.getDialogueStory();
         List<string> LDialogue;
         for (int i = 0; i < levelDialogueList.Count; i++)
@@ -111,6 +120,7 @@ public class LevelDialogueManager : MonoBehaviour
             Tuple<string, string> currentTuple = currentTupleList[currentLineNumber];
             lastPersonTalked = currentTuple.Item1;
             string nextDialogue = currentTuple.Item2;
+            saveDialogueProgress();
             return nextDialogue;
         }
         else
@@ -130,6 +140,7 @@ public class LevelDialogueManager : MonoBehaviour
             currentLineNumber--;
             lastPersonTalked = currentTuple.Item1;
             string previousDialogue = currentTuple.Item2;
+            saveDialogueProgress();
             return previousDialogue;
         }
         else
@@ -201,11 +212,13 @@ public class LevelDialogueManager : MonoBehaviour
         if (NextDialogue() == null)
         {
             isTalking = false;
+            saveDialogueProgress();
         }
     }
 
     public void UpdateUI(string speaker, string text)
     {
+        // To be updated later
         Color speakerColor = Color.black;
         dialogueBoxPrefab.GetComponentInChildren<Image>().color = speakerColor;
         StartCoroutine(TypeSentence(speaker, text));
@@ -223,5 +236,15 @@ public class LevelDialogueManager : MonoBehaviour
             textComponent.text += letter;
             yield return new WaitForSeconds(0.02f);
         }
+    }
+
+    // Payam F: added this function to support the save system
+    public void saveDialogueProgress()
+    {
+        dialogueProgress.currentDialogueLevel = currentDialogueLevel;
+        dialogueProgress.currentLineNumber = currentLineNumber;
+        dialogueProgress.lastPersonTalked = lastPersonTalked;
+        dialogueProgress.isTalking = isTalking;
+        dialogueProgress.isComplete = isComplete;
     }
 }
