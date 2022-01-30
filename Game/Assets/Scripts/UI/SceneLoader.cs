@@ -5,16 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    
-   public void LoadGameScene()
+    private int targetScene = 1; //MainSection
+    public void DelayedLoadFirstScene(float delayDuration)
+   {
+       this.targetScene = 1;  
+       Invoke("Load", delayDuration);
+   }
+
+    public void LoadScene(int targetScene)
     {
-        Invoke("Load", 3.0f);
+        this.targetScene = targetScene;
+        Load();
     }
 
     private void Load()
     {
-        SceneManager.LoadScene(1);
-    } 
+        SceneManager.LoadScene(targetScene);
+    }
 
     public void QuitGame()
     {
