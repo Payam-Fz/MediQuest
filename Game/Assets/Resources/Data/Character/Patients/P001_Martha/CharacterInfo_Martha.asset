@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26608af9fe59a7a4f8ff766cace1d092, type: 3}
   m_Name: CharacterInfo_Martha
   m_EditorClassIdentifier: 
-  genderCode: 0
-  hairColor: 0
-  skinColor: 0
-  size: 0
+  <ID>k__BackingField: P001
+  <Name>k__BackingField: Martha Gallardo
+  <age>k__BackingField: 13
+  <size>k__BackingField: 0.7
+  <gender>k__BackingField: 1
+  _hairColor: 0
+  _skinColor: 0

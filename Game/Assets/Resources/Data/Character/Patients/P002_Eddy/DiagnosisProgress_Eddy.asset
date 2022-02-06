@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41b3f83790260824c94858b30b4a2e3e, type: 3}
-  m_Name: DiagnosisProgress_Martha
+  m_Name: DiagnosisProgress_Eddy
   m_EditorClassIdentifier: 
   diagnosisComplete: 0
   testOrders: []

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8bbaf5fdcb5edf8478be0919a439b25f, type: 3}
-  m_Name: LevelDialogue_Martha
+  m_Name: LevelDialogue_Eddy
   m_EditorClassIdentifier: 
   dialogueText: []
   endDialogue: []
