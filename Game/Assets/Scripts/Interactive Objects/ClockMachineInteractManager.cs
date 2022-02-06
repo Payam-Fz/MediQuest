@@ -5,9 +5,11 @@ using UnityEngine;
 public class ClockMachineInteractManager : MonoBehaviour, IInteractable
 {
     SpriteRenderer clockSprite;
-    [SerializeField] Sprite clockOn;
-    [SerializeField] Sprite clockOff;
+    [SerializeField] Sprite clockOffline;
+    [SerializeField] Sprite clockGreen;
+    [SerializeField] Sprite clockRed;
     bool playerPresent;
+    bool beginning = true;
     [SerializeField] GameObject tempNPC;
     ClockMenu clockMenu;
 
@@ -17,20 +19,28 @@ public class ClockMachineInteractManager : MonoBehaviour, IInteractable
         clockSprite = GetComponent<SpriteRenderer>();
     }
 
+    //set color to red when player returns to the machine during game/ turns offline when leaving the machine
     public void Interact()
     {
-        if (clockSprite.sprite == clockOff)
+        if (clockSprite.sprite == clockOffline)
         {
-            clockSprite.sprite = clockOn;
+            if (beginning)
+            {
+                clockSprite.sprite = clockGreen;
+                beginning = false;
+            } else
+            {
+                clockSprite.sprite = clockRed;
+            }
             tempNPC.transform.localScale = new Vector3(1, 1, 1);
             if (playerPresent)
             {
                 clockMenu.pause();
             }
         }
-        else if (clockSprite.sprite == clockOn)
+        else if (clockSprite.sprite == clockGreen || clockSprite.sprite == clockRed)
         {
-            clockSprite.sprite = clockOff;
+            clockSprite.sprite = clockOffline;
             clockMenu.resume();
         }
     }
@@ -50,12 +60,6 @@ public class ClockMachineInteractManager : MonoBehaviour, IInteractable
         {
             playerPresent = false;
         }
-    }
-
-    //set colour to green
-    void Awake()
-    {
-
     }
 
     public void ManualHighlight()
