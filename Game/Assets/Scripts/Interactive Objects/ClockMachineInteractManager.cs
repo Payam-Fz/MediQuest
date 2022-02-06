@@ -9,9 +9,9 @@ public class ClockMachineInteractManager : MonoBehaviour, IInteractable
     [SerializeField] Sprite clockGreen;
     [SerializeField] Sprite clockRed;
     bool playerPresent;
+    bool pauseShowing = false;
     bool beginning = true;
-    [SerializeField] GameObject tempNPC;
-    ClockMenu clockMenu;
+    [SerializeField] ClockMenu clockMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -19,29 +19,29 @@ public class ClockMachineInteractManager : MonoBehaviour, IInteractable
         clockSprite = GetComponent<SpriteRenderer>();
     }
 
+    //void Awake()
+    //{
+    //    if (beginning)
+    //    {
+    //        clockSprite.sprite = clockGreen;
+    //        beginning = false;
+    //    }
+    //}
+
     //set color to red when player returns to the machine during game/ turns offline when leaving the machine
     public void Interact()
     {
-        if (clockSprite.sprite == clockOffline)
+        if (playerPresent)
         {
-            if (beginning)
-            {
-                clockSprite.sprite = clockGreen;
-                beginning = false;
-            } else
-            {
-                clockSprite.sprite = clockRed;
-            }
-            tempNPC.transform.localScale = new Vector3(1, 1, 1);
-            if (playerPresent)
+            if (!pauseShowing)
             {
                 clockMenu.pause();
+                pauseShowing = true;
+            } else
+            {
+                clockMenu.resume();
+                pauseShowing = false;
             }
-        }
-        else if (clockSprite.sprite == clockGreen || clockSprite.sprite == clockRed)
-        {
-            clockSprite.sprite = clockOffline;
-            clockMenu.resume();
         }
     }
 
@@ -51,7 +51,15 @@ public class ClockMachineInteractManager : MonoBehaviour, IInteractable
         if (collision.tag == "PlayerTag")
         {
             playerPresent = true;
-        }
+            if (beginning)
+            {
+                clockSprite.sprite = clockGreen;
+                beginning = false;
+            } else
+            {
+                clockSprite.sprite = clockRed;
+            }
+        } 
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -60,6 +68,8 @@ public class ClockMachineInteractManager : MonoBehaviour, IInteractable
         {
             playerPresent = false;
         }
+     
+        clockSprite.sprite = clockOffline;
     }
 
     public void ManualHighlight()
