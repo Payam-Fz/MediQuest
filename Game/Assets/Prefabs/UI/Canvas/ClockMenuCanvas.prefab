@@ -32,11 +32,11 @@ RectTransform:
   m_Children:
   - {fileID: 1752003061398731459}
   m_Father: {fileID: 1752003061514851706}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000015259, y: -24.4}
+  m_AnchoredPosition: {x: 0.000015657, y: -21.5}
   m_SizeDelta: {x: 187.54578, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1752003060785801310
@@ -120,9 +120,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2662112192029449629, guid: 4a76d57ed4d64784ea146223a61fef22, type: 3}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: resume
+      - m_Target: {fileID: 836436977464394836}
+        m_TargetAssemblyTypeName: ClockQuit, Assembly-CSharp
+        m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -145,6 +145,8 @@ GameObject:
   - component: {fileID: 1752003061003440322}
   - component: {fileID: 1752003061003440323}
   - component: {fileID: 8750237479063110449}
+  - component: {fileID: 836436977464394836}
+  - component: {fileID: 3424751305988912865}
   m_Layer: 5
   m_Name: ClockMenuCanvas
   m_TagString: Untagged
@@ -246,6 +248,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clockMenuUI: {fileID: 1752003061514851710}
   gameIsPaused: 0
+--- !u!114 &836436977464394836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752003061003440325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 090e8f9eb0d0b294a92d5630d7692c1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3424751305988912865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752003061003440325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b47f90db3fdf7c4fa6c74da6e0103ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1752003061292166030
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,8 +512,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1752003061292166029}
-  - {fileID: 1752003060785801313}
   - {fileID: 2660501776584252322}
+  - {fileID: 1752003060785801313}
   m_Father: {fileID: 1752003061003440320}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -585,11 +611,11 @@ RectTransform:
   m_Children:
   - {fileID: 4957490813309248812}
   m_Father: {fileID: 1752003061514851706}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000015259, y: -24.4}
+  m_AnchoredPosition: {x: -0.015904, y: 27.2}
   m_SizeDelta: {x: 187.54578, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5334584545342016645
@@ -673,9 +699,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: resume
+      - m_Target: {fileID: 3424751305988912865}
+        m_TargetAssemblyTypeName: ClockMainMenu, Assembly-CSharp
+        m_MethodName: LoadMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
