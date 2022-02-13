@@ -8,7 +8,6 @@ public class ClockMachineInteractManager : MonoBehaviour, IInteractable
     [SerializeField] Sprite clockOffline;
     [SerializeField] Sprite clockGreen;
     [SerializeField] Sprite clockRed;
-    bool playerPresent;
     bool pauseShowing = false;
     bool beginning = true;
     [SerializeField] ClockMenu clockMenu;
@@ -19,29 +18,18 @@ public class ClockMachineInteractManager : MonoBehaviour, IInteractable
         clockSprite = GetComponent<SpriteRenderer>();
     }
 
-    //void Awake()
-    //{
-    //    if (beginning)
-    //    {
-    //        clockSprite.sprite = clockGreen;
-    //        beginning = false;
-    //    }
-    //}
-
     //set color to red when player returns to the machine during game/ turns offline when leaving the machine
     public void Interact()
     {
-        if (playerPresent)
+        if (!pauseShowing)
         {
-            if (!pauseShowing)
-            {
-                clockMenu.pause();
-                pauseShowing = true;
-            } else
-            {
-                clockMenu.resume();
-                pauseShowing = false;
-            }
+            clockMenu.pause();
+            pauseShowing = true;
+        }
+        else
+        {
+            clockMenu.resume();
+            pauseShowing = false;
         }
     }
 
@@ -50,7 +38,6 @@ public class ClockMachineInteractManager : MonoBehaviour, IInteractable
         Debug.Log("Player is at the clock machine");
         if (collision.tag == "PlayerTag")
         {
-            playerPresent = true;
             if (beginning)
             {
                 clockSprite.sprite = clockGreen;
@@ -64,11 +51,7 @@ public class ClockMachineInteractManager : MonoBehaviour, IInteractable
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "PlayerTag")
-        {
-            playerPresent = false;
-        }
-     
+        Debug.Log("Player is outside the clock machine");
         clockSprite.sprite = clockOffline;
     }
 

@@ -23,23 +23,6 @@ public class ClockMenu : MonoBehaviour
         resume();
     }
 
-    //Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log("E key was pressed");
-            if (Time.timeScale == 1)
-            {
-                pause();
-            }
-            else if (Time.timeScale == 0)
-            {
-                resume();
-            }
-        }
-    }
-
     // loadPauseMenu sets the pause menu UI panel to true, making it show in game, and sets the 
     // time scale to 0, which pauses the game. We then update the gameIsPaused variable to true.
     public void pause()
