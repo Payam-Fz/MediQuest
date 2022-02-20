@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26608af9fe59a7a4f8ff766cace1d092, type: 3}
   m_Name: CharacterInfo_Player
   m_EditorClassIdentifier: 
-  genderCode: 0
-  hairColor: 0
-  skinColor: 0
+  <ID>k__BackingField: 
+  <Name>k__BackingField: 
+  <age>k__BackingField: 0
+  <size>k__BackingField: 1
+  <gender>k__BackingField: 0
+  _hairColor: 8
+  _skinColor: 10
