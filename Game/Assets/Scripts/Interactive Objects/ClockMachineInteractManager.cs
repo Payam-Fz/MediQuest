@@ -5,11 +5,12 @@ using UnityEngine;
 public class ClockMachineInteractManager : MonoBehaviour, IInteractable
 {
     SpriteRenderer clockSprite;
-    [SerializeField] Sprite clockOn;
-    [SerializeField] Sprite clockOff;
-    bool playerPresent;
-    [SerializeField] GameObject tempNPC;
-    ClockMenu clockMenu;
+    [SerializeField] Sprite clockOffline;
+    [SerializeField] Sprite clockGreen;
+    [SerializeField] Sprite clockRed;
+    bool pauseShowing = false;
+    bool beginning = true;
+    [SerializeField] ClockMenu clockMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -17,21 +18,18 @@ public class ClockMachineInteractManager : MonoBehaviour, IInteractable
         clockSprite = GetComponent<SpriteRenderer>();
     }
 
+    //set color to red when player returns to the machine during game/ turns offline when leaving the machine
     public void Interact()
     {
-        if (clockSprite.sprite == clockOff)
+        if (!pauseShowing)
         {
-            clockSprite.sprite = clockOn;
-            tempNPC.transform.localScale = new Vector3(1, 1, 1);
-            if (playerPresent)
-            {
-                clockMenu.pause();
-            }
+            clockMenu.pause();
+            pauseShowing = true;
         }
-        else if (clockSprite.sprite == clockOn)
+        else
         {
-            clockSprite.sprite = clockOff;
             clockMenu.resume();
+            pauseShowing = false;
         }
     }
 
@@ -40,22 +38,21 @@ public class ClockMachineInteractManager : MonoBehaviour, IInteractable
         Debug.Log("Player is at the clock machine");
         if (collision.tag == "PlayerTag")
         {
-            playerPresent = true;
-        }
+            if (beginning)
+            {
+                clockSprite.sprite = clockGreen;
+                beginning = false;
+            } else
+            {
+                clockSprite.sprite = clockRed;
+            }
+        } 
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "PlayerTag")
-        {
-            playerPresent = false;
-        }
-    }
-
-    //set colour to green
-    void Awake()
-    {
-
+        Debug.Log("Player is outside the clock machine");
+        clockSprite.sprite = clockOffline;
     }
 
     public void ManualHighlight()
