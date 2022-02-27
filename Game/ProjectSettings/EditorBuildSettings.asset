@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/[ Build ]/MainSection.unity
     guid: b8c249b43265c44b9aba32d08889fd2a
+  - enabled: 1
+    path: Assets/Scenes/Dev/ArielS/MainSection_Ariel.unity
+    guid: 786387e67bbb15741b1af8f4f1c90811
   m_configObjects: {}

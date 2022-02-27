@@ -76,6 +76,8 @@ public class PlayerInteractor : MonoBehaviour
         }
     }
 
+
+
             //interactiveCollider.gameObject.GetComponent<SpriteRenderer>().material.shader = AllIn1Shader.Set
             //Color interactiveColor = interactiveCollider.gameObject.GetComponent<SpriteRenderer>().color;
             //interactiveCollider.gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
