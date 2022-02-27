@@ -20,7 +20,7 @@ public class DiagnosisProgress : ScriptableObject
         public bool isOrdered;
     }
 
-    [SerializeField] bool diagnosisComplete;
+    [SerializeField] public bool diagnosisComplete;
     [SerializeField] TestOrderPair[] testOrders = new TestOrderPair[26];
     public Dictionary<MedicalTest, bool> _testOrders;
 

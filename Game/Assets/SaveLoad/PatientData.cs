@@ -2,23 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatientData : MonoBehaviour
+public class PatientData
 {
+    public int currentDialogueLevel;
+    public int currentLineNumber;
+    public string lastPersonTalked;
+    public bool isTalking;
+    public bool isComplete;
+    public bool diagnosisComplete;
+    public Dictionary<MedicalTest, bool> _testOrders;
 
-    public PatientData(MedicalInfo patientInfo, GameObject gameObject)
+    public PatientData(DialogueProgress dialPro, DiagnosisProgress diagPro)
     {
-
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        this.currentDialogueLevel = dialPro.currentDialogueLevel;
+        this.currentLineNumber = dialPro.currentLineNumber;
+        this.lastPersonTalked = dialPro.lastPersonTalked;
+        this.isTalking = dialPro.isTalking;
+        this.isComplete = dialPro.isComplete;
+        this.diagnosisComplete = diagPro.diagnosisComplete;
+        this._testOrders = diagPro._testOrders;
     }
 }

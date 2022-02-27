@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class StaffData
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int currentDialogueLevel;
+    public int currentLineNumber;
+    public string lastPersonTalked;
+    public bool isTalking;
+    public bool isComplete;
 
-    // Update is called once per frame
-    void Update()
+    public StaffData(DialogueProgress dialPro)
     {
-        
+        this.currentDialogueLevel = dialPro.currentDialogueLevel;
+        this.currentLineNumber = dialPro.currentLineNumber;
+        this.lastPersonTalked = dialPro.lastPersonTalked;
+        this.isTalking = dialPro.isTalking;
+        this.isComplete = dialPro.isComplete;
     }
 }

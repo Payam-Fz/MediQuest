@@ -23,7 +23,7 @@ public class PlayerData
     
     private readonly float[] position;
 
-    public PlayerData(CharacterInfo characterInfo, GameObject gameObject)
+    public PlayerData(CharacterInfo characterInfo)
     {
         ID = characterInfo.ID;
         name = characterInfo.Name;
@@ -32,10 +32,9 @@ public class PlayerData
         gender = characterInfo.gender.ToString();
         hairColor = characterInfo.hairColor;
         skinColor = characterInfo.skinColor;
-        
-        position =  new float[2];
+
+        position = new float[2];
         position[0] = GameObject.FindGameObjectsWithTag("Player")[0].transform.position.x;
-        //Debug.Log();
         position[1] = GameObject.FindGameObjectsWithTag("Player")[1].transform.position.y;
     }
 
@@ -47,4 +46,11 @@ public class PlayerData
     {
         return ToString();
     }
+
+    public void LoadData()
+    {
+
+    }
+    // create a new asset(instance) of the scriptable object (CharacterInfo)
+    // give path to write the scripatable object into resources/data/character/Player
 }
