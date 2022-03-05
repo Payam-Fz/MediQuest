@@ -10,7 +10,7 @@ public class ClockMachineInteractManager : MonoBehaviour, IInteractable
     [SerializeField] Sprite clockRed;
     bool pauseShowing = false;
     bool beginning = true;
-    [SerializeField] ClockMenu clockMenu;
+    [SerializeField] GameObject clockMenuCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -23,12 +23,12 @@ public class ClockMachineInteractManager : MonoBehaviour, IInteractable
     {
         if (!pauseShowing)
         {
-            clockMenu.pause();
+            clockMenuCanvas.SetActive(true);
             pauseShowing = true;
         }
         else
         {
-            clockMenu.resume();
+            clockMenuCanvas.SetActive(false);
             pauseShowing = false;
         }
     }

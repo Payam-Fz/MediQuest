@@ -83,11 +83,11 @@ public static class SaveLoadSystem
 
     public static PatientData LoadPatientData()
     {
-        
+        return null;
     }
 
     public static StaffData LoadStaffData()
     {
-
+        return null;
     }
 }

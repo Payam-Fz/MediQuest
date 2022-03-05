@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class callSceneLoader : MonoBehaviour, IInteractable
+public class SceneTransition : MonoBehaviour, IInteractable
 {
     [SerializeField] SceneLoader sceneLoader;
 

@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
  * Author:  Kenny A @ 2021-11-06
  */
 
-public class PauseMenu : MonoBehaviour
+public class PauseSystem : MonoBehaviour
 {
    public GameObject pauseMenuUI;
    public bool gameIsPaused = false;

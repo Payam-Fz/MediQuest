@@ -13,4 +13,56 @@ MonoBehaviour:
   m_Name: DiagnosisProgress_Martha
   m_EditorClassIdentifier: 
   diagnosisComplete: 0
-  testOrders: []
+  testOrders:
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
+  - testName: 0
+    isOrdered: 0
