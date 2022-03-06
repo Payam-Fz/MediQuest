@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneTransition : MonoBehaviour, IInteractable
+public class CallSceneLoaderToMain : MonoBehaviour, IInteractable
 {
+    
     [SerializeField] SceneLoader sceneLoader;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -18,12 +18,12 @@ public class SceneTransition : MonoBehaviour, IInteractable
         
     }
 
-    public void Interact() 
+    public void Interact()
     {
 
     }
 
-    public void ManualHighlight() 
+    public void ManualHighlight()
     {
 
     }
@@ -33,7 +33,8 @@ public class SceneTransition : MonoBehaviour, IInteractable
         if (collision.tag == "PlayerTag")
         {
             Debug.Log("Player go through the wall");
-            sceneLoader.LoadScene(2);
+            sceneLoader.LoadScene(1);
         }
     }
 }
+
