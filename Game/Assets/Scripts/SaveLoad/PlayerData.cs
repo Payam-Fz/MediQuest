@@ -25,32 +25,55 @@ public class PlayerData
 
     public PlayerData(CharacterInfo characterInfo)
     {
-        ID = characterInfo.ID;
-        name = characterInfo.Name;
-        age = characterInfo.age;
-        size = characterInfo.size;
-        gender = characterInfo.gender.ToString();
-        hairColor = characterInfo.hairColor;
-        skinColor = characterInfo.skinColor;
+        this.ID = characterInfo.ID;
+        this.name = characterInfo.Name;
+        this.age = characterInfo.age;
+        this.size = characterInfo.size;
+        this.gender = characterInfo.gender.ToString();
+        this.hairColor = characterInfo.hairColor;
+        this.skinColor = characterInfo.skinColor;
 
-        position = new float[2];
-        position[0] = GameObject.FindGameObjectsWithTag("Player")[0].transform.position.x;
-        position[1] = GameObject.FindGameObjectsWithTag("Player")[1].transform.position.y;
+        this.position = new float[2];
+        this.position[0] = GameObject.FindGameObjectsWithTag("Player")[0].transform.position.x;
+        this.position[1] = GameObject.FindGameObjectsWithTag("Player")[0].transform.position.y;
     }
 
     public float[] Position => position;
 
     public float[] Position1 => position;
 
+    public void SavePlayerData()
+    {
+        SaveLoadSystem.SavePlayerData();
+    }
+
+    public void LoadPlayerData()
+    {
+        const string resource_path = "Assets/Resources/Data/Character";
+        CharacterInfo characterInfo = ScriptableObject.CreateInstance<CharacterInfo>();
+        
+        PlayerData playerData = SaveLoadSystem.LoadPlayerData();
+
+        characterInfo.ID = playerData.ID;
+        characterInfo.Name = playerData.name;
+        characterInfo.age = playerData.age;
+        characterInfo.size = playerData.size;
+        characterInfo.gender = playerData.gender.ToString();
+        characterInfo.hairColor = playerData.hairColor;
+        characterInfo.skinColor = playerData.skinColor;
+        GameObject.FindGameObjectsWithTag("Player")[0].transform.position.x = playerData.position[0];
+        GameObject.FindGameObjectsWithTag("Player")[0].transform.position.y = playerData.position[1];
+
+        AssetDatabase.CreateAsset(characterInfo, resource_path + "/Player/CharacterInfo_Player.asset");
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+        EditorUtility.FocusProjectWindow();
+        Selection.activeObject = characterInfo;
+    }
+
     private string GetDebuggerDisplay()
     {
         return ToString();
     }
 
-    public void LoadData()
-    {
-
-    }
-    // create a new asset(instance) of the scriptable object (CharacterInfo)
-    // give path to write the scripatable object into resources/data/character/Player
 }

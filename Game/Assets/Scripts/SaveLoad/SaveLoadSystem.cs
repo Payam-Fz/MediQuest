@@ -2,6 +2,10 @@
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
+/* Stores the attributes/data of the patient
+ * Author:  Min @ 2022-03-05
+ */
+
 // Save the data of the patient into a file
 public static class SaveLoadSystem
 {
@@ -10,16 +14,20 @@ public static class SaveLoadSystem
     const string staff_path = "/MediQuest/StaffData/";
     const string resource_path = "Data/Character";
 
+
     // Save the binary data of the player into a file
-    public static void SavePlayerData(CharacterInfo characterInfo)
+    public static void SavePlayerData()
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + player_path;
-        FileStream stream = new FileStream(path, FileMode.Create);
+        var Player_Folder = Directory.GetDirectories(resource_path + "/Player");
+        CharacterInfo characterInfo = Resources.Load<CharacterInfo>(Player_Folder);
 
+        string path = Application.persistentDataPath + player_path + Player_Folder + ".bin";
+        FileStream stream = new FileStream(path, FileMode.Create);
         PlayerData playerData = new PlayerData(characterInfo);
 
         formatter.Serialize(stream, playerData);
+        Debug.log("Saved Player into" + path);
         stream.Close();
     }
 
@@ -32,12 +40,15 @@ public static class SaveLoadSystem
         DialogueProgress patientDialPro;
         foreach (var patient_folder in Patient_Folders)
         {
-            patientDialPro = Resources.Load<DialogueProgress>(patient_folder);
             patientDiagPro = Resources.Load<DiagnosisProgress>(patient_folder);
+            patientDialPro = Resources.Load<DialogueProgress>(patient_folder);
+
             string path = Application.persistentDataPath + patient_path + patient_folder + ".bin";
             FileStream stream = new FileStream(path, FileMode.Create);
             PatientData patientData = new PatientData(patientDialPro, patientDiagPro);
+
             formatter.Serialize(stream, patientData);
+            Debug.log("Saved Patient into" + path);
             stream.Close();
         }
     }
@@ -51,25 +62,29 @@ public static class SaveLoadSystem
         foreach (var staff_folder in Staff_Folders)
         {
             staffDialPro = Resources.Load<DialogueProgress>(staff_folder);
+
             string path = Application.persistentDataPath + staff_path + staff_folder + ".bin";
             StaffData staffData = new StaffData(staffDialPro);
             FileStream stream = new FileStream(path, FileMode.Create);
+
             formatter.Serialize(stream, staffData);
+            Debug.log("Saved Staff into" + path);
             stream.Close();
         }
     }
     
 
-    // Load the data of the patient from a file
+    // Load the data of the Player from a file/path
     public static PlayerData LoadPlayerData()
     {
-        string path = Application.persistentDataPath + player_path;
+        string path = Application.persistentDataPath + player_path + Player_Folder + ".bin";
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
 
             PlayerData data = formatter.Deserialize(stream) as PlayerData;
+            Debug.log("Loaded from" + path);
             stream.Close();
 
             return data;
@@ -81,11 +96,30 @@ public static class SaveLoadSystem
         }
     }
 
+
+    // Load the data of the Patients from its respective files/paths
     public static PatientData LoadPatientData()
     {
-        return null;
+        string path = Application.persistentDataPath + player_path + Player_Folder + ".bin";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            PlayerData data = formatter.Deserialize(stream) as PlayerData;
+            Debug.log("Loaded from" + path);
+            stream.Close();
+
+            return data;
+        }
+        else
+        {
+            Debug.LogError("File not found in " + path);
+            return null;
+        }
     }
 
+    // Load the data of the Staffs from its respective files/paths
     public static StaffData LoadStaffData()
     {
         return null;

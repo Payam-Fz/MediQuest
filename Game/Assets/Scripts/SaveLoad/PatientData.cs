@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Stores the attributes/data of the patient
+ * Author:  Min @ 2022-03-05
+ */
+
 public class PatientData
 {
     public int currentDialogueLevel;
@@ -22,4 +26,38 @@ public class PatientData
         this.diagnosisComplete = diagPro.diagnosisComplete;
         this._testOrders = diagPro._testOrders;
     }
+
+    public void SavePatientData()
+    {
+        SaveLoadSystem.SavePatientData();
+    }
+
+    public void LoadPatientData()
+    {
+        DialogueProgress dialogueProgress = ScriptableObject.CreateInstance<DialogueProgress>();
+        DiagnosisProgresss diagnosisProgress = ScriptableObject.CreateInstance<DiagnosisProgress>();
+
+        PatientData patientData = SaveLoadSystem.LoadPatientData;
+
+        dialogueProgress.currentDialogueLevel = patientData.currentDialogueLevel;
+        dialogueProgress.currentLineNumber = patientData.currentLineNumber;
+        dialogueProgress.lastPersonTalked = patientData.lastPersonTalked;
+        dialogueProgress.isTalking = patientData.isTalking;
+        dialogueProgress.isComplete = patientData.isComplete;
+        diagnosisProgress.diagnosisComplete = patientData.diagnosisComplete;
+
+        foreach (KeyValuePair<TKey, TValue> pair in dictionary)
+        {
+            this.Add(pair.Key, pair.Value);
+        }
+
+        //AssetDatabase.CreateAsset(characterInfo, resource_path + "/Player/CharacterInfo_Player.asset");
+        //AssetDatabase.SaveAssets();
+        //AssetDatabase.Refresh();
+        //EditorUtility.FocusProjectWindow();
+        //Selection.activeObject = ;
+    }
+
+    // TODO: LoadPatientData(for each loop for dictionary), LoadStaffData from this
+	// TODO: LoadPatientData, LoadStaffData from SaveLoadSystem (use for loop)
 }

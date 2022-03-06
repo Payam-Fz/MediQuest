@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Stores the attributes/data of the patient
+ * Author:  Min @ 2022-03-05
+ */
+
 public class StaffData
 {
     public int currentDialogueLevel;
@@ -17,5 +21,15 @@ public class StaffData
         this.lastPersonTalked = dialPro.lastPersonTalked;
         this.isTalking = dialPro.isTalking;
         this.isComplete = dialPro.isComplete;
+    }
+
+    public void SaveStaffData()
+    {
+        SaveLoadSystem.SaveStaffData();
+    }
+
+    public void LoadStaffData()
+    {
+        
     }
 }
