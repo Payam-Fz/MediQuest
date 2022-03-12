@@ -6,6 +6,7 @@ using UnityEngine;
  * Author:  Min @ 2022-03-05
  */
 
+[System.Serializable]
 public class StaffData
 {
     public int currentDialogueLevel;
@@ -23,12 +24,7 @@ public class StaffData
         this.isComplete = dialPro.isComplete;
     }
 
-    public void SaveStaffData()
-    {
-        SaveLoadSystem.SaveStaffData();
-    }
-
-    public void LoadStaffData()
+    public void LoadToObject()
     {
         
     }

@@ -8,10 +8,11 @@ public class SceneLoader : MonoBehaviour
     private int targetScene = 1; //MainSection
 
     public void DelayedLoadFirstScene(float delayDuration)
-   {
-       this.targetScene = 1;  
-       Invoke("Load", delayDuration);
-   }
+    {
+        this.targetScene = 1;
+        SaveLoadSystem.LoadAllData();
+        Invoke("Load", delayDuration);
+    }
 
     public void LoadScene(int targetScene)
     {
@@ -26,6 +27,7 @@ public class SceneLoader : MonoBehaviour
 
     public void QuitGame()
     {
+        SaveLoadSystem.SaveAllData();
         Application.Quit();
     }
 }

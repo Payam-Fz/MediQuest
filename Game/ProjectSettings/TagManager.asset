@@ -5,9 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Martha
-  - PlayerTag
   - Door
   - TransitionWall
+  - Patient
+  - Staff
   layers:
   - Default
   - TransparentFX

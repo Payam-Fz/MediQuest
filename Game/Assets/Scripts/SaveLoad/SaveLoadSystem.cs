@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using UnityEditor;
 
 /* Stores the attributes/data of the patient
  * Author:  Min @ 2022-03-05
@@ -9,119 +10,170 @@ using UnityEngine;
 // Save the data of the patient into a file
 public static class SaveLoadSystem
 {
-    const string player_path = "/MediQuest/PlayerData.bin";
-    const string patient_path = "/MediQuest/PatientData/";
-    const string staff_path = "/MediQuest/StaffData/";
-    const string resource_path = "Data/Character";
+    const string root_save_path = "/Save_Data";
 
-
-    // Save the binary data of the player into a file
-    public static void SavePlayerData()
+    private static void CreateSavePath()
     {
+        string rootDir = Application.persistentDataPath + root_save_path ;
+        if (!Directory.Exists(rootDir + "/Player")) {
+            Directory.CreateDirectory(rootDir + "/Player");
+        }
+        if (!Directory.Exists(rootDir + "/Patients"))
+        {
+            Directory.CreateDirectory(rootDir + "/Patients");
+        }
+        if (!Directory.Exists(rootDir + "/Staff"))
+        {
+            Directory.CreateDirectory(rootDir + "/Staff");
+        }
+    }
+    
+    // Save the binary data of the player into a file
+    private static void SavePlayerData()
+    {
+        // Getting player's data from object
+        CharacterInfo characterInfo = GameObject.FindGameObjectWithTag("Player").GetComponent<DataContainer>().characterInfo;
+
+        // Saving playerData
         BinaryFormatter formatter = new BinaryFormatter();
-        var Player_Folder = Directory.GetDirectories(resource_path + "/Player");
-        CharacterInfo characterInfo = Resources.Load<CharacterInfo>(Player_Folder);
-
-        string path = Application.persistentDataPath + player_path + Player_Folder + ".bin";
-        FileStream stream = new FileStream(path, FileMode.Create);
+        string savePath = Application.persistentDataPath + root_save_path + "/Player" + "/PlayerData.bin";
+        FileStream stream = new FileStream(savePath, FileMode.Create);
         PlayerData playerData = new PlayerData(characterInfo);
-
         formatter.Serialize(stream, playerData);
-        Debug.log("Saved Player into" + path);
+        Debug.Log("Saved Player's data into " + savePath);
         stream.Close();
     }
 
     // Save the binary data of the patient instances into its respective files
-    public static void SavePatientData()
+    private static void SavePatientData()
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        var Patient_Folders = Directory.GetDirectories(resource_path + "/Patients");
+        FileStream stream;
+
+        var allPatients = GameObject.FindGameObjectsWithTag("Patient");
+        string savepath;
+        PatientData patientData;
         DiagnosisProgress patientDiagPro;
         DialogueProgress patientDialPro;
-        foreach (var patient_folder in Patient_Folders)
+        
+        foreach (var patient in allPatients)
         {
-            patientDiagPro = Resources.Load<DiagnosisProgress>(patient_folder);
-            patientDialPro = Resources.Load<DialogueProgress>(patient_folder);
+            // Getting patient's data from objects
+            patientDiagPro = patient.GetComponent<DataContainer>().diagnosisProgress;
+            patientDialPro = patient.GetComponent<DataContainer>().dialogueProgress;
 
-            string path = Application.persistentDataPath + patient_path + patient_folder + ".bin";
-            FileStream stream = new FileStream(path, FileMode.Create);
-            PatientData patientData = new PatientData(patientDialPro, patientDiagPro);
-
+            // Saving PatientData
+            savepath = Application.persistentDataPath + root_save_path + "/Patients/" + patient.name + ".bin";
+            patientData = new PatientData(patient.name, patientDialPro, patientDiagPro);
+            stream = new FileStream(savepath, FileMode.Create);
             formatter.Serialize(stream, patientData);
-            Debug.log("Saved Patient into" + path);
+            Debug.Log("Saved Patient's data into " + savepath);
             stream.Close();
         }
     }
 
     // Save the binary data of the staff instances into its respective files
-    public static void SaveStaffData()
+    private static void SaveStaffData()
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        var Staff_Folders = Directory.GetDirectories(resource_path + "/Staff");
+        FileStream stream;
+
+        var allStaff = GameObject.FindGameObjectsWithTag("Staff");
+        string savePath;
+        StaffData staffData;
         DialogueProgress staffDialPro;
-        foreach (var staff_folder in Staff_Folders)
+
+        foreach (var staff in allStaff)
         {
-            staffDialPro = Resources.Load<DialogueProgress>(staff_folder);
+            // Getting staff's data from objects
+            staffDialPro = staff.GetComponent<DataContainer>().dialogueProgress;
 
-            string path = Application.persistentDataPath + staff_path + staff_folder + ".bin";
-            StaffData staffData = new StaffData(staffDialPro);
-            FileStream stream = new FileStream(path, FileMode.Create);
-
+            // Saving StaffData
+            savePath = Application.persistentDataPath + root_save_path + "/Staff/" + staff.name + ".bin";
+            staffData = new StaffData(staffDialPro);
+            stream = new FileStream(savePath, FileMode.Create);
             formatter.Serialize(stream, staffData);
-            Debug.log("Saved Staff into" + path);
+            Debug.Log("Saved Staff's data into " + savePath);
             stream.Close();
         }
     }
     
 
     // Load the data of the Player from a file/path
-    public static PlayerData LoadPlayerData()
+    private static void LoadPlayerData()
     {
-        string path = Application.persistentDataPath + player_path + Player_Folder + ".bin";
-        if (File.Exists(path))
+        string savedPath = Application.persistentDataPath + root_save_path + "/Player" + "/PlayerData.bin";
+        if (File.Exists(savedPath))
         {
+            // Getting PlayerData from saved file
             BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
+            FileStream stream = new FileStream(savedPath, FileMode.Open);
 
+            // Loading PlayerData
             PlayerData data = formatter.Deserialize(stream) as PlayerData;
-            Debug.log("Loaded from" + path);
+            data.LoadToObject();
             stream.Close();
-
-            return data;
+            Debug.Log("Loaded Player's data from " + savedPath);
         }
         else
         {
-            Debug.LogError("File not found in " + path);
-            return null;
+            Debug.LogError("File not found in " + savedPath);
         }
     }
 
 
     // Load the data of the Patients from its respective files/paths
-    public static PatientData LoadPatientData()
+    private static void LoadPatientData()
     {
-        string path = Application.persistentDataPath + player_path + Player_Folder + ".bin";
-        if (File.Exists(path))
-        {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
+        string rootSavedPath = Application.persistentDataPath + root_save_path + "/Patients/";
+        var allPatientsBinFiles = Directory.GetFiles(rootSavedPath);
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream stream;
+        PatientData data;
 
-            PlayerData data = formatter.Deserialize(stream) as PlayerData;
-            Debug.log("Loaded from" + path);
-            stream.Close();
-
-            return data;
-        }
-        else
+        foreach (string patientBinFile in allPatientsBinFiles)
         {
-            Debug.LogError("File not found in " + path);
-            return null;
+            if (File.Exists(patientBinFile))
+            {
+                // Getting PatientData from saved file
+                stream = new FileStream(patientBinFile, FileMode.Open);
+
+                // Loading PatientData
+                data = formatter.Deserialize(stream) as PatientData;
+                data.LoadToObject();
+                stream.Close();
+                Debug.Log("Loaded Patient's data from " + patientBinFile);
+            }
+            else
+            {
+                Debug.LogError("File not found in " + rootSavedPath);
+            }
         }
     }
 
     // Load the data of the Staffs from its respective files/paths
-    public static StaffData LoadStaffData()
+    private static void LoadStaffData()
     {
-        return null;
+
+    }
+
+    public static void SaveAllData()
+    {
+        CreateSavePath();
+
+        SavePlayerData();
+        SavePatientData();
+        SaveStaffData();
+    }
+
+    public static void LoadAllData()
+    {
+        LoadPlayerData();
+        LoadPatientData();
+        LoadStaffData();
+
+        //probably unnecessary
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
     }
 }

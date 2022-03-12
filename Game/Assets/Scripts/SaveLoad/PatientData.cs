@@ -1,63 +1,59 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 /* Stores the attributes/data of the patient
  * Author:  Min @ 2022-03-05
  */
 
+[System.Serializable]
 public class PatientData
 {
-    public int currentDialogueLevel;
-    public int currentLineNumber;
-    public string lastPersonTalked;
-    public bool isTalking;
-    public bool isComplete;
-    public bool diagnosisComplete;
-    public Dictionary<MedicalTest, bool> _testOrders;
+    private string name;
 
-    public PatientData(DialogueProgress dialPro, DiagnosisProgress diagPro)
+    private int currentDialogueLevel;
+    private int currentLineNumber;
+    private string lastPersonTalked;
+    private bool isTalking;
+    private bool isComplete;
+    private bool diagnosisComplete;
+    private List<TestOrderPair> testOrders;
+
+    public PatientData(string name, DialogueProgress dialPro, DiagnosisProgress diagPro)
     {
+        this.name = name;
         this.currentDialogueLevel = dialPro.currentDialogueLevel;
         this.currentLineNumber = dialPro.currentLineNumber;
         this.lastPersonTalked = dialPro.lastPersonTalked;
         this.isTalking = dialPro.isTalking;
         this.isComplete = dialPro.isComplete;
         this.diagnosisComplete = diagPro.diagnosisComplete;
-        this._testOrders = diagPro._testOrders;
+        this.testOrders = new List<TestOrderPair> (diagPro.testOrders);
     }
 
-    public void SavePatientData()
+    // Puts the content of this class to the corresponding assets
+    public void LoadToObject()
     {
-        SaveLoadSystem.SavePatientData();
-    }
-
-    public void LoadPatientData()
-    {
-        DialogueProgress dialogueProgress = ScriptableObject.CreateInstance<DialogueProgress>();
-        DiagnosisProgresss diagnosisProgress = ScriptableObject.CreateInstance<DiagnosisProgress>();
-
-        PatientData patientData = SaveLoadSystem.LoadPatientData;
-
-        dialogueProgress.currentDialogueLevel = patientData.currentDialogueLevel;
-        dialogueProgress.currentLineNumber = patientData.currentLineNumber;
-        dialogueProgress.lastPersonTalked = patientData.lastPersonTalked;
-        dialogueProgress.isTalking = patientData.isTalking;
-        dialogueProgress.isComplete = patientData.isComplete;
-        diagnosisProgress.diagnosisComplete = patientData.diagnosisComplete;
-
-        foreach (KeyValuePair<TKey, TValue> pair in dictionary)
+        GameObject patient = GameObject.Find(name);
+        if (patient.tag != "Patient")
         {
-            this.Add(pair.Key, pair.Value);
+            Debug.LogError("Patient object with name = " + name + " not found. ");
+            return;
         }
+        DialogueProgress dialProg = ScriptableObject.CreateInstance<DialogueProgress>();
+        DiagnosisProgress diagProg = ScriptableObject.CreateInstance<DiagnosisProgress>();
 
-        //AssetDatabase.CreateAsset(characterInfo, resource_path + "/Player/CharacterInfo_Player.asset");
-        //AssetDatabase.SaveAssets();
-        //AssetDatabase.Refresh();
-        //EditorUtility.FocusProjectWindow();
-        //Selection.activeObject = ;
+        dialProg.currentDialogueLevel = this.currentDialogueLevel;
+        dialProg.currentLineNumber = this.currentLineNumber;
+        dialProg.lastPersonTalked = this.lastPersonTalked;
+        dialProg.isTalking = this.isTalking;
+        dialProg.isComplete = this.isComplete;
+        diagProg.diagnosisComplete = this.diagnosisComplete;
+        diagProg.testOrders = this.testOrders.ToArray();
+
+        patient.GetComponent<DataContainer>().diagnosisProgress = diagProg;
+        patient.GetComponent<DataContainer>().dialogueProgress = dialProg;
     }
 
-    // TODO: LoadPatientData(for each loop for dictionary), LoadStaffData from this
-	// TODO: LoadPatientData, LoadStaffData from SaveLoadSystem (use for loop)
 }

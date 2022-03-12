@@ -36,7 +36,7 @@ public class NPCMover : MonoBehaviour
         GetComponent<AudioSource>().clip = doorSFX.clip;
         GetComponent<AudioSource>().volume = 0.326f;
         GetComponent<AudioSource>().pitch = 0.84f;
-        player = GameObject.FindGameObjectWithTag("PlayerTag");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
 
