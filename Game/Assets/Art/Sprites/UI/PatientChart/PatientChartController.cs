@@ -13,11 +13,24 @@ public class PatientChartController : MonoBehaviour
     [SerializeField] MedicalInfo patientMedicalInfo;
 
     // Start is called before the first frame update
-    void Start()
+
+    public void AssignAndFillPlayerDetails(string objectName)
     {
+        GameObject patient = GameObject.Find(objectName);
+        if (patient.tag != "Patient")
+        {
+            Debug.LogError("Patient object with name = " + name + " not found. ");
+            return;
+        }
+        GameObject doctor = GameObject.FindGameObjectWithTag("Player");
+        patientBackground = patient.GetComponent<DataContainer>().characterInfo;
+        doctorBackground = doctor.GetComponent<DataContainer>().characterInfo;
+        patientProgress = patient.GetComponent<DataContainer>().diagnosisProgress;
+        patientMedicalInfo = patient.GetComponent<DataContainer>().medicalInfo;
         FillPatientBackground();
     }
-    void FillPatientBackground()
+
+    public void FillPatientBackground()
     {
         //string dateTime
         string physician = doctorBackground.Name;
