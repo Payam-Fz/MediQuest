@@ -2,6 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * A pair for <MedicalTest, bool>
+ */
+[System.Serializable]
+public struct TestOrderPair
+{
+    public MedicalTest testName;
+    public bool isOrdered;
+}
 
 /*
  * Stores the data for current state of a patient diagnosis
@@ -10,18 +19,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DiagnosisProgress_name", menuName = "CodeBlue/Diagnosis Progress")]
 public class DiagnosisProgress : ScriptableObject
 {
-    /*
-     * A pair for <MedicalTest, bool>
-     */
-    [System.Serializable]
-    private struct TestOrderPair
-    {
-        public MedicalTest testName;
-        public bool isOrdered;
-    }
-
-    [SerializeField] bool diagnosisComplete;
-    [SerializeField] TestOrderPair[] testOrders = new TestOrderPair[26];
+    [SerializeField] public bool diagnosisComplete;
+    [SerializeField] public TestOrderPair[] testOrders = new TestOrderPair[26];
     public Dictionary<MedicalTest, bool> _testOrders;
 
     void Awake()
