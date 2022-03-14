@@ -8,7 +8,6 @@ public class TVInteractManager : MonoBehaviour, IInteractable
     [SerializeField] Sprite tvOn;
     [SerializeField] Sprite tvOff;
 
-    [SerializeField] GameObject tempNPC;
     AudioSource tvSound;
     bool playerPresent;
 
@@ -24,7 +23,6 @@ public class TVInteractManager : MonoBehaviour, IInteractable
         if(tvSprite.sprite == tvOff)
         {
             tvSprite.sprite = tvOn;
-            tempNPC.transform.localScale = new Vector3(1, 1, 1);
             if (playerPresent)
             {
                 tvSound.Play();
@@ -40,10 +38,9 @@ public class TVInteractManager : MonoBehaviour, IInteractable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Player is at the TV");
-        
-        if (collision.tag == "PlayerTag")
+        if (collision.tag == "Player")
         {
+            Debug.Log("Player is at the TV");
             playerPresent = true;
             if(tvSprite.sprite == tvOn)
             {

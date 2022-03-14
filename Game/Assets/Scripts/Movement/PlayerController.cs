@@ -4,90 +4,81 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public float speed = 2f;
 
-    [SerializeField] private float playerSpeed = 10f;
-    private Vector2 playerInput;
+    private Vector3 moveDirection;
+    private Rigidbody2D playerRigidBody;
 
-    private Rigidbody2D playerRb;
-    private CapsuleCollider2D playerCollider;
-    
+    // Start is called before the first frame update
     void Start()
     {
-        playerRb = GetComponent<Rigidbody2D>();
-        playerCollider = GetComponent<CapsuleCollider2D>();
-
-    }
-
-    void Update()
-    {
-        playerInput.x = Input.GetAxisRaw("Horizontal");
-        playerInput.y = Input.GetAxisRaw("Vertical");
-    }
-
-    private void FixedUpdate()
-    {
-        playerRb.transform.Translate(playerInput * playerSpeed * Time.fixedDeltaTime, Space.World);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.name == "Start Room")
-        {
-            playerRb.transform.position = new Vector3(-11.5f, 0.75f); //(-12.5f, 0.5f) <steph's scene
-        }
-        else if (collision.gameObject.name == "End Room")
-        {
-            playerRb.transform.position = new Vector3(-7.25f, 0.75f);
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*
-    private float playerSpeed = 10f;
-    private Rigidbody2D playerRb;
-    private CircleCollider2D playerCollider;
-    private Vector2 playerInput;
-
-    void Start()
-    {
-        playerRb = GetComponent<Rigidbody2D>();
-        playerCollider = GetComponent<CircleCollider2D>();
+        playerRigidBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerInput.x = Input.GetAxisRaw("Horizontal");
-        playerInput.y = Input.GetAxisRaw("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        moveDirection = new Vector3(horizontal, vertical).normalized;
+        SetAnimatorDirection(horizontal, vertical);
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        playerRb.transform.Translate(playerInput * Time.fixedDeltaTime * playerSpeed);
+        playerRigidBody.velocity = moveDirection * speed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void SetAnimatorDirection(float horizontal, float vertical)
     {
-        if(collision.gameObject.name == "Start Room")
+        Direction direction;
+
+
+        if (horizontal < 0)
         {
-            playerRb.transform.position = new Vector3(-11f, 0.75f);
-        } 
-        else if (collision.gameObject.name == "End Room")
-        {
-            playerRb.transform.position = new Vector3(-7.25f, 0.75f);
+            if (vertical < 0)
+            {
+                direction = Direction.LeftFront;
+            }
+            else if (vertical > 0)
+            {
+                direction = Direction.LeftBack;
+            }
+            else      // vertical == 0
+            {
+                direction = Direction.Left;
+            }
         }
+        else if (horizontal == 0)
+        {
+            if (vertical < 0)
+            {
+                direction = Direction.Front;
+            }
+            else if (vertical > 0)
+            {
+                direction = Direction.Back;
+            }
+            else      // vertical == 0
+            {
+                direction = Direction.Standing;
+            }
+        }
+        else // horizontal > 0
+        {
+            if (vertical < 0)
+            {
+                direction = Direction.RightFront;
+            }
+            else if (vertical > 0)
+            {
+                direction = Direction.RightBack;
+            }
+            else      // vertical == 0
+            {
+                direction = Direction.Right;
+            }
+        }
+        GetComponentInChildren<Animator>().SetInteger("Direction", (int)direction);
     }
-    */
 }
