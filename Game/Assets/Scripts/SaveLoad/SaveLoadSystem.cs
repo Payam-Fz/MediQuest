@@ -90,7 +90,7 @@ public static class SaveLoadSystem
 
             // Saving StaffData
             savePath = Application.persistentDataPath + root_save_path + "/Staff/" + staff.name + ".bin";
-            staffData = new StaffData(staffDialPro);
+            staffData = new StaffData(staff.name, staffDialPro);
             stream = new FileStream(savePath, FileMode.Create);
             formatter.Serialize(stream, staffData);
             Debug.Log("Saved Staff's data into " + savePath);
@@ -154,7 +154,30 @@ public static class SaveLoadSystem
     // Load the data of the Staffs from its respective files/paths
     private static void LoadStaffData()
     {
+        string rootSavedPath = Application.persistentDataPath + root_save_path + "/Staff/";
+        var allStaffBinFiles = Directory.GetFiles(rootSavedPath);
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream stream;
+        StaffData data;
 
+        foreach (string staffBinFile in allStaffBinFiles)
+        {
+            if (File.Exists(staffBinFile))
+            {
+                // Getting StaffData from saved file
+                stream = new FileStream(staffBinFile, FileMode.Open);
+
+                // Loading StaffData
+                data = formatter.Deserialize(stream) as StaffData;
+                data.LoadToObject();
+                stream.Close();
+                Debug.Log("Loaded Staff's data from " + staffBinFile);
+            }
+            else
+            {
+                Debug.LogError("File not found in " + rootSavedPath);
+            }
+        }
     }
 
     public static void SaveAllData()

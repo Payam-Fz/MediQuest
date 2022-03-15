@@ -55,6 +55,7 @@ public class PlayerData
         charInfo.skinColor = this.skinColor;
 
         player.transform.position.Set(this.position[0], this.position[1], 0);
+
         player.GetComponent<DataContainer>().characterInfo = charInfo;
     }
 }
