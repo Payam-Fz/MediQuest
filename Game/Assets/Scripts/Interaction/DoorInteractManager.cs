@@ -10,7 +10,7 @@ public class DoorInteractManager : MonoBehaviour, IInteractable
     [SerializeField] Sprite doorOpen;
     [SerializeField] Sprite doorOpenHL;
 
-    [SerializeField] GameObject player;
+    private GameObject player;
     [SerializeField] Transform doorEntrance;
     [SerializeField] Transform doorExit;
     bool playerInRoom = false;
@@ -22,6 +22,7 @@ public class DoorInteractManager : MonoBehaviour, IInteractable
     {
         doorSprite = GetComponent<SpriteRenderer>();
         doorOpenSound = GetComponent<AudioSource>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void Interact()

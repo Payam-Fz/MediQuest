@@ -1,38 +1,46 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PatientChartController : MonoBehaviour
 {
-    public Behaviour Chart_Canvas;
+    public Behaviour chart_Canvas;
     [SerializeField] CharacterInfo patientBackground;
     [SerializeField] CharacterInfo doctorBackground;
     [SerializeField] DiagnosisProgress patientProgress;
     [SerializeField] MedicalInfo patientMedicalInfo;
 
     // Start is called before the first frame update
-    void Start()
+
+    public void AssignAndFillPlayerDetails(string objectName)
     {
+        GameObject patient = GameObject.Find(objectName);
+        if (patient.tag != "Patient")
+        {
+            Debug.LogError("Patient object with name = " + name + " not found. ");
+            return;
+        }
+        GameObject doctor = GameObject.FindGameObjectWithTag("Player");
+        patientBackground = patient.GetComponent<DataContainer>().characterInfo;
+        doctorBackground = doctor.GetComponent<DataContainer>().characterInfo;
+        patientProgress = patient.GetComponent<DataContainer>().diagnosisProgress;
+        patientMedicalInfo = patient.GetComponent<DataContainer>().medicalInfo;
         FillPatientBackground();
     }
 
-    private void Update()
-    {
-
-    }
-
-    void FillPatientBackground()
+    public void FillPatientBackground()
     {
         //string dateTime
         string physician = doctorBackground.Name;
         string name = patientBackground.Name;
         string age = patientBackground.age.ToString();
         string sex = patientBackground.gender.ToString();
+        Dictionary<MedicalTest, string> tests = getPatientTests();
         //string complaint;
         //string illness;
         //string history;
-        //string test;
         //string dx;
         //string plan;
 
@@ -47,17 +55,38 @@ public class PatientChartController : MonoBehaviour
 
         Transform patient_sex = transform.Find("Sex");
         patient_sex.GetComponent<Text>().text = sex;
+
+        Transform patient_tests = transform.Find("Test");
+        foreach (var test in tests)
+        {
+            patient_tests.GetComponent<Text>().text = Enum.GetName(typeof(MedicalTest), test.Key) + ": " + test.Value + "\n";
+        }
+
+    }
+
+    Dictionary<MedicalTest, string> getPatientTests()
+    {
+        Dictionary<MedicalTest, string> final_results = new Dictionary<MedicalTest, string>();
+        foreach (var item in patientProgress.testOrders)
+        {
+            if (item.isOrdered == true)
+            {
+                string result = patientMedicalInfo._testResults[item.testName];
+                final_results.Add(item.testName, result);
+            }
+        }
+        return final_results;
     }
 
     void Activate()
     {
         Debug.Log("Patient Chart has been activated");
-        Chart_Canvas.GetComponent<Canvas>().gameObject.SetActive(true);
+        chart_Canvas.GetComponent<Canvas>().gameObject.SetActive(true);
     }
 
     void Deactivate()
     {
         Debug.Log("Patient Chart has been deactivated");
-        Chart_Canvas.GetComponent<Canvas>().gameObject.SetActive(true);
+        chart_Canvas.GetComponent<Canvas>().gameObject.SetActive(true);
     }
 }
