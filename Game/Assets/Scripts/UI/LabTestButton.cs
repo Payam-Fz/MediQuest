@@ -8,7 +8,7 @@ private string charID;
 private Queue[] queue;
 
 void Start() {
-    queue = Resources.LoadAll<Queue>("Data/Queue");
+    queue = Resources.LoadAll<Queue>("Queue");
 }
 
 public void OnPointerDown (PointerEventData eventData){

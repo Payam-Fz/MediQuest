@@ -13,22 +13,28 @@ public int getQueueSize() {
     return queue.Count;
 }
 
-public void queueAdd(string id) {
+public void queueAdd(string objectName) {
     if (getQueueSize() < maxSize) {
-        queue.Add(id);
+        queue.Add(objectName);
     }
 }
 
-public string getId(int i) {
+public string getName(int i) {
     if(i <= getQueueSize()) {
-        return queue[i-1];
+        return getNameFromRef(queue[i-1]);
     } else {
         return "error";
     }
 }
 
-public string getNameFromRef(string s) {
-    return GameObject.Find(s).GetComponent<DataContainer>().CharacterInfo.name;
+private string getNameFromRef(string objectName) {
+    GameObject patient = GameObject.Find(objectName);
+    if (patient.tag != "Patient")
+            {
+                Debug.LogError("Patient object with name = " + name + " not found. ");
+                return "error";
+            }
+    return patient.GetComponent<DataContainer>().characterInfo.name;
 }
 
 }
