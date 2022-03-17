@@ -38,8 +38,6 @@ public class PlayerData
 
     public float[] Position => position;
 
-    public float[] Position1 => position;
-
     public void LoadToObject()
     {
         //const string assetPath = "Assets/Resources/Data/Player";

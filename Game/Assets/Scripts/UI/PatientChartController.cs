@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class PatientChartController : MonoBehaviour
 {
     public Behaviour chart_Canvas;
-    [SerializeField] CharacterInfo patientBackground;
-    [SerializeField] CharacterInfo doctorBackground;
-    [SerializeField] DiagnosisProgress patientProgress;
+    [SerializeField] CharacterInfo patientBio;
+    [SerializeField] CharacterInfo doctorBio;
+    [SerializeField] DiagnosisProgress patientDiagnosisProgress;
     [SerializeField] MedicalInfo patientMedicalInfo;
 
     // Start is called before the first frame update
@@ -23,26 +23,36 @@ public class PatientChartController : MonoBehaviour
             return;
         }
         GameObject doctor = GameObject.FindGameObjectWithTag("Player");
-        patientBackground = patient.GetComponent<DataContainer>().characterInfo;
-        doctorBackground = doctor.GetComponent<DataContainer>().characterInfo;
-        patientProgress = patient.GetComponent<DataContainer>().diagnosisProgress;
+        patientBio = patient.GetComponent<DataContainer>().characterInfo;
+        doctorBio = doctor.GetComponent<DataContainer>().characterInfo;
+        patientDiagnosisProgress = patient.GetComponent<DataContainer>().diagnosisProgress;
         patientMedicalInfo = patient.GetComponent<DataContainer>().medicalInfo;
         FillPatientBackground();
     }
 
+    // Payam F : Set up the remaining fields
     public void FillPatientBackground()
     {
-        //string dateTime
-        string physician = doctorBackground.Name;
-        string name = patientBackground.Name;
-        string age = patientBackground.age.ToString();
-        string sex = patientBackground.gender.ToString();
+        string dateTime = patientDiagnosisProgress.dateAndTime;
+        string physician = doctorBio.Name;
+        string name = patientBio.Name;
+        string age = patientBio.age.ToString();
+        string sex = patientBio.gender.ToString();
         Dictionary<MedicalTest, string> tests = getPatientTests();
-        //string complaint;
-        //string illness;
-        //string history;
-        //string dx;
-        //string plan;
+        string complaint = patientMedicalInfo.chiefComplaint;
+        string illness = patientMedicalInfo.presentIllness;
+        string history = patientMedicalInfo.history;
+        string dx = "";
+        string plan = "";
+        DiagnosesAndPlans reference = Resources.Load<DiagnosesAndPlans>("Functionality");
+        DiagnosisNamePlanPair value;
+        if (reference._diseaseInfo.TryGetValue(patientDiagnosisProgress.chosenDiagnosis, out value))
+        {
+            dx = value.nameOfDiagnosis;
+            plan = value.plan;
+        }
+
+        // Yan, please use the remaining fields
 
         Transform physician_name = transform.Find("Physician");
         physician_name.GetComponent<Text>().text = physician;
@@ -67,12 +77,12 @@ public class PatientChartController : MonoBehaviour
     Dictionary<MedicalTest, string> getPatientTests()
     {
         Dictionary<MedicalTest, string> final_results = new Dictionary<MedicalTest, string>();
-        foreach (var item in patientProgress.testOrders)
+        foreach (var item in patientDiagnosisProgress._testOrders)
         {
-            if (item.isOrdered == true)
+            if (item.Value == true)
             {
-                string result = patientMedicalInfo._testResults[item.testName];
-                final_results.Add(item.testName, result);
+                string result = patientMedicalInfo._testResults[item.Key];
+                final_results.Add(item.Key, result);
             }
         }
         return final_results;
@@ -87,6 +97,6 @@ public class PatientChartController : MonoBehaviour
     void Deactivate()
     {
         Debug.Log("Patient Chart has been deactivated");
-        chart_Canvas.GetComponent<Canvas>().gameObject.SetActive(true);
+        chart_Canvas.GetComponent<Canvas>().gameObject.SetActive(false);
     }
 }

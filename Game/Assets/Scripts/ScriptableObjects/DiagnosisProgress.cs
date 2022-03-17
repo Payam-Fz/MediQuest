@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * A pair for <MedicalTest, bool>
- */
+  * A pair for <MedicalTest, bool>
+  */
 [System.Serializable]
 public struct TestOrderPair
 {
     public MedicalTest testName;
     public bool isOrdered;
+
+    public TestOrderPair (MedicalTest testName, bool isOrdered)
+    {
+        this.testName = testName;
+        this.isOrdered = isOrdered;
+    }
 }
 
 /*
@@ -19,11 +25,19 @@ public struct TestOrderPair
 [CreateAssetMenu(fileName = "DiagnosisProgress_name", menuName = "CodeBlue/Diagnosis Progress")]
 public class DiagnosisProgress : ScriptableObject
 {
-    [SerializeField] public bool diagnosisComplete;
-    [SerializeField] public TestOrderPair[] testOrders = new TestOrderPair[26];
+    [SerializeField] public string dateAndTime = "";
+    [SerializeField] public bool diagnosisComplete = false;
+    [SerializeField] public Diagnosis chosenDiagnosis;
+
+    [SerializeField] public TestOrderPair[] testOrders = new TestOrderPair[26]; // Only for display in editor and loading data
     public Dictionary<MedicalTest, bool> _testOrders;
 
     void Awake()
+    {
+        populateDictionary();
+    }
+
+    public void populateDictionary()
     {
         _testOrders = new Dictionary<MedicalTest, bool>();
         foreach (TestOrderPair pair in testOrders)

@@ -9,9 +9,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DialogueProgress_name", menuName = "CodeBlue/Dialogue Progress")]
 public class DialogueProgress : ScriptableObject
 {
-    [SerializeField] public int currentDialogueLevel;
-    [SerializeField] public int currentLineNumber;
+    [SerializeField] public int currentDialogueLevel = 0;
+    [SerializeField] public int currentLineNumber = 0;
     [SerializeField] public string lastPersonTalked;
-    [SerializeField] public bool isTalking;
-    [SerializeField] public bool isComplete;
+    [SerializeField] public bool isTalking = false;
+    [SerializeField] public bool isComplete = false;
 }

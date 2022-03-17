@@ -17,7 +17,10 @@ public class PatientData
     private string lastPersonTalked;
     private bool isTalking;
     private bool isComplete;
+
     private bool diagnosisComplete;
+    private Diagnosis chosenDiagnosis;
+    private string dateAndTime;
     private List<TestOrderPair> testOrders;
 
     public PatientData(string name, DialogueProgress dialPro, DiagnosisProgress diagPro)
@@ -28,8 +31,15 @@ public class PatientData
         this.lastPersonTalked = dialPro.lastPersonTalked;
         this.isTalking = dialPro.isTalking;
         this.isComplete = dialPro.isComplete;
+
         this.diagnosisComplete = diagPro.diagnosisComplete;
-        this.testOrders = new List<TestOrderPair> (diagPro.testOrders);
+        this.chosenDiagnosis = diagPro.chosenDiagnosis;
+        this.dateAndTime = diagPro.dateAndTime;
+        this.testOrders = new List<TestOrderPair> ();
+        foreach(var item in diagPro._testOrders)
+        {
+            this.testOrders.Add(new TestOrderPair(item.Key, item.Value));
+        }
     }
 
     // Puts the content of this class to the corresponding assets
@@ -49,8 +59,12 @@ public class PatientData
         dialProg.lastPersonTalked = this.lastPersonTalked;
         dialProg.isTalking = this.isTalking;
         dialProg.isComplete = this.isComplete;
+
         diagProg.diagnosisComplete = this.diagnosisComplete;
+        diagProg.chosenDiagnosis = this.chosenDiagnosis;
+        diagProg.dateAndTime = this.dateAndTime;
         diagProg.testOrders = this.testOrders.ToArray();
+        diagProg.populateDictionary();
 
         patient.GetComponent<DataContainer>().diagnosisProgress = diagProg;
         patient.GetComponent<DataContainer>().dialogueProgress = dialProg;

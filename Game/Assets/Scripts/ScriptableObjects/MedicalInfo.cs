@@ -22,11 +22,14 @@ public class MedicalInfo : ScriptableObject
 
 
     [Range(1, 5)] [SerializeField] int difficulty;
-    [SerializeField] int correctDiagnosisID;
-    [SerializeField] int[] nearCorrectDiagnosisID;
-    [SerializeField] int[] preferredBedNumbers;
-    [SerializeField] MedicalTest[] necessaryTests;
-    [SerializeField] TestResultPair[] testResults = new TestResultPair[26];
+    [SerializeField] public int correctDiagnosisID;
+    [SerializeField] public int[] nearCorrectDiagnosisID;
+    [SerializeField] public int[] preferredBedNumbers;
+    [SerializeField] public MedicalTest[] necessaryTests;
+    [SerializeField] public string chiefComplaint;
+    [SerializeField] public string presentIllness;
+    [SerializeField] public string history;
+    [SerializeField] TestResultPair[] testResults = new TestResultPair[26]; // Only for display in editor
     public Dictionary<MedicalTest, string> _testResults;
 
     void Awake()
@@ -38,20 +41,6 @@ public class MedicalInfo : ScriptableObject
         }
     }
 
-    public int[] getBedNumber()
-    {
-        return preferredBedNumbers;
-    }
-
-    public int getCorrectDiag()
-    {
-        return correctDiagnosisID;
-    }
-
-    public int getDifficulty()
-    {
-        return difficulty;
-    }
 
     /*
      * Check if the diagnosis id input by the user is in the set of near correct diagnosis
