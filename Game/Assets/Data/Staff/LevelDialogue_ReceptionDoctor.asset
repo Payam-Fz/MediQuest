@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: LevelDialogue_ReceptionDoctor
   m_EditorClassIdentifier: 
   dialogueText:
-  - $Welcome to Hospital, Doctor!
+  - '$Pep:  % Press Esc to pause the game, doctor!'
   endDialogue: []
