@@ -36,8 +36,8 @@ public class PatientChartController : MonoBehaviour
         string dateTime = patientDiagnosisProgress.dateAndTime;
         string physician = doctorBio.Name;
         string name = patientBio.Name;
-        string age = patientBio.age.ToString();
-        string sex = patientBio.gender.ToString();
+        string age = patientBio.Age.ToString();
+        string sex = patientBio.Gender.ToString();
         Dictionary<MedicalTest, string> tests = getPatientTests();
         string complaint = patientMedicalInfo.chiefComplaint;
         string illness = patientMedicalInfo.presentIllness;

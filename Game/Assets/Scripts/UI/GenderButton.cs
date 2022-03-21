@@ -15,7 +15,7 @@ void Start() {
 }
  
 public void OnPointerDown(PointerEventData eventData){
-    charInfo[0].gender = genderValue;
+    charInfo[0].Gender = genderValue;
 
 }
  

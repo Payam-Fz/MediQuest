@@ -29,10 +29,18 @@ public static class SaveLoadSystem
     }
     
     // Save the binary data of the player into a file
-    private static void SavePlayerData()
+    private static void SavePlayerData(CharacterInfo customizedCharInfo = null)
     {
-        // Getting player's data from object
-        CharacterInfo characterInfo = GameObject.FindGameObjectWithTag("Player").GetComponent<DataContainer>().characterInfo;
+        CharacterInfo characterInfo;
+        if (customizedCharInfo == null)
+        {
+            // Getting player's data from object
+            characterInfo = GameObject.FindGameObjectWithTag("Player").GetComponent<DataContainer>().characterInfo;
+        } else
+        {
+            CreateSavePath();
+            characterInfo = customizedCharInfo;
+        }
 
         // Saving playerData
         BinaryFormatter formatter = new BinaryFormatter();
@@ -43,6 +51,7 @@ public static class SaveLoadSystem
         Debug.Log("Saved Player's data into " + savePath);
         stream.Close();
     }
+
 
     // Save the binary data of the patient instances into its respective files
     private static void SavePatientData()

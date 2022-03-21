@@ -5,20 +5,6 @@ using UnityEngine;
 public class MusicPlayer : MonoBehaviour
 {
     [SerializeField] float musicDelay = 2f;
-    private void Awake()
-    {
-        if (FindObjectsOfType(GetType()).Length > 1)
-        {
-            Destroy(gameObject);
-
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-
-        Debug.Log("Scene Loaded");
-    }
     
     private void Start()
     {

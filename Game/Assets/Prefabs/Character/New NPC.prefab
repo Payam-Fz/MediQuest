@@ -1,5 +1,34 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &4556783516220830568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774674741908867434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95630db81685ee34a82aae7d14faec82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTalking: 0
+--- !u!114 &2655396813065020413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774674741908867434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569a10ad273c8514db0094e70c9d0fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataPath: 
+  animator: {fileID: 0}
+  dialogueBoxPrefab: {fileID: 0}
+  endCanvas: {fileID: 0}
 --- !u!1001 &4849367023046631283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14,15 +43,15 @@ PrefabInstance:
     - target: {fileID: 229999152576445489, guid: fa756244f48a5354b9632c57a90f5482, type: 3}
       propertyPath: characterInfo
       value: 
-      objectReference: {fileID: 11400000, guid: e409c7b49908b384fbaf773a7d71c331, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 229999152576445489, guid: fa756244f48a5354b9632c57a90f5482, type: 3}
       propertyPath: levelDialogue
       value: 
-      objectReference: {fileID: 11400000, guid: b0088c8792908d94e97fe1e5aa9c3f1f, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 229999152576445489, guid: fa756244f48a5354b9632c57a90f5482, type: 3}
       propertyPath: dialogueProgress
       value: 
-      objectReference: {fileID: 11400000, guid: f959e065c77439642b4c863e998c5176, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 1665510375302708920, guid: fa756244f48a5354b9632c57a90f5482, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -155,3 +184,8 @@ PrefabInstance:
     - {fileID: 143357211, guid: fa756244f48a5354b9632c57a90f5482, type: 3}
     - {fileID: 6721041048534652321, guid: fa756244f48a5354b9632c57a90f5482, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fa756244f48a5354b9632c57a90f5482, type: 3}
+--- !u!1 &1774674741908867434 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6623810830668797465, guid: fa756244f48a5354b9632c57a90f5482, type: 3}
+  m_PrefabInstance: {fileID: 4849367023046631283}
+  m_PrefabAsset: {fileID: 0}

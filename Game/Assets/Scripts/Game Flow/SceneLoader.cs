@@ -5,24 +5,40 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    private int targetScene = 1; //MainSection
+    public bool loadData = false;
+    public float delayDuration = 2f;
+    public CharacterInfo customizedPlayer;
 
-    public void DelayedLoadFirstScene(float delayDuration)
+    public void DelayedLoadFirstScene()
     {
-        this.targetScene = 1;
         SaveLoadSystem.LoadAllData();
-        Invoke("Load", delayDuration);
+        Invoke("InitialLoadWithData", delayDuration);
     }
 
     public void LoadScene(int targetScene)
     {
-        this.targetScene = targetScene;
-        Load();
+        SceneManager.LoadScene(targetScene);
     }
 
-    private void Load()
+    private void InitialLoadWithData()
     {
-        SceneManager.LoadScene(targetScene);
+        SceneManager.LoadScene(1);
+        if (loadData)
+        {
+            SaveLoadSystem.LoadAllData();
+        } else
+        {
+            
+            if (customizedPlayer != null)
+            {
+                PlayerData playerData = new PlayerData(customizedPlayer);
+                playerData.LoadToObject();
+            } else
+            {
+                Debug.LogError("Could not load customization data");
+                return;
+            }
+        }
     }
 
     public void QuitGame()
