@@ -134,26 +134,26 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1733383676834150156}
-    m_Position: {x: -20, y: 220, z: 0}
+    m_Position: {x: -10, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5092107558663893716}
-    m_Position: {x: 380, y: 290, z: 0}
+    m_Position: {x: 380, y: 500, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3987853937362380044}
-    m_Position: {x: 380, y: 200, z: 0}
+    m_Position: {x: 380, y: 340, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4133936049439245285}
-    m_Position: {x: 398.00342, y: 60.849243, z: 0}
+    m_Position: {x: 380, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7970720920554125612}
-    m_Position: {x: -20, y: 350, z: 0}
+    m_Position: {x: -10, y: 340, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 6540362236361681792}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 370, y: -80, z: 0}
+  m_AnyStatePosition: {x: 400, y: 30, z: 0}
   m_EntryPosition: {x: 10, y: 30, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
@@ -194,7 +194,7 @@ AnimatorController:
   m_Name: MenuLoad_Controller
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: end
+  - m_Name: Loading
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -271,7 +271,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: end
+    m_ConditionEvent: Loading
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4133936049439245285}

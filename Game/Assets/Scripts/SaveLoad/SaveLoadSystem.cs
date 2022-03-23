@@ -208,4 +208,10 @@ public static class SaveLoadSystem
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
     }
+
+    public static bool CheckSavePresent()
+    {
+        string rootDir = Application.persistentDataPath + root_save_path;
+        return(File.Exists(rootDir + "/Player" + "/PlayerData.bin"));
+    }
 }

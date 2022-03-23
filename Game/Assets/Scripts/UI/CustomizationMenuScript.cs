@@ -6,12 +6,12 @@ using TMPro;
 
 public class CustomizationMenuScript : MonoBehaviour
 {
-    public GameObject referencePlayerSprites;
+    public GameObject referencePlayer;
     public GameObject sliders;
-
     public TMP_InputField nameBox;
+   // public CharacterInfo customizedPlayer;
 
-    
+    private Transform referencePlayerSprites;
 
     private Gender gender;
 
@@ -42,10 +42,7 @@ public class CustomizationMenuScript : MonoBehaviour
         shoesSlider = sliders.transform.Find("ShoesSlider").GetComponent<Slider>();
         stethoscopeSlider = sliders.transform.Find("StethoscopeSlider").GetComponent<Slider>();
 
-        //nameBox = GameObject.Find("NameBox").GetComponent<TMP_InputField>();
-
-        //charInfo = Resources.LoadAll<CharacterInfo>("Data/Character/Player");
-
+        referencePlayerSprites = referencePlayer.transform.Find("Sprites");
         hairSprite = referencePlayerSprites.transform.Find("MaleFeatures").Find("Hair_Male").GetComponent<SpriteRenderer>();
         eyeSprite = referencePlayerSprites.transform.Find("Eyes").GetComponent<SpriteRenderer>();
         skinSprite = referencePlayerSprites.transform.Find("Skin").GetComponent<SpriteRenderer>();
@@ -99,26 +96,27 @@ public class CustomizationMenuScript : MonoBehaviour
 
     public void Submit ()
     {
-        CharacterInfo finalCharInfo = ScriptableObject.CreateInstance<CharacterInfo>();
-        finalCharInfo.Gender = gender;
+        //CharacterInfo customizedPlayer = ScriptableObject.CreateInstance<CharacterInfo>();
+        CharacterInfo customizedPlayer = referencePlayer.GetComponent<DataContainer>().characterInfo;
+        customizedPlayer.Gender = gender;
         
         if (nameBox.text == null || nameBox.text == "")
         {
-            finalCharInfo.Name = "Player";
+            customizedPlayer.Name = "Player";
         } else
         {
-            finalCharInfo.Name = nameBox.text;
+            customizedPlayer.Name = nameBox.text;
         }
 
-        finalCharInfo.HairColor = hairSprite.color;
-        finalCharInfo.EyeColor = eyeSprite.color;
-        finalCharInfo.SkinColor = skinSprite.color;
-        finalCharInfo.ShirtColor = shirtSprite.color;
-        finalCharInfo.PantsColor = pantsSprite.color;
-        finalCharInfo.ShoesColor = shoesSprite.color;
-        finalCharInfo.StethoscopeColor = stethoscopeSprite.color;
+        customizedPlayer.HairColor = hairSprite.color;
+        customizedPlayer.EyeColor = eyeSprite.color;
+        customizedPlayer.SkinColor = skinSprite.color;
+        customizedPlayer.ShirtColor = shirtSprite.color;
+        customizedPlayer.PantsColor = pantsSprite.color;
+        customizedPlayer.ShoesColor = shoesSprite.color;
+        customizedPlayer.StethoscopeColor = stethoscopeSprite.color;
 
-        GameObject.FindGameObjectWithTag("GameController").GetComponentInChildren<SceneLoader>().customizedPlayer = finalCharInfo;
+        //GameObject.FindGameObjectWithTag("GameController").GetComponentInChildren<SceneLoader>().customizedPlayer = customizedPlayer;
         //SaveLoadSystem.SavePlayerData(finalCharInfo);
     }
 

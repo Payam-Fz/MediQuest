@@ -13,15 +13,16 @@ using TMPro;
  */
 public class LevelDialogueManager : MonoBehaviour
 {
-    [SerializeField] string dataPath;
-    [SerializeField] Animator animator;
+    //[SerializeField] string dataPath;
+    //[SerializeField] Animator animator;
     //[SerializeField] GameObject journal;
     [SerializeField] GameObject dialogueBoxPrefab;
-    [SerializeField] GameObject endCanvas;
+    //[SerializeField] GameObject endCanvas;
     
     private TextMeshProUGUI textComponent;
     private Button nextButton;
     private Button previousButton;
+    private Animator animator;
     private LevelDialogue dialogue;
     private DialogueProgress dialogueProgress;
 
@@ -38,12 +39,14 @@ public class LevelDialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dialogueBoxPrefab.SetActive(true);
-        dialogue = Resources.Load<LevelDialogue>(dataPath);
-        dialogueProgress = Resources.Load<DialogueProgress>(dataPath);
+        //dialogueBoxPrefab.SetActive(true);
+        dialogue = gameObject.GetComponent<DataContainer>().levelDialogue;
+        dialogueProgress = gameObject.GetComponent<DataContainer>().dialogueProgress;
         textComponent = dialogueBoxPrefab.GetComponentInChildren<TextMeshProUGUI>();
         nextButton = dialogueBoxPrefab.transform.Find("Next Button").gameObject.GetComponent<Button>();
         previousButton = dialogueBoxPrefab.transform.Find("Previous Button").gameObject.GetComponent<Button>();
+        animator = dialogueBoxPrefab.GetComponent<Animator>();
+        TupleDialogue = new List<List<Tuple<string, string>>>();
         initiateDialogue();
     }
 
@@ -190,7 +193,7 @@ public class LevelDialogueManager : MonoBehaviour
     {
         animator.SetBool("IsOpen", false);
         GetComponent<NPCInteractManager>().isTalking = false;
-        endCanvas.GetComponent<Animator>().SetBool("End", true);
+        //endCanvas.GetComponent<Animator>().SetBool("End", true);
     }
 
     // default update

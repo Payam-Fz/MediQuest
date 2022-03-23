@@ -42,7 +42,7 @@ public class PlayerData
         this.shoesColor = characterInfo.ShoesColor;
         this.stethoscopeColor = characterInfo.StethoscopeColor;
 
-        this.position = new float[2] { 0f, 0f };
+        this.position = new float[2] { -20.6f, -0.6f };
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject)
         {
@@ -73,35 +73,5 @@ public class PlayerData
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position.Set(this.position[0], this.position[1], 0);
         player.GetComponent<DataContainer>().characterInfo = charInfo;
-        SetSpriteColors(player, charInfo);
-    }
-
-    private void SetSpriteColors(GameObject player, CharacterInfo charInfo)
-    {
-        Transform playerSpritesTransform = player.transform.Find("Sprites");
-        Gender gender = charInfo.Gender;
-        if (gender == Gender.Male)
-        {
-            playerSpritesTransform.Find("MaleFeatures").gameObject.SetActive(true);
-            playerSpritesTransform.Find("FemaleFeatures").gameObject.SetActive(false);
-            playerSpritesTransform.Find("MaleFeatures").Find("Hair_Male").GetComponent<SpriteRenderer>().color = charInfo.HairColor;
-        }
-        else if (gender == Gender.Female)
-        {
-            playerSpritesTransform.Find("MaleFeatures").gameObject.SetActive(false);
-            playerSpritesTransform.Find("FemaleFeatures").gameObject.SetActive(true);
-            playerSpritesTransform.Find("FemaleFeatures").Find("Hair_Female").GetComponent<SpriteRenderer>().color = charInfo.HairColor;
-        }
-        else
-        {
-            // no other gender yet
-        }
-        playerSpritesTransform.Find("Eyes").GetComponent<SpriteRenderer>().color = charInfo.EyeColor;
-        playerSpritesTransform.Find("Skin").GetComponent<SpriteRenderer>().color = charInfo.SkinColor;
-        playerSpritesTransform.Find("Shirt").GetComponent<SpriteRenderer>().color = charInfo.ShirtColor;
-        playerSpritesTransform.Find("Pants").GetComponent<SpriteRenderer>().color = charInfo.PantsColor;
-        playerSpritesTransform.Find("Shoes").GetComponent<SpriteRenderer>().color = charInfo.ShoesColor;
-        playerSpritesTransform.Find("DoctorFeatures").Find("Stethoscope").GetComponent<SpriteRenderer>().color = charInfo.StethoscopeColor;
-
     }
 }

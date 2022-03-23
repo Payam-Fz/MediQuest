@@ -36,7 +36,7 @@ public class ClockMachineInteractManager : MonoBehaviour, IInteractable
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Player is at the clock machine");
-        if (collision.tag == "PlayerTag")
+        if (collision.tag == "Player")
         {
             if (beginning)
             {
