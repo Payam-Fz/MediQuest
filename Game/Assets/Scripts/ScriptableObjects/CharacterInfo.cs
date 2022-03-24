@@ -12,9 +12,9 @@ using UnityEngine;
 public class CharacterInfo : ScriptableObject 
 {
     [field: SerializeField] public string ID { get; set; }
-    [field: SerializeField] public string Name { get; set; } // Name is capital to distinguish with object name
+    [field: SerializeField] public string Name { get; set; }
     [field: SerializeField] public int Age { get; set; }
-    [field: SerializeField] public double Size { get; set; } = 1;
+    [field: SerializeField] public double Size { get; set; }
     [field: SerializeField] public Gender Gender { get; set; }
     [SerializeField] private SerializableColor _hairColor;
     [SerializeField] private SerializableColor _eyeColor;

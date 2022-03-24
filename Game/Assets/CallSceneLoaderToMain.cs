@@ -30,7 +30,7 @@ public class CallSceneLoaderToMain : MonoBehaviour, IInteractable
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "PlayerTag")
+        if (collision.tag == "Player")
         {
             Debug.Log("Player go through the wall");
             sceneLoader.LoadScene(1);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System;
 
 /* Stores the attributes/data of the patient
  * Author:  Min @ 2022-03-05
@@ -45,29 +46,43 @@ public class PatientData
     // Puts the content of this class to the corresponding assets
     public void LoadToObject()
     {
-        GameObject patient = GameObject.Find(name);
-        if (patient.tag != "Patient")
+        //GameObject patient = GameObject.Find(name);
+        //if (patient.tag != "Patient")
+        //{
+        //    Debug.LogError("Patient object with name = " + name + " not found. ");
+        //    return;
+        //}
+        //DialogueProgress dialProg = ScriptableObject.CreateInstance<DialogueProgress>();
+        //DiagnosisProgress diagProg = ScriptableObject.CreateInstance<DiagnosisProgress>();
+
+        
+
+        try
         {
-            Debug.LogError("Patient object with name = " + name + " not found. ");
-            return;
+            DialogueProgress dialProg = Resources.LoadAll<DialogueProgress>("Data/Patients/" + name)[0];
+            DiagnosisProgress diagProg = Resources.LoadAll<DiagnosisProgress>("Data/Patients/" + name)[0];
+
+            dialProg.currentDialogueLevel = this.currentDialogueLevel;
+            dialProg.currentLineNumber = this.currentLineNumber;
+            dialProg.lastPersonTalked = this.lastPersonTalked;
+            dialProg.isTalking = this.isTalking;
+            dialProg.isComplete = this.isComplete;
+
+            diagProg.diagnosisComplete = this.diagnosisComplete;
+            diagProg.chosenDiagnosis = this.chosenDiagnosis;
+            diagProg.dateAndTime = this.dateAndTime;
+            diagProg.testOrders = this.testOrders.ToArray();
+            diagProg.populateDictionary();
         }
-        DialogueProgress dialProg = ScriptableObject.CreateInstance<DialogueProgress>();
-        DiagnosisProgress diagProg = ScriptableObject.CreateInstance<DiagnosisProgress>();
+        catch (Exception ex)
+        {
+            Debug.LogError("Cannot load " + name + " data from resources.");
+        }
 
-        dialProg.currentDialogueLevel = this.currentDialogueLevel;
-        dialProg.currentLineNumber = this.currentLineNumber;
-        dialProg.lastPersonTalked = this.lastPersonTalked;
-        dialProg.isTalking = this.isTalking;
-        dialProg.isComplete = this.isComplete;
+        
 
-        diagProg.diagnosisComplete = this.diagnosisComplete;
-        diagProg.chosenDiagnosis = this.chosenDiagnosis;
-        diagProg.dateAndTime = this.dateAndTime;
-        diagProg.testOrders = this.testOrders.ToArray();
-        diagProg.populateDictionary();
-
-        patient.GetComponent<DataContainer>().diagnosisProgress = diagProg;
-        patient.GetComponent<DataContainer>().dialogueProgress = dialProg;
+        //patient.GetComponent<DataContainer>().diagnosisProgress = diagProg;
+        //patient.GetComponent<DataContainer>().dialogueProgress = dialProg;
     }
 
 }

@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using UnityEngine;
-using UnityEditor;
+using UnityEngine.UI;
+using System;
 
 
 /* Stores the attributes/data related to the player
@@ -55,23 +56,35 @@ public class PlayerData
 
     public void LoadToObject()
     {
-        CharacterInfo charInfo = ScriptableObject.CreateInstance<CharacterInfo>();
-        charInfo.ID = this.ID;
-        charInfo.Name = this.name;
-        charInfo.Age = this.age;
-        charInfo.Size = this.size;
-        charInfo.Gender = this.gender;
+        //CharacterInfo charInfo = ScriptableObject.CreateInstance<CharacterInfo>();
+        
+        try
+        {
+            CharacterInfo charInfo = Resources.LoadAll<CharacterInfo>("Data/Player")[0];
 
-        charInfo.HairColor = this.hairColor;
-        charInfo.EyeColor = this.eyeColor;
-        charInfo.SkinColor = this.skinColor;
-        charInfo.EyeColor = this.eyeColor;
-        charInfo.EyeColor = this.eyeColor;
-        charInfo.EyeColor = this.eyeColor;
-        charInfo.EyeColor = this.eyeColor;
+            charInfo.ID = this.ID;
+            charInfo.Name = this.name;
+            charInfo.Age = this.age;
+            charInfo.Size = this.size;
+            charInfo.Gender = this.gender;
 
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        player.transform.position.Set(this.position[0], this.position[1], 0);
-        player.GetComponent<DataContainer>().characterInfo = charInfo;
+            charInfo.HairColor = this.hairColor;
+            charInfo.EyeColor = this.eyeColor;
+            charInfo.SkinColor = this.skinColor;
+            charInfo.EyeColor = this.eyeColor;
+            charInfo.EyeColor = this.eyeColor;
+            charInfo.EyeColor = this.eyeColor;
+            charInfo.EyeColor = this.eyeColor;
+        }
+        catch (Exception ex)
+        {
+            UnityEngine.Debug.LogError("Cannot load Player data from resources.");
+        }
+
+        
+
+        //GameObject player = GameObject.FindGameObjectWithTag("Player");
+        //player.transform.position.Set(this.position[0], this.position[1], 0);
+        //player.GetComponent<DataContainer>().characterInfo = charInfo;
     }
 }
