@@ -6,33 +6,35 @@ using UnityEngine.UI;
 
 public class PatientChartController : MonoBehaviour
 {
-    public GameObject chart_Canvas;
-    [SerializeField] CharacterInfo patientBio;
-    [SerializeField] CharacterInfo doctorBio;
-    [SerializeField] DiagnosisProgress patientDiagnosisProgress;
-    [SerializeField] MedicalInfo patientMedicalInfo;
+    [SerializeField] GameObject chart_Canvas;
+    private CharacterInfo patientBio;
+    private CharacterInfo doctorBio;
+    private DiagnosisProgress patientDiagnosisProgress;
+    private MedicalInfo patientMedicalInfo;
+    private GameObject currentPatient;
 
-    public void AssignAndFillPlayerDetails(string objectName)
+    public void AssignPatient(string objectName)
     {
-        chart_Canvas = GameObject.FindGameObjectWithTag("PatientChartCanvas");
+        //chart_Canvas = GameObject.FindGameObjectWithTag("PatientChartCanvas");
         GameObject patient = GameObject.Find(objectName);
         if (patient.tag != "Patient")
         {
             Debug.LogError("Patient object with name = " + name + " not found. ");
             return;
         }
+        currentPatient = patient;
         GameObject doctor = GameObject.FindGameObjectWithTag("Player");
-        patientBio = patient.GetComponent<DataContainer>().characterInfo;
         doctorBio = doctor.GetComponent<DataContainer>().characterInfo;
-        patientDiagnosisProgress = patient.GetComponent<DataContainer>().diagnosisProgress;
-        patientMedicalInfo = patient.GetComponent<DataContainer>().medicalInfo;
-        FillPatientBackground(patient);
+        patientBio = currentPatient.GetComponent<DataContainer>().characterInfo;
+        patientDiagnosisProgress = currentPatient.GetComponent<DataContainer>().diagnosisProgress;
+        patientMedicalInfo = currentPatient.GetComponent<DataContainer>().medicalInfo;
+        FillChartFields();
     }
 
     // Payam F : Set up the remaining fields
-    public void FillPatientBackground(GameObject p)
+    public void FillChartFields()
     {
-        Sprite patient_image = Resources.Load<Sprite>(p.name);
+        Sprite patient_image = Resources.Load<Sprite>(currentPatient.name);
         string dateTime = patientDiagnosisProgress.dateAndTime;
         string physician = doctorBio.Name;
         string name = patientBio.Name;
@@ -44,15 +46,17 @@ public class PatientChartController : MonoBehaviour
         string history = patientMedicalInfo.history;
         string dx = "";
         string plan = "";
-        DiagnosesAndPlans reference = Resources.Load<DiagnosesAndPlans>("Functionality");
-        DiagnosisNamePlanPair value;
-        if (reference._diseaseInfo.TryGetValue(patientDiagnosisProgress.chosenDiagnosis, out value))
+        if (patientDiagnosisProgress.chosenDiagnosis != Diagnosis.Not_Diagnosed_Yet)
         {
-            dx = value.nameOfDiagnosis;
-            plan = value.plan;
+            DiagnosesAndPlans reference = Resources.Load<DiagnosesAndPlans>("Functionality");
+            DiagnosisNamePlanPair value;
+            if (reference._diseaseInfo.TryGetValue(patientDiagnosisProgress.chosenDiagnosis, out value))
+            {
+                dx = value.nameOfDiagnosis;
+                plan = value.plan;
+            }
         }
-
-        // Yan, please use the remaining fields
+        
 
         Transform patient_img = chart_Canvas.transform.Find("PatientIMG");
         patient_img.GetComponent<UnityEngine.UI.Image>().sprite = patient_image;
@@ -89,6 +93,19 @@ public class PatientChartController : MonoBehaviour
 
         Transform patient_plan = chart_Canvas.transform.Find("Plan");
         patient_plan.GetComponent<UnityEngine.UI.Text>().text = plan;
+    }
+
+    public void OrderTest(int testId)
+    {
+        MedicalTest medicalTest = (MedicalTest) testId;
+        // Go through patientDiagnosisProgress._testOrders and set the value of the corresponding MedicalTest to true
+        // then call the FillChartFields to refresh the patientchart content
+    }
+
+    public void SetDiagnosis(Diagnosis selectedDiagnosis)
+    {
+        patientDiagnosisProgress.chosenDiagnosis = selectedDiagnosis;
+        FillChartFields();
     }
 
     Dictionary<MedicalTest, string> getPatientTests()

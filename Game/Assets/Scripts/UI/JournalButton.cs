@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 public class JournalButton : MonoBehaviour
 {
     Button journalButton;
     [SerializeField] public string buttonName;
-    [SerializeField] public int buttonPage;
+    [SerializeField] public int currentPage;
     [SerializeField] public int targetPage;
-    [SerializeField] public bool isSystem;
-    [SerializeField] public bool systemPicker;
-    [SerializeField] public bool finalDiagnosis;
+    //[SerializeField] public bool isSystem;
+    [SerializeField] public bool isSystemPicker;
+    [SerializeField] public bool isBackToSystemPicker;
+    [SerializeField] public bool isFinalDiagnosis;
+    [SerializeField] public Diagnosis finalDiagnosis;
     Animator JournalAnimator;
     
     // Start is called before the first frame update
@@ -38,5 +41,14 @@ public class JournalButton : MonoBehaviour
         
     }
 
-    
+    public void SetDiagnosisAndPlan(Diagnosis finalDiagnosis)
+    {
+        if (isFinalDiagnosis)
+        {
+            DiagnosisNamePlanPair pair;
+            Resources.Load<DiagnosesAndPlans>("Functionality/DiagnosesAndPlans")._diseaseInfo.TryGetValue(finalDiagnosis, out pair);
+            transform.Find("dx").GetComponent<TextMeshProUGUI>().text = pair.nameOfDiagnosis;
+            transform.Find("plan").GetComponent<TextMeshProUGUI>().text = pair.plan;
+        }
+    }
 }

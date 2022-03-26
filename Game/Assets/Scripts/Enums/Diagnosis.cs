@@ -4,6 +4,7 @@
  */
 public enum Diagnosis
 {
+    Not_Diagnosed_Yet,
 
     // Illness
     Cutaneous_Cancer,

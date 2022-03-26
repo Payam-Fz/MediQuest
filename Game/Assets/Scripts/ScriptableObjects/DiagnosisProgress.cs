@@ -27,7 +27,7 @@ public class DiagnosisProgress : ScriptableObject
 {
     [SerializeField] public string dateAndTime = "";
     [SerializeField] public bool diagnosisComplete = false;
-    [SerializeField] public Diagnosis chosenDiagnosis;
+    [SerializeField] public Diagnosis chosenDiagnosis = Diagnosis.Not_Diagnosed_Yet;
 
     [SerializeField] public TestOrderPair[] testOrders = new TestOrderPair[26]; // Only for display in editor and loading data
     public Dictionary<MedicalTest, bool> _testOrders;
