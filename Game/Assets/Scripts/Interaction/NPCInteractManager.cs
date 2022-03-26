@@ -9,14 +9,14 @@ using UnityEngine;
  */
 public class NPCInteractManager : MonoBehaviour, IInteractable
 {
-    protected DialogueManager dialogueManager;
+    protected LevelDialogueManager dialogueManager;
     public bool isTalking = false;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        dialogueManager = GetComponent<DialogueManager>();
+        dialogueManager = GetComponent<LevelDialogueManager>();
     }
 
     public virtual void Interact()
@@ -25,10 +25,6 @@ public class NPCInteractManager : MonoBehaviour, IInteractable
         {
             dialogueManager.StartDialogue();
             isTalking = true;
-        }
-        else
-        {
-            dialogueManager.ManageDialogue();
         }
     }
 

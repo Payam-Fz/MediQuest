@@ -51,7 +51,7 @@ public class LevelDialogueManager : MonoBehaviour
     }
 
     // splits the level dialogues into a list containing a list of Tuples
-    void initiateDialogue()
+    public void initiateDialogue()
     {
         currentDialogueLevel = 0;
         currentLineNumber = 0;
@@ -62,92 +62,65 @@ public class LevelDialogueManager : MonoBehaviour
         for (int i = 0; i < levelDialogueList.Count; i++)
         {
             LDialogue = splitLevelDialogue(levelDialogueList[i]);
-            TupleDialogue[i] = convertToTupleList(LDialogue);
+            TupleDialogue.Add(convertToTupleList(LDialogue));
         }
     }
 
-    bool checkValidNextDialogue()
-    {
-        if (currentDialogueLevel < levelText.Count)
-        {
-            if ((currentLineNumber + 1) < TupleDialogue[currentDialogueLevel].Count)
-            {
+    bool checkValidNextDialogue() {
+        if (currentDialogueLevel < levelText.Count) {
+            if ((currentLineNumber + 1) < TupleDialogue[currentDialogueLevel].Count) {
                 return true;
-            }
-            else if ((currentDialogueLevel + 1) < levelText.Count)
-            {
+            } else if ((currentDialogueLevel + 1) < levelText.Count) {
                 return true;
-            }
-            else
-            {
+            } else {
                 return false;
             }
-        }
-        else
-        {
+        } else {
             return false;
         }
     }
 
-    bool checkValidPreviousDialogue()
-    {
-        if (currentDialogueLevel >= 0)
-        {
-            if ((currentLineNumber - 1) >= 0)
-            {
+    bool checkValidPreviousDialogue() {
+        if (currentDialogueLevel >= 0) {
+            if ((currentLineNumber - 1) >= 0) {
                 return true;
             }
-            else if ((currentDialogueLevel - 1) >= 0)
-            {
+            else if ((currentDialogueLevel - 1) >= 0) {
                 return true;
             }
-            else
-            {
+            else {
                 return false;
             }
-        }
-        else
-        {
+        } else {
             return false;
         }
     }
-
     // fetches the next dialogue from the Tuple depending on current line number
-    private string NextDialogue()
-    {
-        if (checkValidNextDialogue())
-        {
-            List<Tuple<string, string>> currentTupleList = new List<Tuple<string, string>>();
-            currentTupleList = TupleDialogue[currentDialogueLevel];
+    private string NextDialogue() {
+        if (checkValidNextDialogue()) {
+            List<Tuple<string, string>> currentTupleList = TupleDialogue[currentDialogueLevel];
+            lastPersonTalked = currentTupleList[currentLineNumber].Item1;
             currentLineNumber++;
             Tuple<string, string> currentTuple = currentTupleList[currentLineNumber];
-            lastPersonTalked = currentTuple.Item1;
             string nextDialogue = currentTuple.Item2;
             saveDialogueProgress();
             return nextDialogue;
-        }
-        else
-        {
+        } else {
             return null;
         }
     }
 
     // goes back to the previous dialogue using the saved dialogue level and line number
-    private string PreviousDialogue()
-    {
-        if (checkValidPreviousDialogue())
-        {
-            List<Tuple<string, string>> currentTupleList = new List<Tuple<string, string>>();
-            currentTupleList = TupleDialogue[currentDialogueLevel];
-            Tuple<string, string> currentTuple = currentTupleList[currentLineNumber - 1];
+    private string PreviousDialogue() {
+        if (checkValidPreviousDialogue()) {
+            List<Tuple<string, string>> currentTupleList = TupleDialogue[currentDialogueLevel];
+            lastPersonTalked = currentTupleList[currentLineNumber].Item1;
             currentLineNumber--;
-            lastPersonTalked = currentTuple.Item1;
+            Tuple<string, string> currentTuple = currentTupleList[currentLineNumber];
             string previousDialogue = currentTuple.Item2;
             saveDialogueProgress();
             return previousDialogue;
-        }
-        else
-        {
+        } else {
             return null;
         }
     }
@@ -155,6 +128,7 @@ public class LevelDialogueManager : MonoBehaviour
     // splits a given level dialogue string into an array of dialogues (not sorted yet) and returns
     public List<string> splitLevelDialogue(string s)
     {
+        //access begins from index 1
         levelText = new List<string>(s.Split('$'));
         return levelText;
     }
@@ -162,7 +136,8 @@ public class LevelDialogueManager : MonoBehaviour
     // converts the given list of dialogue strings into a list of Tuples 
     public List<Tuple<string,string>> convertToTupleList(List<string> s) {
         List<Tuple<string,string>> dialogueList = new List<Tuple<string, string>>();
-        for (int i = 0; i < s.Count; i++) {
+        //access begins from index 0
+        for (int i = 1; i < s.Count; i++) {
             string[] dialogue = s[i].Split('%');
             string person = dialogue[0];
             string text = dialogue[1];
@@ -187,6 +162,8 @@ public class LevelDialogueManager : MonoBehaviour
         UpdateUI(name, dialogue_text);
         if (checkValidNextDialogue())
             nextButton.gameObject.SetActive(true);
+        if (checkValidPreviousDialogue())
+            previousButton.gameObject.SetActive(true);
     }
 
     public void EndDialogue()
