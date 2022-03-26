@@ -100,6 +100,11 @@ public class PatientChartController : MonoBehaviour
         MedicalTest medicalTest = (MedicalTest) testId;
         // Go through patientDiagnosisProgress._testOrders and set the value of the corresponding MedicalTest to true
         // then call the FillChartFields to refresh the patientchart content
+        if (patientDiagnosisProgress._testOrders.ContainsKey(medicalTest))
+        {
+            patientDiagnosisProgress._testOrders[medicalTest] = true;
+        }
+        FillChartFields();
     }
 
     public void SetDiagnosis(Diagnosis selectedDiagnosis)
