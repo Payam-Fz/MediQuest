@@ -17,10 +17,5 @@ public class PatientInteractManager : NPCInteractManager
             dialogueManager.StartDialogue();
             isTalking = true;
         }
-        else
-        {
-            dialogueManager.ManageDialogue();
-        }
     }
-
 }
