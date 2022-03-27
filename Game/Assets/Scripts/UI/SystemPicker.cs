@@ -8,8 +8,9 @@ using UnityEngine.UI;
 public class SystemPicker : MonoBehaviour
 {
     [SerializeField] public GameObject[] bodySystems = new GameObject[6];
+    [SerializeField] JournalController journal;
     List<Image> systemDiagrams = new List<Image>();
-    public string selectedSystem;
+    public BodySystem selectedSystem;
     //[SerializeField] private TextMeshProUGUI systemJournalName;
     //[SerializeField] private TextMeshProUGUI systemJournalDesc;
     [SerializeField] DialogueManager dialogueManager;
@@ -21,8 +22,8 @@ public class SystemPicker : MonoBehaviour
             systemDiagrams.Add(system.GetComponent<Image>());
         }
     }
-
-    public void SelectSystem()
+    
+    public void HighlightSelectedSystem()
     {
         GameObject selectedSystem = FindSystem(EventSystem.current.currentSelectedGameObject.transform.parent.name);
 
@@ -40,14 +41,20 @@ public class SystemPicker : MonoBehaviour
             }
         }
 
-        Debug.Log(selectedSystem.name);
-        if(selectedSystem.name != null)
-        {
-            this.selectedSystem = selectedSystem.name;
+        //Debug.Log(selectedSystem.name);
+        //if(selectedSystem.name != null)
+        //{
+        //    this.selectedSystem = selectedSystem.name;
             
-        }
+        //}
 
-        //foreach()
+    }
+
+    public void SelectSystem (int bodysystemValue)
+    {
+        BodySystem bodySystem = (BodySystem)bodysystemValue;
+        journal.SelectBodySystem(bodySystem);
+        this.gameObject.SetActive(false);
     }
 
     GameObject FindSystem(string systemName)

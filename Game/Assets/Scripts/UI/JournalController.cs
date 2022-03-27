@@ -28,10 +28,10 @@ public class JournalController : MonoBehaviour
     {
         journalButtons.AddRange(Resources.FindObjectsOfTypeAll(typeof(JournalButton)) as JournalButton[]);
         Debug.Log("No. of Journal Buttons: " + journalButtons.Count);
-        StartCoroutine(OpenJournalDelay());
         systemPickerAnimator = systemPicker.GetComponent<Animator>();
         patientChartAnimator = patientChart.GetComponent<Animator>();
         //patientDialogueManager = GameObject.FindGameObjectWithTag("Martha").GetComponent<DialogueManager>();
+        StartCoroutine(OpenJournalDelay());
     }
 
 
@@ -43,6 +43,7 @@ public class JournalController : MonoBehaviour
             if (clickedButton.isBackToSystemPicker)
             {
                 systemPickerUsed = false;
+                systemPicker.SetActive(false);
             }
             StartCoroutine(PageFlip());
         }
@@ -76,10 +77,12 @@ public class JournalController : MonoBehaviour
         return (Diagnosis)finalDiagnosisValue;
     }
 
-    // To be called by system picker journal
+    // To be called by system picker
     public void SelectBodySystem (BodySystem system)
     {
+        systemPickerUsed = true;
         this.pickedSystem = system;
+        StartCoroutine(PageFlip());
     }
 
 
@@ -180,7 +183,7 @@ public class JournalController : MonoBehaviour
 
     IEnumerator SystemPicker()
     {
-        journalAnimator.ResetTrigger("JournalExit");
+        //journalAnimator.ResetTrigger("JournalExit");
         
         if (!systemPickerUsed)
         {
@@ -193,19 +196,19 @@ public class JournalController : MonoBehaviour
                 }
             }
 
-            journalAnimator.SetTrigger("JournalExit");
+            //journalAnimator.SetTrigger("JournalExit");
             yield return new WaitForSeconds(0.5f);
 
 
             systemPicker.SetActive(false);
-            patientChart.SetActive(false);
+            //patientChart.SetActive(false);
             systemPickerAnimator.SetBool("pickerUsed", false);
-            patientChartAnimator.SetBool("chartUsed", false);
+            //patientChartAnimator.SetBool("chartUsed", false);
             systemPicker.SetActive(true);
-            patientChart.SetActive(true);
+            //patientChart.SetActive(true);
         }
 
-        systemPickerUsed = true;
+        //systemPickerUsed = true;
     }
 
     IEnumerator DiagnoseSystem()

@@ -149,8 +149,8 @@ MonoBehaviour:
   buttonName: Abnormality
   currentPage: 5
   targetPage: 13
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &214140363284931763
@@ -302,8 +302,8 @@ MonoBehaviour:
   buttonName: Fracture
   currentPage: 18
   targetPage: 2
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &245676201212032169
@@ -1662,8 +1662,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 19
   targetPage: 7
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &1521602504073610307
@@ -3115,8 +3115,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 7
   targetPage: 19
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &4515042995043273395
@@ -3537,8 +3537,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 3
   targetPage: 7
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &4738454849457610223
@@ -4188,8 +4188,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 13
   targetPage: 7
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &4996490084708041687
@@ -4475,8 +4475,8 @@ MonoBehaviour:
   buttonName: Genetic
   currentPage: 5
   targetPage: 3
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &5146315433027655378
@@ -4628,8 +4628,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 13
   targetPage: 5
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &5177275392099209470
@@ -4781,8 +4781,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 7
   targetPage: 3
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &5243987044537670464
@@ -4934,8 +4934,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 7
   targetPage: 17
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &5358856980312828611
@@ -5336,8 +5336,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 11
   targetPage: 5
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &5505125758937416344
@@ -5489,8 +5489,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 16
   targetPage: 8
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &5567649430308504363
@@ -6180,8 +6180,8 @@ MonoBehaviour:
   buttonName: Musculoskeletal
   currentPage: 0
   targetPage: 16
-  isSystem: 1
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059113741818639
@@ -7052,8 +7052,8 @@ MonoBehaviour:
   buttonName: Cardiovascular System
   currentPage: 0
   targetPage: 16
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059113820767858
@@ -7217,8 +7217,8 @@ MonoBehaviour:
   buttonName: Digestive
   currentPage: 0
   targetPage: 16
-  isSystem: 1
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059113847948907
@@ -7382,8 +7382,8 @@ MonoBehaviour:
   buttonName: Urinary
   currentPage: 0
   targetPage: 16
-  isSystem: 1
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059113849663146
@@ -7784,8 +7784,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 1
   targetPage: 0
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059113904553344
@@ -8166,8 +8166,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 0
   targetPage: 0
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059113936185721
@@ -8589,8 +8589,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 4
   targetPage: 10
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059113988002218
@@ -8742,8 +8742,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 8
   targetPage: 2
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059114006345160
@@ -8895,8 +8895,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 2
   targetPage: 4
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059114006624179
@@ -9452,8 +9452,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 2
   targetPage: 8
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059114095384034
@@ -9605,8 +9605,8 @@ MonoBehaviour:
   buttonName: Soft Tissue Damage
   currentPage: 0
   targetPage: 8
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059114143680648
@@ -10200,8 +10200,8 @@ MonoBehaviour:
   buttonName: Burn
   currentPage: 4
   targetPage: 2
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059114248318398
@@ -10976,8 +10976,8 @@ MonoBehaviour:
   buttonName: Nervous
   currentPage: 0
   targetPage: 16
-  isSystem: 1
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059114419714876
@@ -11533,8 +11533,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 4
   targetPage: 12
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059114571354831
@@ -11967,8 +11967,8 @@ MonoBehaviour:
   buttonName: Respiratory
   currentPage: 0
   targetPage: 16
-  isSystem: 1
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059114647689802
@@ -12369,8 +12369,8 @@ MonoBehaviour:
   buttonName: Soft Tissue Damage
   currentPage: 8
   targetPage: 16
-  isSystem: 0
   isSystemPicker: 1
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059114673320406
@@ -13005,8 +13005,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 2
   targetPage: 6
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059114758943557
@@ -14003,10 +14003,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonName: 
-  currentPage: 0
+  currentPage: 2
   targetPage: 0
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059114939457551
@@ -14695,8 +14695,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 12
   targetPage: 4
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059115085162218
@@ -15234,8 +15234,8 @@ MonoBehaviour:
   buttonName: Fracture
   currentPage: 6
   targetPage: 2
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059115196497081
@@ -15311,8 +15311,6 @@ MonoBehaviour:
   journalAnimator: {fileID: 6140059113904553345}
   systemPicker: {fileID: 0}
   patientChart: {fileID: 0}
-  selectedButton: 
-  patientDialogueManager: {fileID: 0}
 --- !u!1 &6140059115218824949
 GameObject:
   m_ObjectHideFlags: 0
@@ -15596,8 +15594,8 @@ MonoBehaviour:
   buttonName: Illness
   currentPage: 0
   targetPage: 1
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059115253201689
@@ -15883,8 +15881,8 @@ MonoBehaviour:
   buttonName: Trauma
   currentPage: 0
   targetPage: 2
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059115371188325
@@ -16306,8 +16304,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 10
   targetPage: 4
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059115522242933
@@ -17470,8 +17468,8 @@ MonoBehaviour:
   buttonName: Cardiovascular
   currentPage: 0
   targetPage: 16
-  isSystem: 1
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059115721121025
@@ -17623,8 +17621,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 4
   targetPage: 14
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6140059115768022097
@@ -17776,8 +17774,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 14
   targetPage: 4
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6383030184144822590
@@ -18332,8 +18330,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 2
   targetPage: 17
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6874383887827694277
@@ -18619,8 +18617,8 @@ MonoBehaviour:
   buttonName: Illness
   currentPage: 1
   targetPage: 3
-  isSystem: 0
   isSystemPicker: 1
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &6993390061195267281
@@ -19078,8 +19076,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 7
   targetPage: 15
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &7197361288330872730
@@ -19769,8 +19767,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 9
   targetPage: 5
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &7541572049078314832
@@ -20306,8 +20304,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 3
   targetPage: 5
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &8050537961262421777
@@ -20540,8 +20538,8 @@ MonoBehaviour:
   buttonName: Cancer
   currentPage: 5
   targetPage: 9
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &8414777092590062073
@@ -20827,8 +20825,8 @@ MonoBehaviour:
   buttonName: Met Disorder
   currentPage: 5
   targetPage: 11
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &8575569516723213632
@@ -21460,7 +21458,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7882789055007944676
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21590,8 +21588,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 17
   targetPage: 7
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &8945701641719744240
@@ -21743,8 +21741,8 @@ MonoBehaviour:
   buttonName: 
   currentPage: 3
   targetPage: 1
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 0
   finalDiagnosis: 0
 --- !u!1 &9081084250337577989
@@ -22622,6 +22620,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NavigateJournal
       objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: buttonName
       value: Fracture
@@ -22641,6 +22643,10 @@ PrefabInstance:
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: diagnosisGroup
       value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2369f6881305e8489c0d22789288554, type: 3}
@@ -22914,7 +22920,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4593150960818431233, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5131310481248004107, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23008,6 +23014,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NavigateJournal
       objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: diagnosisGroup
       value: 6
@@ -23019,6 +23029,10 @@ PrefabInstance:
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: buttonName
       value: Poisoning
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2369f6881305e8489c0d22789288554, type: 3}
