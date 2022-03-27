@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bbaf5fdcb5edf8478be0919a439b25f, type: 3}
   m_Name: LevelDialogue_Martha
   m_EditorClassIdentifier: 
-  dialogueText: []
+  dialogueText:
+  - '$Player%Hello, Martha! I''ll be performing your diagnosis today. I see on your
+    chart that you have pain around your waist.
+
+    $Player%Is there anything that
+    may have started the pain, do you think? Like bumping into something, or falling
+    down on pavement?'
   endDialogue: []

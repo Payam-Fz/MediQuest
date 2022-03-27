@@ -16,7 +16,7 @@ public class LevelDialogueManager : MonoBehaviour
     //[SerializeField] string dataPath;
     //[SerializeField] Animator animator;
     //[SerializeField] GameObject journal;
-    [SerializeField] GameObject dialogueBoxPrefab;
+    [SerializeField] GameObject dialogueBox;
     //[SerializeField] GameObject endCanvas;
     
     private TextMeshProUGUI textComponent;
@@ -35,32 +35,31 @@ public class LevelDialogueManager : MonoBehaviour
     private List<List<Tuple<string, string>>> TupleDialogue;
     List<string> levelText = new List<string>();
 
+    private Color dialogueBoxPlayerColor = new Color(0.7f, 0.9f, 0.43f);
+    private Color dialogueBoxOthersColor = new Color(0.7f, 0.35f, 0.43f);
 
     // Start is called before the first frame update
     void Start()
     {
-        //dialogueBoxPrefab.SetActive(true);
         dialogue = gameObject.GetComponent<DataContainer>().levelDialogue;
         dialogueProgress = gameObject.GetComponent<DataContainer>().dialogueProgress;
-        textComponent = dialogueBoxPrefab.GetComponentInChildren<TextMeshProUGUI>();
-        nextButton = dialogueBoxPrefab.transform.Find("Next Button").gameObject.GetComponent<Button>();
-        nextButton.onClick.AddListener(() => ManageNextDialogue());
-        nextButton.gameObject.SetActive(false);
-        previousButton = dialogueBoxPrefab.transform.Find("Previous Button").gameObject.GetComponent<Button>();
-        previousButton.onClick.AddListener(() => ManagePreviousDialogue());
-        previousButton.gameObject.SetActive(false);
-        animator = dialogueBoxPrefab.GetComponent<Animator>();
+        textComponent = dialogueBox.GetComponentInChildren<TextMeshProUGUI>();
+        nextButton = dialogueBox.transform.Find("Next Button").gameObject.GetComponent<Button>();
+        previousButton = dialogueBox.transform.Find("Previous Button").gameObject.GetComponent<Button>();
+        animator = dialogueBox.GetComponent<Animator>();
         TupleDialogue = new List<List<Tuple<string, string>>>();
-        initiateDialogue();
+        LoadDialogue();
     }
 
     // splits the level dialogues into a list containing a list of Tuples
-    public void initiateDialogue()
+    private void LoadDialogue()
     {
-        currentDialogueLevel = 0;
-        currentLineNumber = 0;
-        isComplete = false;
-        saveDialogueProgress();
+        currentDialogueLevel = dialogueProgress.currentDialogueLevel;
+        currentLineNumber = dialogueProgress.currentLineNumber;
+        lastPersonTalked = dialogueProgress.lastPersonTalked;
+        isTalking = dialogueProgress.isTalking;
+        isComplete = dialogueProgress.isComplete;
+
         List<string> levelDialogueList = dialogue.getDialogueStory();
         List<string> LDialogue;
         for (int i = 0; i < levelDialogueList.Count; i++)
@@ -100,37 +99,75 @@ public class LevelDialogueManager : MonoBehaviour
         }
     }
     // fetches the next dialogue from the Tuple depending on current line number
-    private string NextDialogue() {
-        if (checkValidNextDialogue()) {
-            List<Tuple<string, string>> currentTupleList = TupleDialogue[currentDialogueLevel];
-            currentLineNumber++;
-            Tuple<string, string> currentTuple = currentTupleList[currentLineNumber];
-            lastPersonTalked = currentTuple.Item1;
-            string nextDialogue = currentTuple.Item2;
-            saveDialogueProgress();
-            return nextDialogue;
-        } else {
-            return null;
+    // Also, updates the currentLineNumber and lastPersonTalked
+    private string GetNextDialogue() {
+        List<Tuple<string, string>> currentTupleList = TupleDialogue[currentDialogueLevel];
+        currentLineNumber++;
+        Tuple<string, string> currentTuple = currentTupleList[currentLineNumber];
+        lastPersonTalked = currentTuple.Item1;
+        string nextDialogue = currentTuple.Item2;
+        saveDialogueProgress();
+        return nextDialogue;
+    }
+    public void OpenDialogue()
+    {
+        dialogueBox.SetActive(true);
+        nextButton.onClick.AddListener(onClickNextDialogue);
+        previousButton.onClick.AddListener(onClickPreviousDialogue);
+        animator.SetBool("IsOpen", true);
+        StopAllCoroutines();
+        Tuple<string, string> to_be_typed = TupleDialogue[currentDialogueLevel][currentLineNumber];
+        string name = to_be_typed.Item1;
+        string dialogue_text = to_be_typed.Item2;
+        UpdateUI(name, dialogue_text);
+        if (!checkValidNextDialogue())
+        {
+            nextButton.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Close X";
+        }
+        if (checkValidPreviousDialogue())
+        {
+            previousButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            previousButton.gameObject.SetActive(false);
         }
     }
 
-    public void ManageNextDialogue()
+    private void CloseDialogue()
+    {
+        animator.SetBool("IsOpen", false);
+        nextButton.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Next >";
+        nextButton.onClick.RemoveAllListeners();
+        previousButton.onClick.RemoveAllListeners();
+        dialogueBox.SetActive(false);
+
+        GetComponent<NPCInteractManager>().isTalking = false;
+        saveDialogueProgress();
+        //endCanvas.GetComponent<Animator>().SetBool("End", true);
+    }
+    public void onClickNextDialogue()
     {
         if (checkValidNextDialogue())
         {
-            string next_d = NextDialogue();
+            Debug.Log("valid next dialogue. line: " + currentLineNumber);
+            string next_d = GetNextDialogue();
             UpdateUI(lastPersonTalked, next_d);
             previousButton.gameObject.SetActive(true);
-            Debug.Log("checking next valid!");
+            //Debug.Log("checking next valid!");
             if (!checkValidNextDialogue())
             {
-                Debug.Log("Next still valid!");
-                nextButton.gameObject.SetActive(false);
+                //Debug.Log("Next still valid!");
+                nextButton.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Close X";
             }
+        } else
+        {
+            CloseDialogue();
+            Debug.Log("Invalid next dialogue, closing. line: " + currentLineNumber );
         }
     }
 
-    public void ManagePreviousDialogue()
+    public void onClickPreviousDialogue()
     {
         if (checkValidPreviousDialogue())
         {
@@ -186,55 +223,16 @@ public class LevelDialogueManager : MonoBehaviour
         Debug.Log("Dialogue Box is Open");
     }
 
-    public void StartDialogue()
-    {
-        animator.SetBool("IsOpen", true);
-        StopAllCoroutines();
-        Tuple<string, string> to_be_typed = TupleDialogue[currentDialogueLevel][currentLineNumber];
-        string name = to_be_typed.Item1;
-        string dialogue_text = to_be_typed.Item2;
-        UpdateUI(name, dialogue_text);
-        if (checkValidNextDialogue())
-            nextButton.gameObject.SetActive(true);  
-        if (checkValidPreviousDialogue())
-            previousButton.gameObject.SetActive(true);
-    }
-
-    public void EndDialogue()
-    {
-        animator.SetBool("IsOpen", false);
-        GetComponent<NPCInteractManager>().isTalking = false;
-        //endCanvas.GetComponent<Animator>().SetBool("End", true);
-    }
-
-    // default update
-    public void Update()
-    {
-        //if (isTalking == true)
-        //{
-        //    if (NextDialogue() != null)
-        //    {
-        //        nextButton.gameObject.SetActive(true);
-        //    }
-        //    nextButton.onClick.AddListener(() => UpdateUI(lastPersonTalked, NextDialogue()));
-        //    if (PreviousDialogue() != null)
-        //    {
-        //        previousButton.gameObject.SetActive(true);
-        //    }
-        //    previousButton.onClick.AddListener(() => UpdateUI(lastPersonTalked, PreviousDialogue()));
-        //}
-        //if (NextDialogue() == null)
-        //{
-        //    isTalking = false;
-        //    saveDialogueProgress();
-        //}
-    }
-
     public void UpdateUI(string speaker, string text)
     {
-        // To be updated later
-        Color speakerColor = Color.black;
-        dialogueBoxPrefab.GetComponentInChildren<Image>().color = speakerColor;
+        StopAllCoroutines();
+        if (speaker.Equals("Player"))
+        {
+            dialogueBox.GetComponentInChildren<Image>().color = dialogueBoxPlayerColor;
+        } else
+        {
+            dialogueBox.GetComponentInChildren<Image>().color = dialogueBoxOthersColor;
+        }
         StartCoroutine(TypeSentence(speaker, text));
     }
 

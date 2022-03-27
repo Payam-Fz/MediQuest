@@ -10,11 +10,15 @@ public class PatientInteractManager : NPCInteractManager
 {
     public bool startedDiagnosis = false;
 
+    protected override void Start()
+    {
+        base.Start();
+    }
     public override void Interact()
     {
         if (!isTalking && !startedDiagnosis)
         {
-            dialogueManager.StartDialogue();
+            dialogueManager.OpenDialogue();
             isTalking = true;
         }
     }

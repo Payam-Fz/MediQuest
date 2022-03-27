@@ -99,9 +99,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0232061, y: -0.086416595}
+  m_Offset: {x: -0.067160495, y: -0.086416595}
   serializedVersion: 2
-  m_Radius: 0.19183682
+  m_Radius: 0.23579122
 --- !u!114 &1154520133654874871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +116,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tvOn: {fileID: -5509753353421974763, guid: af0975808aec9b6479c062b9bc383ad2, type: 3}
   tvOff: {fileID: -4939574387626844737, guid: af0975808aec9b6479c062b9bc383ad2, type: 3}
-  tempNPC: {fileID: 0}
 --- !u!60 &2339364053523973191
 PolygonCollider2D:
   m_ObjectHideFlags: 0

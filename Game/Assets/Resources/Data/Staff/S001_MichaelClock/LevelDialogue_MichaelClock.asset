@@ -13,8 +13,28 @@ MonoBehaviour:
   m_Name: LevelDialogue_MichaelClock
   m_EditorClassIdentifier: 
   dialogueText:
-  - '$Security% To quit the game, head to the clock machine on the wall and then,
-    press E!!
+  - '$Security% Good morning Doctor.
 
-'
+    $Player% Good morning.
+
+    $Security%
+    I see new faces passing by today!
+
+    $Player% Yes, we are the new interns who
+    are recently matched to the surgical program of this hospital.
+
+    $Security%
+    haha...bottom of the food chain, eh?!
+
+    $Player% ?!
+
+    $Security% Don''t
+    worry. But if you ever try to ''ESC''ape your responsibilities, you will have
+    a looong time in here.
+
+    $Security% By the way, don''t forget to ''E''nteract
+    with this clock-out machine when you want to leave the hospital.
+
+    $Player%
+    Sure!'
   endDialogue: []

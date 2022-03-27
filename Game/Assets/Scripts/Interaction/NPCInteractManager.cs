@@ -14,7 +14,7 @@ public class NPCInteractManager : MonoBehaviour, IInteractable
     
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         dialogueManager = GetComponent<LevelDialogueManager>();
     }
@@ -23,7 +23,7 @@ public class NPCInteractManager : MonoBehaviour, IInteractable
     {
         if (!isTalking)
         {
-            dialogueManager.StartDialogue();
+            dialogueManager.OpenDialogue();
             isTalking = true;
         }
     }
