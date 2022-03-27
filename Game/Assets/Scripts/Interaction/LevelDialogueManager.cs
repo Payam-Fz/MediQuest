@@ -44,6 +44,7 @@ public class LevelDialogueManager : MonoBehaviour
         dialogueProgress = gameObject.GetComponent<DataContainer>().dialogueProgress;
         textComponent = dialogueBoxPrefab.GetComponentInChildren<TextMeshProUGUI>();
         nextButton = dialogueBoxPrefab.transform.Find("Next Button").gameObject.GetComponent<Button>();
+        nextButton.onClick.AddListener(() => ManageDialogue());
         previousButton = dialogueBoxPrefab.transform.Find("Previous Button").gameObject.GetComponent<Button>();
         animator = dialogueBoxPrefab.GetComponent<Animator>();
         TupleDialogue = new List<List<Tuple<string, string>>>();
@@ -99,9 +100,9 @@ public class LevelDialogueManager : MonoBehaviour
     private string NextDialogue() {
         if (checkValidNextDialogue()) {
             List<Tuple<string, string>> currentTupleList = TupleDialogue[currentDialogueLevel];
-            lastPersonTalked = currentTupleList[currentLineNumber].Item1;
             currentLineNumber++;
             Tuple<string, string> currentTuple = currentTupleList[currentLineNumber];
+            lastPersonTalked = currentTuple.Item1;
             string nextDialogue = currentTuple.Item2;
             saveDialogueProgress();
             return nextDialogue;
@@ -110,13 +111,19 @@ public class LevelDialogueManager : MonoBehaviour
         }
     }
 
+    public void ManageDialogue()
+    {
+        string next_d = NextDialogue();
+        UpdateUI(lastPersonTalked, next_d);
+    }
+
     // goes back to the previous dialogue using the saved dialogue level and line number
     private string PreviousDialogue() {
         if (checkValidPreviousDialogue()) {
             List<Tuple<string, string>> currentTupleList = TupleDialogue[currentDialogueLevel];
-            lastPersonTalked = currentTupleList[currentLineNumber].Item1;
             currentLineNumber--;
             Tuple<string, string> currentTuple = currentTupleList[currentLineNumber];
+            lastPersonTalked = currentTuple.Item1;
             string previousDialogue = currentTuple.Item2;
             saveDialogueProgress();
             return previousDialogue;
@@ -176,24 +183,24 @@ public class LevelDialogueManager : MonoBehaviour
     // default update
     public void Update()
     {
-        if (isTalking == true)
-        {
-            if (NextDialogue() != null)
-            {
-                nextButton.gameObject.SetActive(true);
-            }
-            nextButton.onClick.AddListener(() => UpdateUI(lastPersonTalked, NextDialogue()));
-            if (PreviousDialogue() != null)
-            {
-                previousButton.gameObject.SetActive(true);
-            }
-            previousButton.onClick.AddListener(() => UpdateUI(lastPersonTalked, PreviousDialogue()));
-        }
-        if (NextDialogue() == null)
-        {
-            isTalking = false;
-            saveDialogueProgress();
-        }
+        //if (isTalking == true)
+        //{
+        //    if (NextDialogue() != null)
+        //    {
+        //        nextButton.gameObject.SetActive(true);
+        //    }
+        //    nextButton.onClick.AddListener(() => UpdateUI(lastPersonTalked, NextDialogue()));
+        //    if (PreviousDialogue() != null)
+        //    {
+        //        previousButton.gameObject.SetActive(true);
+        //    }
+        //    previousButton.onClick.AddListener(() => UpdateUI(lastPersonTalked, PreviousDialogue()));
+        //}
+        //if (NextDialogue() == null)
+        //{
+        //    isTalking = false;
+        //    saveDialogueProgress();
+        //}
     }
 
     public void UpdateUI(string speaker, string text)
@@ -201,6 +208,7 @@ public class LevelDialogueManager : MonoBehaviour
         // To be updated later
         Color speakerColor = Color.black;
         dialogueBoxPrefab.GetComponentInChildren<Image>().color = speakerColor;
+        Debug.Log(speaker);
         StartCoroutine(TypeSentence(speaker, text));
     }
 

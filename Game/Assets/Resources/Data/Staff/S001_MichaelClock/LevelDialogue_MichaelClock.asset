@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: LevelDialogue_MichaelClock
   m_EditorClassIdentifier: 
   dialogueText:
-  - $To quit the game, head to the clock machine on the wall and then, press E!!
+  - '$Security% To quit the game, head to the clock machine on the wall and then,
+    press E!!
+
+    $Player% Sure!'
   endDialogue: []
