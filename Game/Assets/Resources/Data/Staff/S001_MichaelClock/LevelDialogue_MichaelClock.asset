@@ -16,5 +16,5 @@ MonoBehaviour:
   - '$Security% To quit the game, head to the clock machine on the wall and then,
     press E!!
 
-    $Player% Sure!'
+'
   endDialogue: []

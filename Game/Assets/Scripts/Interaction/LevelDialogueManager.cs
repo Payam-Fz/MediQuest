@@ -44,8 +44,11 @@ public class LevelDialogueManager : MonoBehaviour
         dialogueProgress = gameObject.GetComponent<DataContainer>().dialogueProgress;
         textComponent = dialogueBoxPrefab.GetComponentInChildren<TextMeshProUGUI>();
         nextButton = dialogueBoxPrefab.transform.Find("Next Button").gameObject.GetComponent<Button>();
-        nextButton.onClick.AddListener(() => ManageDialogue());
+        nextButton.onClick.AddListener(() => ManageNextDialogue());
+        nextButton.gameObject.SetActive(false);
         previousButton = dialogueBoxPrefab.transform.Find("Previous Button").gameObject.GetComponent<Button>();
+        previousButton.onClick.AddListener(() => ManagePreviousDialogue());
+        previousButton.gameObject.SetActive(false);
         animator = dialogueBoxPrefab.GetComponent<Animator>();
         TupleDialogue = new List<List<Tuple<string, string>>>();
         initiateDialogue();
@@ -71,7 +74,7 @@ public class LevelDialogueManager : MonoBehaviour
         if (currentDialogueLevel < levelText.Count) {
             if ((currentLineNumber + 1) < TupleDialogue[currentDialogueLevel].Count) {
                 return true;
-            } else if ((currentDialogueLevel + 1) < levelText.Count) {
+            } else if ((currentDialogueLevel + 1) < dialogue.getDialogueStory().Count) {
                 return true;
             } else {
                 return false;
@@ -111,10 +114,34 @@ public class LevelDialogueManager : MonoBehaviour
         }
     }
 
-    public void ManageDialogue()
+    public void ManageNextDialogue()
     {
-        string next_d = NextDialogue();
-        UpdateUI(lastPersonTalked, next_d);
+        if (checkValidNextDialogue())
+        {
+            string next_d = NextDialogue();
+            UpdateUI(lastPersonTalked, next_d);
+            previousButton.gameObject.SetActive(true);
+            Debug.Log("checking next valid!");
+            if (!checkValidNextDialogue())
+            {
+                Debug.Log("Next still valid!");
+                nextButton.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void ManagePreviousDialogue()
+    {
+        if (checkValidPreviousDialogue())
+        {
+            string prev_d = PreviousDialogue();
+            UpdateUI(lastPersonTalked, prev_d);
+            nextButton.gameObject.SetActive(true);
+            if (!checkValidPreviousDialogue())
+            {
+                previousButton.gameObject.SetActive(false);
+            }
+        } 
     }
 
     // goes back to the previous dialogue using the saved dialogue level and line number
@@ -168,7 +195,7 @@ public class LevelDialogueManager : MonoBehaviour
         string dialogue_text = to_be_typed.Item2;
         UpdateUI(name, dialogue_text);
         if (checkValidNextDialogue())
-            nextButton.gameObject.SetActive(true);
+            nextButton.gameObject.SetActive(true);  
         if (checkValidPreviousDialogue())
             previousButton.gameObject.SetActive(true);
     }
@@ -208,7 +235,6 @@ public class LevelDialogueManager : MonoBehaviour
         // To be updated later
         Color speakerColor = Color.black;
         dialogueBoxPrefab.GetComponentInChildren<Image>().color = speakerColor;
-        Debug.Log(speaker);
         StartCoroutine(TypeSentence(speaker, text));
     }
 
