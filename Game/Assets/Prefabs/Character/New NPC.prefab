@@ -1,31 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &2655396813065020413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774674741908867434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 569a10ad273c8514db0094e70c9d0fcd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueBoxPrefab: {fileID: 0}
---- !u!114 &4556783516220830568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774674741908867434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95630db81685ee34a82aae7d14faec82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTalking: 0
 --- !u!58 &5116306938905689737
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -42,6 +16,32 @@ CircleCollider2D:
   m_Offset: {x: -0.005303296, y: 0.021210583}
   serializedVersion: 2
   m_Radius: 0.89769965
+--- !u!114 &2655396813065020413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774674741908867434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569a10ad273c8514db0094e70c9d0fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueBox: {fileID: 0}
+--- !u!114 &4556783516220830568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774674741908867434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95630db81685ee34a82aae7d14faec82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTalking: 0
 --- !u!1001 &4849367023046631283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100,6 +100,10 @@ PrefabInstance:
     - target: {fileID: 5137222598754133654, guid: fa756244f48a5354b9632c57a90f5482, type: 3}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623810830668797460, guid: fa756244f48a5354b9632c57a90f5482, type: 3}
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6623810830668797462, guid: fa756244f48a5354b9632c57a90f5482, type: 3}
       propertyPath: m_LocalPosition.x

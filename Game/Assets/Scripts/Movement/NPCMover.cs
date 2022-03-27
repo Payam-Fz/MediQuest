@@ -14,7 +14,7 @@ public class NPCMover : MonoBehaviour
     int wayPointIndex = 0;
     bool jumpable = true;
     bool moveable = true;
-    int onDoorIndex = 0;
+    int onDoorIndex;
 
 
     private CharacterAnimator animator;
@@ -90,6 +90,7 @@ public class NPCMover : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, entPoints[i].transform.position) < 1.2)
             {
+                onDoorIndex = i;
                 return true;
             }
         }
@@ -130,7 +131,7 @@ public class NPCMover : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
 
         jumpPoint(onDoorIndex);
-        onDoorIndex += 1;
+        //onDoorIndex += 1;
 
         yield return new WaitForSeconds(0.3f);
 
