@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: LevelDialogue_intern
   m_EditorClassIdentifier: 
   dialogueText:
-  - '$Intern: % Hello Doctor! I am an intern at this hospital! I am still learning,
-    so please excuse me.'
-  endDialogue: []
+  - '$Player%Help me, pleaaseee!.....I''m losing a patient on my first day!!
+
+    $Intern%I
+    am an intern myself and still learning, go ask doctor Karen.'

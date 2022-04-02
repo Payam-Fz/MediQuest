@@ -895,7 +895,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10.8, y: -163.1}
+  m_AnchoredPosition: {x: -10.800003, y: -163.1}
   m_SizeDelta: {x: 21.69751, y: 222.39844}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3987437625819528378
@@ -2866,7 +2866,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -11.9, y: 0}
+  m_AnchoredPosition: {x: -11.900002, y: 0}
   m_SizeDelta: {x: 119.05411, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8328728259071937379
@@ -8204,7 +8204,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.6019, y: -60.51}
+  m_AnchoredPosition: {x: 2.6018982, y: -60.509995}
   m_SizeDelta: {x: 5.203705, y: 16.36493}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6140059113936185724
@@ -15262,7 +15262,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6140059115196497081}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5088553, y: 1.5088553, z: 0}
   m_Children:
@@ -21458,7 +21458,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7882789055007944676
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21986,6 +21986,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NavigateJournal
       objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345985968634414180, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -95.09999
+      objectReference: {fileID: 0}
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: buttonName
       value: Amputation
@@ -22000,11 +22016,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: finalDiagnosis
-      value: 52
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: diagnosisGroup
       value: 53
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711738776947836969, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -107.90001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2369f6881305e8489c0d22789288554, type: 3}
@@ -22120,13 +22152,41 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NavigateJournal
       objectReference: {fileID: 0}
-    - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
-      propertyPath: diagnosisGroup
-      value: 55
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345985968634414180, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -95.09999
       objectReference: {fileID: 0}
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
-      propertyPath: currentPage
-      value: 16
+      propertyPath: finalDiagnosis
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711738776947836969, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -107.90001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2369f6881305e8489c0d22789288554, type: 3}
@@ -22242,6 +22302,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NavigateJournal
       objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345985968634414180, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -95.09999
+      objectReference: {fileID: 0}
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: diagnosisGroup
       value: 1
@@ -22253,6 +22329,26 @@ PrefabInstance:
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: buttonName
       value: Met Disorder
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: finalDiagnosis
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711738776947836969, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -107.90001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2369f6881305e8489c0d22789288554, type: 3}
@@ -22368,6 +22464,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NavigateJournal
       objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345985968634414180, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -95.09999
+      objectReference: {fileID: 0}
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: diagnosisGroup
       value: 6
@@ -22379,6 +22491,26 @@ PrefabInstance:
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: buttonName
       value: '[F] Nutr disorder'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: finalDiagnosis
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711738776947836969, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -107.90001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2369f6881305e8489c0d22789288554, type: 3}
@@ -22494,6 +22626,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NavigateJournal
       objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345985968634414180, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -95.09999
+      objectReference: {fileID: 0}
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: currentPage
       value: 14
@@ -22505,6 +22653,26 @@ PrefabInstance:
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: diagnosisGroup
       value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: finalDiagnosis
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711738776947836969, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -107.90001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2369f6881305e8489c0d22789288554, type: 3}
@@ -22624,6 +22792,22 @@ PrefabInstance:
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345985968634414180, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -95.09999
+      objectReference: {fileID: 0}
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: buttonName
       value: Fracture
@@ -22638,15 +22822,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: finalDiagnosis
-      value: 52
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: diagnosisGroup
       value: 52
       objectReference: {fileID: 0}
+    - target: {fileID: 8711738776947836969, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -107.90001
+      objectReference: {fileID: 0}
     - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2369f6881305e8489c0d22789288554, type: 3}
@@ -22762,6 +22962,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NavigateJournal
       objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345985968634414180, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -95.09999
+      objectReference: {fileID: 0}
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: diagnosisGroup
       value: 3
@@ -22773,6 +22989,26 @@ PrefabInstance:
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: buttonName
       value: Abnormality
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: finalDiagnosis
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711738776947836969, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -107.90001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2369f6881305e8489c0d22789288554, type: 3}
@@ -22888,6 +23124,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NavigateJournal
       objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345985968634414180, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -95.09999
+      objectReference: {fileID: 0}
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: diagnosisGroup
       value: 49
@@ -22899,6 +23151,26 @@ PrefabInstance:
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: buttonName
       value: Grade1Burn
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: finalDiagnosis
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711738776947836969, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -107.90001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2369f6881305e8489c0d22789288554, type: 3}
@@ -22920,7 +23192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4593150960818431233, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5131310481248004107, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23018,6 +23290,22 @@ PrefabInstance:
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345985968634414180, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -95.09999
+      objectReference: {fileID: 0}
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: diagnosisGroup
       value: 6
@@ -23030,9 +23318,29 @@ PrefabInstance:
       propertyPath: buttonName
       value: Poisoning
       objectReference: {fileID: 0}
+    - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: finalDiagnosis
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711738776947836969, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -107.90001
+      objectReference: {fileID: 0}
     - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2369f6881305e8489c0d22789288554, type: 3}
@@ -23148,6 +23456,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NavigateJournal
       objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345985968634414180, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -95.09999
+      objectReference: {fileID: 0}
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: diagnosisGroup
       value: 0
@@ -23159,6 +23483,26 @@ PrefabInstance:
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: buttonName
       value: Cancer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: finalDiagnosis
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711738776947836969, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -107.90001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2369f6881305e8489c0d22789288554, type: 3}
@@ -23274,6 +23618,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NavigateJournal
       objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345985968634414180, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -95.09999
+      objectReference: {fileID: 0}
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: diagnosisGroup
       value: 2
@@ -23285,6 +23645,26 @@ PrefabInstance:
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: buttonName
       value: Abnormality
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: finalDiagnosis
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711738776947836969, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -107.90001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2369f6881305e8489c0d22789288554, type: 3}
@@ -23400,6 +23780,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NavigateJournal
       objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797123943081977857, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345985968634414180, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -95.09999
+      objectReference: {fileID: 0}
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: diagnosisGroup
       value: 50
@@ -23411,6 +23807,26 @@ PrefabInstance:
     - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
       propertyPath: buttonName
       value: Grade2Burn
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950476496767347702, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: finalDiagnosis
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711738776947836969, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -107.90001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8974293934107666062, guid: c2369f6881305e8489c0d22789288554, type: 3}
+      propertyPath: m_lineSpacing
+      value: -18.48
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2369f6881305e8489c0d22789288554, type: 3}

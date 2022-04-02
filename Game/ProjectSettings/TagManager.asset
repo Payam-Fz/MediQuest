@@ -9,6 +9,7 @@ TagManager:
   - TransitionWall
   - Patient
   - Staff
+  - Chart
   layers:
   - Default
   - TransparentFX

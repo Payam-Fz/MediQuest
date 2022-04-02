@@ -13,8 +13,8 @@ public class LevelDialogue : ScriptableObject
     [Header("Level Dialogues")]
     [TextArea(10, 19)] [SerializeField] public List<string> dialogueText = new List<string>();
 
-    [Header("Follow on")]
-    public LevelDialogue[] endDialogue;
+    //[Header("Follow on")]
+    //public LevelDialogue[] endDialogue;
 
 
 
@@ -23,8 +23,8 @@ public class LevelDialogue : ScriptableObject
         return dialogueText;
     }
 
-    public LevelDialogue[] GetEndDialogues()
-    {
-        return endDialogue;
-    }
+    //public LevelDialogue[] GetEndDialogues()
+    //{
+    //    return endDialogue;
+    //}
 }

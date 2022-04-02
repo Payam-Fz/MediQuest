@@ -25,14 +25,14 @@ public struct TestOrderPair
 [CreateAssetMenu(fileName = "DiagnosisProgress_name", menuName = "CodeBlue/Diagnosis Progress")]
 public class DiagnosisProgress : ScriptableObject
 {
-    [SerializeField] public string dateAndTime = "";
+    [SerializeField] public string dateAndTime;
     [SerializeField] public bool diagnosisComplete = false;
     [SerializeField] public Diagnosis chosenDiagnosis = Diagnosis.Not_Diagnosed_Yet;
 
     [SerializeField] public TestOrderPair[] testOrders = new TestOrderPair[26]; // Only for display in editor and loading data
     public Dictionary<MedicalTest, bool> _testOrders;
 
-    void Awake()
+    void OnEnable()
     {
         populateDictionary();
     }
@@ -44,5 +44,7 @@ public class DiagnosisProgress : ScriptableObject
         {
             _testOrders.Add(pair.testName, pair.isOrdered);
         }
+        Debug.Log("_testOrders: ");
+        Debug.Log(_testOrders);
     }
 }

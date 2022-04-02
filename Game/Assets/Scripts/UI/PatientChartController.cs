@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PatientChartController : MonoBehaviour
 {
@@ -10,13 +11,13 @@ public class PatientChartController : MonoBehaviour
     [SerializeField] GameObject orderTestCanvas;
 
     private GameObject chartCanvasFields;
-    private CharacterInfo patientBio;
     private CharacterInfo doctorBio;
+    private CharacterInfo patientBio;
     private DiagnosisProgress patientDiagnosisProgress;
     private MedicalInfo patientMedicalInfo;
     private GameObject currentPatient;
 
-    private void Start()
+    private void Awake()
     {
         chartCanvasFields = transform.Find("Fields").gameObject;
     }
@@ -42,7 +43,7 @@ public class PatientChartController : MonoBehaviour
     // Payam F : Set up the remaining fields
     public void FillChartFields()
     {
-        Sprite patient_image = Resources.Load<Sprite>(currentPatient.name);
+        Sprite patient_image = Resources.Load<Sprite>("PatientFace/" + currentPatient.name);
         string dateTime = patientDiagnosisProgress.dateAndTime;
         string physician = doctorBio.Name;
         string name = patientBio.Name;
@@ -67,40 +68,40 @@ public class PatientChartController : MonoBehaviour
         
 
         Transform patient_img = chartCanvasFields.transform.Find("PatientIMG");
-        patient_img.GetComponent<UnityEngine.UI.Image>().sprite = patient_image;
+        patient_img.GetComponent<Image>().sprite = patient_image;
 
         Transform physician_name = chartCanvasFields.transform.Find("Physician");
-        physician_name.GetComponent<UnityEngine.UI.Text>().text = physician;
+        physician_name.GetComponent<TextMeshProUGUI>().text = physician;
 
         Transform patient_name = chartCanvasFields.transform.Find("Name");
-        patient_name.GetComponent<UnityEngine.UI.Text>().text = name;
+        patient_name.GetComponent<TextMeshProUGUI>().text = name;
 
         Transform patient_age = chartCanvasFields.transform.Find("Age");
-        patient_age.GetComponent<UnityEngine.UI.Text>().text = age;
+        patient_age.GetComponent<TextMeshProUGUI>().text = age;
 
         Transform patient_sex = chartCanvasFields.transform.Find("Sex");
-        patient_sex.GetComponent<UnityEngine.UI.Text>().text = sex;
+        patient_sex.GetComponent<TextMeshProUGUI>().text = sex;
 
         Transform patient_tests = chartCanvasFields.transform.Find("Test");
         foreach (var test in tests)
         {
-            patient_tests.GetComponent<UnityEngine.UI.Text>().text = Enum.GetName(typeof(MedicalTest), test.Key) + ": " + test.Value + "\n";
+            patient_tests.GetComponent<TextMeshProUGUI>().text = Enum.GetName(typeof(MedicalTest), test.Key) + ": " + test.Value + "\n";
         }
 
         Transform patient_complaint = chartCanvasFields.transform.Find("Complaint");
-        patient_complaint.GetComponent<UnityEngine.UI.Text>().text = complaint;
+        patient_complaint.GetComponent<TextMeshProUGUI>().text = complaint;
 
         Transform patient_illness = chartCanvasFields.transform.Find("Illness");
-        patient_illness.GetComponent<UnityEngine.UI.Text>().text = illness;
+        patient_illness.GetComponent<TextMeshProUGUI>().text = illness;
 
         Transform patient_history = chartCanvasFields.transform.Find("History");
-        patient_history.GetComponent<UnityEngine.UI.Text>().text = history;
+        patient_history.GetComponent<TextMeshProUGUI>().text = history;
 
         Transform patient_dx = chartCanvasFields.transform.Find("DX");
-        patient_dx.GetComponent<UnityEngine.UI.Text>().text = dx;
+        patient_dx.GetComponent<TextMeshProUGUI>().text = dx;
 
         Transform patient_plan = chartCanvasFields.transform.Find("Plan");
-        patient_plan.GetComponent<UnityEngine.UI.Text>().text = plan;
+        patient_plan.GetComponent<TextMeshProUGUI>().text = plan;
     }
 
     public void OrderTest(int testId)
@@ -115,6 +116,11 @@ public class PatientChartController : MonoBehaviour
         FillChartFields();
     }
 
+    public void StartJournal()
+    {
+        journalCanvas.SetActive(true);
+        this.gameObject.SetActive(false);
+    }
     public void SetDiagnosis(Diagnosis selectedDiagnosis)
     {
         patientDiagnosisProgress.chosenDiagnosis = selectedDiagnosis;
@@ -128,7 +134,9 @@ public class PatientChartController : MonoBehaviour
         {
             if (item.Value == true)
             {
-                string result = patientMedicalInfo._testResults[item.Key];
+
+                string result;
+                patientMedicalInfo._testResults.TryGetValue(item.Key, out result);
                 final_results.Add(item.Key, result);
             }
         }

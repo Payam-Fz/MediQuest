@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb530be4e9ee5545ba24e2e1072030c, type: 3}
+  m_Name: MedicalInfo_Alex
+  m_EditorClassIdentifier: 
+  difficulty: 0
+  correctDiagnosis: 0
+  nearCorrectDiagnosis: 
+  preferredBedNumbers: 
+  necessaryTests: 
+  chiefComplaint: Knee pain
+  presentIllness: Pain increases relative to activity
+  history: Genu varum (bow leg) in childhood
+  testResults:
+  - testName: 0
+    result: Genu Varum (Bow legs)
+  - testName: 1
+    result: Genu Varum (Bow legs)
+  - testName: 2
+    result: Normal
+  - testName: 3
+    result: Normal
+  - testName: 4
+    result: Normal
+  - testName: 5
+    result: Shows blockage of pulmunary veins
+  - testName: 6
+    result: Normal
+  - testName: 7
+    result: Normal
+  - testName: 8
+    result: Normal
+  - testName: 9
+    result: Normal
+  - testName: 10
+    result: Normal
+  - testName: 11
+    result: Erosion in the inside of knee joints
+  - testName: 12
+    result: Normal
+  - testName: 13
+    result: Shows edema in lungs
+  - testName: 14
+    result: Normal
+  - testName: 15
+    result: Normal
+  - testName: 16
+    result: Normal
+  - testName: 17
+    result: Normal
+  - testName: 18
+    result: Normal
+  - testName: 19
+    result: Normal
+  - testName: 20
+    result: Normal
+  - testName: 21
+    result: Normal
+  - testName: 22
+    result: Tachicardic
+  - testName: 23
+    result: Normal
+  - testName: 24
+    result: Very low
+  - testName: 25
+    result: Low intake

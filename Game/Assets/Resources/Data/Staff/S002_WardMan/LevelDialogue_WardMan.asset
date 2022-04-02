@@ -13,5 +13,19 @@ MonoBehaviour:
   m_Name: LevelDialogue_WardMan
   m_EditorClassIdentifier: 
   dialogueText:
-  - '$Attending Doctor: % We need your help to save these poor souls!'
+  - '$Dr Bezos%Hi junior doc. I''m your 1st year resident. You need to report to
+    me whatever you do.
+
+    $Player%Hi doctor, I''m new, so I haven''t done much
+    yet.
+
+    $Dr Bezos%That''s not acceptable. Have you discharged Alex yet?
+
+    $Player%No.
+
+    $Dr
+    Bezos%Don''t rush it, and be careful with that patient. The surgery wasn''t as
+    smooth as we wanted!
+
+    $Player%Thanks for the heads up.'
   endDialogue: []

@@ -5,12 +5,13 @@ using UnityEngine;
 //[CreateAssetMenu(fileName = "Stats_player", menuName = "CodeBlue/Player stats")]
 public class Stats : MonoBehaviour
 {
-    public int totalScore = 0;
+    public int totalScore = 80;
+    public static int maxScore = 100; 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //autoDecreaseScore();
     }
 
     // Update is called once per frame
@@ -19,13 +20,21 @@ public class Stats : MonoBehaviour
         
     }
 
+    IEnumerator autoDecreaseScore()
+    {
+        yield return new WaitForSeconds(10f);
+        decreaseScore(5);
+        Debug.Log("score decreased");
+        autoDecreaseScore();
+    }
+
     public void increaseScore(int amount) 
     {
-        this.totalScore += amount;
+        totalScore = totalScore + amount > maxScore ? maxScore : totalScore + amount;
     }
 
     public void decreaseScore(int amount)
     {
-        this.totalScore -= amount;
+        totalScore = totalScore - amount < 0 ? 0 : totalScore - amount;
     }
 }

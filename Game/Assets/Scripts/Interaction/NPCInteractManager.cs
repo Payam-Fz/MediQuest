@@ -10,7 +10,7 @@ using UnityEngine;
 public class NPCInteractManager : MonoBehaviour, IInteractable
 {
     protected LevelDialogueManager dialogueManager;
-    public bool isTalking = false;
+    public bool isInteracting = false;
     
 
     // Start is called before the first frame update
@@ -19,12 +19,22 @@ public class NPCInteractManager : MonoBehaviour, IInteractable
         dialogueManager = GetComponent<LevelDialogueManager>();
     }
 
+    public virtual void MakeInteractable ()
+    {
+        isInteracting = false;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<PlayerController>().enabled = true;
+    }
+
     public virtual void Interact()
     {
-        if (!isTalking)
+        if (!isInteracting)
         {
             dialogueManager.OpenDialogue();
-            isTalking = true;
+            isInteracting = true;
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            player.GetComponent<PlayerController>().enabled = false;
+            player.transform.Find("Sprites").GetComponent<Animator>().SetInteger("Direction", 10);
         }
     }
 

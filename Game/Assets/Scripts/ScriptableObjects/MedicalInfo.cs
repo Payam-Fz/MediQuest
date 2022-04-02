@@ -22,8 +22,8 @@ public class MedicalInfo : ScriptableObject
 
 
     [Range(1, 5)] [SerializeField] int difficulty;
-    [SerializeField] public int correctDiagnosisID;
-    [SerializeField] public int[] nearCorrectDiagnosisID;
+    [SerializeField] public Diagnosis correctDiagnosis;
+    [SerializeField] public Diagnosis[] nearCorrectDiagnosis;
     [SerializeField] public int[] preferredBedNumbers;
     [SerializeField] public MedicalTest[] necessaryTests;
     [SerializeField] public string chiefComplaint;
@@ -45,11 +45,11 @@ public class MedicalInfo : ScriptableObject
     /*
      * Check if the diagnosis id input by the user is in the set of near correct diagnosis
      */
-    public bool checkNearCorrect(int diagnosisID)
+    public bool checkNearCorrect(Diagnosis diagnosis)
     {
-        for (int i = 0; i < nearCorrectDiagnosisID.Length; i++)
+        for (int i = 0; i < nearCorrectDiagnosis.Length; i++)
         {
-            if (diagnosisID == nearCorrectDiagnosisID[i])
+            if (diagnosis == nearCorrectDiagnosis[i])
             {
                 return true;
             }

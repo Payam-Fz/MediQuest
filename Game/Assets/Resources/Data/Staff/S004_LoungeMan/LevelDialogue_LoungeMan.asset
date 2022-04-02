@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: LevelDialogue_LoungeMan
   m_EditorClassIdentifier: 
   dialogueText:
-  - '$Fellow Intern: % Would you like to watch TV? Would you like to grab some coffee?
-    This is the place!'
-  endDialogue: []
+  - '$Intern%Hey there! I''m new intern here too! Nice to meet you.
+
+    $Player%Nice
+    to meet you too.
+
+    $Intern%In the lounge you can relax and gain some energy
+    by watching TV or drinking coffee. Come on! Take one.'

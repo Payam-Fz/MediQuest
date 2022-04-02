@@ -14,13 +14,16 @@ public class ScoreDisplay : MonoBehaviour
     void Start()
     {
         totalScoreText = gameObject.GetComponent<TextMeshProUGUI>();
-        totalScoreText.text = "Score: " + playerStats.totalScore;
     }
 
-    // Update is called once per frame
-    void UpdateScoreText()
+    void Update()
     {
-        totalScoreText.text = "Score: " + playerStats.totalScore;
+        int score = playerStats.totalScore;
+        int maxScore = Stats.maxScore;
+        Color baseColor = totalScoreText.color;
+        totalScoreText.text = "Score: " + score + "/" + maxScore;
+        float newRedValue = 1f - (float)score / maxScore;
+        totalScoreText.color = new Color(newRedValue, baseColor.g, baseColor.b);
     }
 
 

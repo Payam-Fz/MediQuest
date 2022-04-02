@@ -57,13 +57,11 @@ public class JournalController : MonoBehaviour
             //patientDialogueManager.diagnosisDialogue.dialogueText = DiagnosisText();
             
             patientChart.GetComponent<PatientChartController>().SetDiagnosis(FinalizedDiagnosis());
+            patientChart.SetActive(true);
             StartCoroutine(CloseJournal());
         }
 
         //selectedButton = clickedButton.buttonName;
-
-
-
     }
 
     private Diagnosis FinalizedDiagnosis()
@@ -86,10 +84,10 @@ public class JournalController : MonoBehaviour
     }
 
 
-    public void SystemPickerJournal()
-    {
-        StartCoroutine(DiagnoseSystem());
-    }
+    //public void SystemPickerJournal()
+    //{
+    //    StartCoroutine(DiagnoseSystem());
+    //}
 
     //string DiagnosisText()
     //{

@@ -86,7 +86,7 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
-        GetComponent<NPCInteractManager>().isTalking = false;
+        GetComponent<NPCInteractManager>().isInteracting = false;
         if (dialogue.GetNextDialogue().Length == 0 && diagnosisDone)
         {
             dialogue = diagnosisDoneDialogue;

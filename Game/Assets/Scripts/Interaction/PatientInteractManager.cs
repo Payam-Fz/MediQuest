@@ -8,7 +8,8 @@ using UnityEngine;
  */
 public class PatientInteractManager : NPCInteractManager
 {
-    public bool startedDiagnosis = false;
+    [SerializeField] GameObject patientChart;
+    public bool startDiagnosis = false;
 
     protected override void Start()
     {
@@ -16,10 +17,19 @@ public class PatientInteractManager : NPCInteractManager
     }
     public override void Interact()
     {
-        if (!isTalking && !startedDiagnosis)
+        if (!isInteracting)
         {
-            dialogueManager.OpenDialogue();
-            isTalking = true;
+            if (startDiagnosis)
+            {
+                isInteracting = true;
+                patientChart.SetActive(true);
+                patientChart.GetComponent<PatientChartController>().AssignPatient(gameObject.name);
+            }
+            else
+            {
+                base.Interact();
+            }
         }
+        
     }
 }

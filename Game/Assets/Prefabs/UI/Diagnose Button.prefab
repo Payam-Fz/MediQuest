@@ -419,10 +419,10 @@ MonoBehaviour:
   buttonName: STD
   currentPage: 9
   targetPage: 0
-  isSystem: 0
   isSystemPicker: 0
+  isBackToSystemPicker: 0
   isFinalDiagnosis: 1
-  diagnosisGroup: 0
+  finalDiagnosis: 0
 --- !u!1 &8058928235589008258
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 767877660913077618}
   - component: {fileID: 767877660913077622}
-  - component: {fileID: 767877660913077623}
-  - component: {fileID: 767877660913077620}
   - component: {fileID: 767877660913077621}
+  - component: {fileID: 520820297779117135}
+  - component: {fileID: 7150132339544629830}
+  - component: {fileID: 4911082184934140760}
   m_Layer: 0
   m_Name: Patient
-  m_TagString: Untagged
+  m_TagString: Patient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 041ba77d10674af4fa1bf159f738385c, type: 3}
+  m_Sprite: {fileID: 5758678032376866708, guid: 9aea69a2025e3aa4daeb9460f8cf0a9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,39 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &767877660913077623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 767877660913077619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95630db81685ee34a82aae7d14faec82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTalking: 0
-  startedDiagnosis: 0
---- !u!114 &767877660913077620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 767877660913077619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b3b8982bcd564648aa1efe391599e72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textComponent: {fileID: 0}
-  startingDialogue: {fileID: 11400000, guid: 85f047eb3c9139044818d2cf5f1b1e88, type: 2}
-  postDiagnosisDialogue: {fileID: 11400000, guid: c5aeb500153f8ef499ebc66313ff2d19, type: 2}
-  nextButton: {fileID: 0}
-  startDiagnosisButton: {fileID: 0}
-  animator: {fileID: 0}
-  journal: {fileID: 0}
 --- !u!58 &767877660913077621
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -131,6 +99,51 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.32}
   serializedVersion: 2
-  m_Radius: 1.3264898
+  m_Radius: 1.314866
+--- !u!114 &520820297779117135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767877660913077619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569a10ad273c8514db0094e70c9d0fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueBox: {fileID: 0}
+--- !u!114 &7150132339544629830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767877660913077619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 990949f1fe27526478ce5a66635de82f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInteracting: 0
+  patientChart: {fileID: 0}
+  startDiagnosis: 0
+--- !u!114 &4911082184934140760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767877660913077619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2cd0e1419f53a74999130ad0a2359fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterInfo: {fileID: 0}
+  levelDialogue: {fileID: 11400000, guid: 6e8d3514caf4ff044b22a6698c643b15, type: 2}
+  dialogueProgress: {fileID: 11400000, guid: c7a560b826bd3264f855fa0cc32c7e95, type: 2}
+  medicalInfo: {fileID: 0}
+  diagnosisProgress: {fileID: 0}

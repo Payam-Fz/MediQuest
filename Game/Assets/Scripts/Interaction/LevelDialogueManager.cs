@@ -17,8 +17,9 @@ public class LevelDialogueManager : MonoBehaviour
     //[SerializeField] Animator animator;
     //[SerializeField] GameObject journal;
     [SerializeField] GameObject dialogueBox;
-    //[SerializeField] GameObject endCanvas;
     
+    //[SerializeField] GameObject endCanvas;
+
     private TextMeshProUGUI textComponent;
     private Button nextButton;
     private Button previousButton;
@@ -83,6 +84,11 @@ public class LevelDialogueManager : MonoBehaviour
         }
     }
 
+    bool checkNextLevelIsDiagnosis()
+    {
+        return true;
+    }
+
     bool checkValidPreviousDialogue() {
         if (currentDialogueLevel >= 0) {
             if ((currentLineNumber - 1) >= 0) {
@@ -100,22 +106,41 @@ public class LevelDialogueManager : MonoBehaviour
     }
     // fetches the next dialogue from the Tuple depending on current line number
     // Also, updates the currentLineNumber and lastPersonTalked
-    private string GetNextDialogue() {
+    private string GoToNextDialogue() {
         List<Tuple<string, string>> currentTupleList = TupleDialogue[currentDialogueLevel];
         currentLineNumber++;
         Tuple<string, string> currentTuple = currentTupleList[currentLineNumber];
         lastPersonTalked = currentTuple.Item1;
         string nextDialogue = currentTuple.Item2;
-        saveDialogueProgress();
         return nextDialogue;
     }
+
+    // goes back to the previous dialogue using the saved dialogue level and line number
+    private string PreviousDialogue()
+    {
+        if (checkValidPreviousDialogue())
+        {
+            List<Tuple<string, string>> currentTupleList = TupleDialogue[currentDialogueLevel];
+            currentLineNumber--;
+            Tuple<string, string> currentTuple = currentTupleList[currentLineNumber];
+            lastPersonTalked = currentTuple.Item1;
+            string previousDialogue = currentTuple.Item2;
+            return previousDialogue;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
     public void OpenDialogue()
     {
         dialogueBox.SetActive(true);
         nextButton.onClick.AddListener(onClickNextDialogue);
         previousButton.onClick.AddListener(onClickPreviousDialogue);
-        animator.SetBool("IsOpen", true);
+        
         StopAllCoroutines();
+        animator.SetBool("IsOpen", true);
         Tuple<string, string> to_be_typed = TupleDialogue[currentDialogueLevel][currentLineNumber];
         string name = to_be_typed.Item1;
         string dialogue_text = to_be_typed.Item2;
@@ -141,17 +166,24 @@ public class LevelDialogueManager : MonoBehaviour
         nextButton.onClick.RemoveAllListeners();
         previousButton.onClick.RemoveAllListeners();
         dialogueBox.SetActive(false);
+        GetComponent<NPCInteractManager>().MakeInteractable();
+        if (gameObject.tag == "Patient")
+        {
+            PatientInteractManager interactManager = GetComponent<PatientInteractManager>();
+            interactManager.startDiagnosis = true;
+            interactManager.Interact();
+        }
 
-        GetComponent<NPCInteractManager>().isTalking = false;
-        saveDialogueProgress();
+        //saveDialogueProgress();
         //endCanvas.GetComponent<Animator>().SetBool("End", true);
     }
+
     public void onClickNextDialogue()
     {
         if (checkValidNextDialogue())
         {
             Debug.Log("valid next dialogue. line: " + currentLineNumber);
-            string next_d = GetNextDialogue();
+            string next_d = GoToNextDialogue();
             UpdateUI(lastPersonTalked, next_d);
             previousButton.gameObject.SetActive(true);
             //Debug.Log("checking next valid!");
@@ -174,6 +206,7 @@ public class LevelDialogueManager : MonoBehaviour
             string prev_d = PreviousDialogue();
             UpdateUI(lastPersonTalked, prev_d);
             nextButton.gameObject.SetActive(true);
+            nextButton.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "Next >";
             if (!checkValidPreviousDialogue())
             {
                 previousButton.gameObject.SetActive(false);
@@ -181,26 +214,18 @@ public class LevelDialogueManager : MonoBehaviour
         } 
     }
 
-    // goes back to the previous dialogue using the saved dialogue level and line number
-    private string PreviousDialogue() {
-        if (checkValidPreviousDialogue()) {
-            List<Tuple<string, string>> currentTupleList = TupleDialogue[currentDialogueLevel];
-            currentLineNumber--;
-            Tuple<string, string> currentTuple = currentTupleList[currentLineNumber];
-            lastPersonTalked = currentTuple.Item1;
-            string previousDialogue = currentTuple.Item2;
-            saveDialogueProgress();
-            return previousDialogue;
-        } else {
-            return null;
-        }
-    }
-
     // splits a given level dialogue string into an array of dialogues (not sorted yet) and returns
     public List<string> splitLevelDialogue(string s)
     {
         //access begins from index 1
         levelText = new List<string>(s.Split('$'));
+        for (int i = 0; i < levelText.Count; i++)
+        {
+            if (levelText[i] == null || levelText[i].Equals(""))
+            {
+                levelText.RemoveAt(i);
+            }
+        }
         return levelText;
     }
 
@@ -208,7 +233,7 @@ public class LevelDialogueManager : MonoBehaviour
     public List<Tuple<string,string>> convertToTupleList(List<string> s) {
         List<Tuple<string,string>> dialogueList = new List<Tuple<string, string>>();
         //access begins from index 0
-        for (int i = 1; i < s.Count; i++) {
+        for (int i = 0; i < s.Count; i++) {
             string[] dialogue = s[i].Split('%');
             string person = dialogue[0];
             string text = dialogue[1];

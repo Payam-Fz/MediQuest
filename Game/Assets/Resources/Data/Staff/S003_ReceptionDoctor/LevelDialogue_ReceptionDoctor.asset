@@ -16,9 +16,8 @@ MonoBehaviour:
   - '$Dr Karen%I''m too busy to spend time for you interns! Try to diagnose as many
     patients as you can.
 
-    $Player%But this is my first day as intern, doctor.
+    $Player%But I''m losing this patient, doctor.
 
     $Dr
     Karen%If you can''t handle these simple cases, I don''t think it''s the right
     place for you! If you need help, consult your Journal, don''t waste my time.'
-  endDialogue: []
