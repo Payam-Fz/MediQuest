@@ -1,5 +1,4 @@
 ![Alt text](/Pres/Logo.jpg?raw=true )
-# Mediquest
 ## Code Blue Studios
 ### UBC GameDev Club
 The life of a surgical resident
