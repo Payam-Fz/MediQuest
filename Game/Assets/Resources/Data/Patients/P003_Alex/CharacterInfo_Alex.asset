@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26608af9fe59a7a4f8ff766cace1d092, type: 3}
+  m_Name: CharacterInfo_Alex
+  m_EditorClassIdentifier: 
+  <ID>k__BackingField: 003
+  <Name>k__BackingField: Alex Choi
+  <Age>k__BackingField: 21
+  <Size>k__BackingField: 1
+  <Gender>k__BackingField: 0
+  _hairColor:
+    colorStore:
+    - 1
+    - 1
+    - 1
+    - 1
+  _eyeColor:
+    colorStore:
+    - 1
+    - 1
+    - 1
+    - 1
+  _skinColor:
+    colorStore:
+    - 1
+    - 1
+    - 1
+    - 1
+  _shirtColor:
+    colorStore:
+    - 1
+    - 1
+    - 1
+    - 1
+  _pantsColor:
+    colorStore:
+    - 1
+    - 1
+    - 1
+    - 1
+  _shoesColor:
+    colorStore:
+    - 1
+    - 1
+    - 1
+    - 1
+  _stethoscopeColor:
+    colorStore:
+    - 1
+    - 1
+    - 1
+    - 1

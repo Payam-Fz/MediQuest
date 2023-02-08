@@ -8,8 +8,9 @@ using UnityEngine.UI;
 public class SystemPicker : MonoBehaviour
 {
     [SerializeField] public GameObject[] bodySystems = new GameObject[6];
+    [SerializeField] GameObject journal;
     List<Image> systemDiagrams = new List<Image>();
-    public string selectedSystem;
+    public BodySystem selectedSystem;
     //[SerializeField] private TextMeshProUGUI systemJournalName;
     //[SerializeField] private TextMeshProUGUI systemJournalDesc;
     [SerializeField] DialogueManager dialogueManager;
@@ -21,33 +22,39 @@ public class SystemPicker : MonoBehaviour
             systemDiagrams.Add(system.GetComponent<Image>());
         }
     }
+    
+    //public void HighlightSelectedSystem()
+    //{
+    //    GameObject selectedSystem = FindSystem(EventSystem.current.currentSelectedGameObject.transform.parent.name);
 
-    public void SelectSystem()
-    {
-        GameObject selectedSystem = FindSystem(EventSystem.current.currentSelectedGameObject.transform.parent.name);
+    //    foreach(var diagram in systemDiagrams)
+    //    {
+    //        if(diagram.name != selectedSystem.name)
+    //        {
+    //            diagram.color = new Color(1, 1, 1, 0.2f);
+    //            diagram.GetComponentInParent<Canvas>().sortingOrder = 5;
+    //        }
+    //        else
+    //        {
+    //            diagram.color = new Color(1, 1, 1, 1);
+    //            diagram.GetComponentInParent<Canvas>().sortingOrder = 6;
+    //        }
+    //    }
 
-        foreach(var diagram in systemDiagrams)
-        {
-            if(diagram.name != selectedSystem.name)
-            {
-                diagram.color = new Color(1, 1, 1, 0.2f);
-                diagram.GetComponentInParent<Canvas>().sortingOrder = 5;
-            }
-            else
-            {
-                diagram.color = new Color(1, 1, 1, 1);
-                diagram.GetComponentInParent<Canvas>().sortingOrder = 6;
-            }
-        }
-
-        Debug.Log(selectedSystem.name);
-        if(selectedSystem.name != null)
-        {
-            this.selectedSystem = selectedSystem.name;
+    //    //Debug.Log(selectedSystem.name);
+    //    //if(selectedSystem.name != null)
+    //    //{
+    //    //    this.selectedSystem = selectedSystem.name;
             
-        }
+    //    //}
 
-        //foreach()
+    //}
+
+    public void SelectSystem (int bodysystemValue)
+    {
+        BodySystem bodySystem = (BodySystem)bodysystemValue;
+        journal.GetComponent<JournalController>().SelectBodySystem(bodySystem);
+        this.gameObject.SetActive(false);
     }
 
     GameObject FindSystem(string systemName)

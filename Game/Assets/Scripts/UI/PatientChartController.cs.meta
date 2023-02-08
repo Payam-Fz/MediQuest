@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e4a0d89218b86a94f88603f43c12d216
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - patientChart: {instanceID: 0}
+  - patientBackground: {fileID: 11400000, guid: 1b3aee42757207343990e2c2b3d3edd2, type: 2}
+  - patientProgress: {fileID: 11400000, guid: 7cec19804a0b0424bba71502c9932c75, type: 2}
+  - patientMedicalInfo: {fileID: 11400000, guid: 9ad3d530b80e9db4e801dc3a6cea452a, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName ="Dialogue")]
+//[CreateAssetMenu(menuName ="Dialogue")]
 public class Dialogue : ScriptableObject
 {
     [TextArea(10, 19)] [SerializeField] public string dialogueText;

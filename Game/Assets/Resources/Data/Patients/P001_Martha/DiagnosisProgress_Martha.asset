@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b3f83790260824c94858b30b4a2e3e, type: 3}
+  m_Name: DiagnosisProgress_Martha
+  m_EditorClassIdentifier: 
+  diagnosisComplete: 0
+  testOrders:
+  - testName: 0
+    isOrdered: 0
+  - testName: 1
+    isOrdered: 0
+  - testName: 2
+    isOrdered: 0
+  - testName: 3
+    isOrdered: 0
+  - testName: 4
+    isOrdered: 0
+  - testName: 5
+    isOrdered: 0
+  - testName: 6
+    isOrdered: 0
+  - testName: 7
+    isOrdered: 0
+  - testName: 8
+    isOrdered: 0
+  - testName: 9
+    isOrdered: 0
+  - testName: 10
+    isOrdered: 0
+  - testName: 11
+    isOrdered: 0
+  - testName: 12
+    isOrdered: 0
+  - testName: 13
+    isOrdered: 0
+  - testName: 14
+    isOrdered: 0
+  - testName: 15
+    isOrdered: 0
+  - testName: 16
+    isOrdered: 0
+  - testName: 17
+    isOrdered: 0
+  - testName: 18
+    isOrdered: 0
+  - testName: 19
+    isOrdered: 0
+  - testName: 20
+    isOrdered: 0
+  - testName: 21
+    isOrdered: 0
+  - testName: 22
+    isOrdered: 0
+  - testName: 23
+    isOrdered: 0
+  - testName: 24
+    isOrdered: 0
+  - testName: 25
+    isOrdered: 0

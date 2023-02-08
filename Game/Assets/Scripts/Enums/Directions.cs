@@ -3,7 +3,7 @@
  *  Defines the directions of character while moving or standing
  *  Author:     Payam F @ 2021-11-06
  */
-public enum Direction
+public enum Direction : int
 {
     // Ordered in counter-clockwise rotation starting from front-facing
     Front = 0,

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,36 +6,64 @@ using UnityEngine;
 /*
  *  Stores the data of a character
  *  Author:     Nokia T @ 2021-10-30
+ *  Updated:    Payam F @ 2022-01-29
  */
-[CreateAssetMenu(fileName = "CharacterInfo", menuName = "CodeBlue/CharacterInfo")]
+[CreateAssetMenu(fileName = "CharacterInfo_name", menuName = "CodeBlue/Character Info")]
 public class CharacterInfo : ScriptableObject 
 {
-    [Range(0,2)] [SerializeField] public int genderCode;
-    [Range(1,10)][SerializeField] public int hairColor;
-    [Range(1,10)][SerializeField] public int skinColor;
-    [SerializeField] public double size;
-    
+    [field: SerializeField] public string ID { get; set; }
+    [field: SerializeField] public string Name { get; set; }
+    [field: SerializeField] public int Age { get; set; }
+    [field: SerializeField] public double Size { get; set; }
+    [field: SerializeField] public Gender Gender { get; set; }
+    [SerializeField] private SerializableColor _hairColor;
+    [SerializeField] private SerializableColor _eyeColor;
+    [SerializeField] private SerializableColor _skinColor;
+    [SerializeField] private SerializableColor _shirtColor;
+    [SerializeField] private SerializableColor _pantsColor;
+    [SerializeField] private SerializableColor _shoesColor;
+    [SerializeField] private SerializableColor _stethoscopeColor;
 
-    public string getGender()
+    public Color HairColor
     {
-        var enumStatus = (Gender)genderCode;
-        string res = enumStatus.ToString();
-
-        return res;
+        get => _hairColor;
+        set => _hairColor = value;
     }
 
-    public int getHairColor()
+    public Color EyeColor
     {
-        return hairColor;
+        get => _eyeColor;
+        set => _eyeColor = value;
     }
 
-    public int getSkinColor()
+    public Color SkinColor
     {
-        return skinColor;
+        get => _skinColor;
+        set => _skinColor = value;
     }
 
-    public double getSize()
+    public Color ShirtColor
     {
-        return size;
+        get => _shirtColor;
+        set => _shirtColor = value;
     }
+
+    public Color PantsColor
+    {
+        get => _pantsColor;
+        set => _pantsColor = value;
+    }
+
+    public Color ShoesColor
+    {
+        get => _shoesColor;
+        set => _shoesColor = value;
+    }
+
+    public Color StethoscopeColor
+    {
+        get => _stethoscopeColor;
+        set => _stethoscopeColor = value;
+    }
+
 }

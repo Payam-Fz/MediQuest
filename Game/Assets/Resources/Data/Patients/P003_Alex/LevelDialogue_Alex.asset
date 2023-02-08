@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bbaf5fdcb5edf8478be0919a439b25f, type: 3}
+  m_Name: LevelDialogue_Alex
+  m_EditorClassIdentifier: 
+  dialogueText:
+  - '$Player%Hi Alex, My name is Dr. Player  :''). and I will be doing your checkup
+    today.
+
+    $Player%I can see in your chart that you had a knee joint replacement
+    surgery 2 days ago in this hospital. How are you feeling today? Happy with your
+    new leg?!
+
+    $Alex%Excited to try the new wheelchair, haha...My knee feels
+    good, but I''m really tired! I think you should discharge me ASAP. Why are you
+    keeping me here if I feel good?!
+
+    $Player%We need more tests before we can
+    let you go. So, let''s wait and I will come back with your results later. Okay?
+
+    $Alex%I
+    think there''s no other choice...'
